@@ -12,7 +12,7 @@ const Skills = (params: any) => {
 
   return (
       <section
-        className='skills sliding-panel container-fluid'
+        className='skills section-panel container-fluid'
         data-section='skills'
       >
         <div className="wrap">

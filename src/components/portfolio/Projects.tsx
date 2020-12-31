@@ -14,7 +14,7 @@ const Projects = (params: any) => {
 
   return (
     <section
-      className='projects sliding-panel container-fluid'
+      className='projects section-panel container-fluid'
       data-section='projects'
     >
       <div className="wrap">

@@ -1,24 +1,3 @@
-// prefix declarations
-@mixin prefixed($property, $value) {
-  @if $webkit == true {
-    -webkit-#{$property}: #{$value};
-  }
-
-  @if $moz == true {
-    -moz-#{$property}: #{$value};
-  }
-
-  @if $ms == true {
-    -ms-#{$property}: #{$value};
-  }
-
-  @if $o == true {
-    -o-#{$property}: #{$value};
-  }
-
-  #{$property}: #{$value};
-}
-
 // prefix keyframes
 @mixin keyframes($name) {
   @if $webkit == true {
@@ -74,9 +53,10 @@
   }
 }
 
-@mixin box-sizing($box-model) {
-  -webkit-box-sizing: $box-model;
-  -moz-box-sizing: $box-model;
-  -ms-box-sizing: $box-model;
-  box-sizing: $box-model;
+@mixin bp($size) {
+  @if $size == md {
+    @media (min-width: 600px) { @content; }
+  } @else if $size == lg {
+    @media (min-width: 1024px) { @content; }
+  }
 }

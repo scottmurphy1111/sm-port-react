@@ -27,6 +27,10 @@ export default function VertNav() {
       active: false
     },
     {
+      value: 'quotes',
+      active: false
+    },
+    {
       value: 'contact',
       active: false
     }

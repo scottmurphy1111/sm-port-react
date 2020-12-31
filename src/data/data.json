@@ -10,7 +10,7 @@
       "title": "Projects",
       "projectsView": [
         {
-          "projectName": "PGA Tour Information",
+          "projectName": "PGA Tour Info",
           "link": "https://scottmurphy1111.github.io/pga/players",
           "tech": "Angular, RxJS",
           "capabilities": "API, Search, Page Limit, Pagination, Jest Unit Testing, Custom Design",

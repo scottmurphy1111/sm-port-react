@@ -2,46 +2,21 @@
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
+  padding: 0 1.6rem;
   margin: 0 auto;
 }
 
-.panel {
-  z-index: 3;
-  // min-height: 100vh;
+.section-panel {
   width: 100%;
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
-  @include hacks();
-  -webkit-font-smoothing: antialiased;
-  font-weight: bold;
-
-  &.dim {
-    opacity: 0.25;
-  }
-}
-
-.sliding-panel {
-  width: 100%;
+  min-height: 100vh;
   position: relative;
   z-index: 3;
   color: #fff;
   padding: 10rem 0;
-  @include box-sizing(border-box);
-  touch-action: none;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.copy-block {
-  position: absolute;
-  opacity: 0;
-  transition: opacity 1s ease-in-out 0.35s;
-
-  &.show {
-    opacity: 1;
-  }
 }
 
 .panel-wrapper {
@@ -54,76 +29,14 @@
   }
 }
 
-.logo-circle {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-miterlimit: 10;
-  stroke-dashoffset: 180;
-  stroke-dasharray: 180;
-  animation: drawCircle 1.75s ease-out forwards;
-  animation-delay: 0.75s;
-  // @include prefixed(transform, rotateZ(-90deg));
-  // @include prefixed(transform-origin, 8.4px 15.5px);
-}
-
-.logo-lines {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10;
-  stroke-dashoffset: 0;
-  stroke-dasharray: 0;
-  animation: drawLines 1s ease-out forwards;
-  animation-delay: 1.5s;
-  opacity: 0;
-}
-
-@include keyframes(drawCircle) {
-  0% {
-    stroke-dashoffset: 180;
-    stroke: #fff;
-  }
-
-  55% {
-    stroke: #fff;
-  }
-
-  80% {
-    stroke-dashoffset: 0;
-    stroke: #fff;
-    transform: rotateZ(1000deg);
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-    stroke: $primaryBlue;
-    transform: rotateZ(1000deg);
-  }
-}
-
-@include keyframes(drawLines) {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
 .category-title {
   color: #fff;
   padding: 0;
   margin: 0 auto 3.2rem;
   font-size: 3.2rem;
-  font-family: $font-extralight;
+  font-family: $font-regular;
   text-align: left;
   font-weight: bold;
-  text-transform: uppercase;
   visibility: visible;
 
   @include mobile {
@@ -134,46 +47,6 @@
     width: 25px;
     height: 25px;
     top: 5px;
-  }
-}
-
-.finger-swipe {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  z-index: 5;
-  text-align: center;
-  top: 33vh;
-  right: 0px;
-  left: 0px;
-  margin: 0 auto;
-  transform: scale(0.5, 0.5);
-  // @include prefixed(transition, all 0.3s ease-out);
-
-  &.show {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1, 1);
-  }
-
-  p {
-    font: 2.4rem $font-light;
-    text-transform: uppercase;
-  }
-
-  .finger-swipe-icon {
-    background: url(../../assets/images/finger-swipe.svg) 50% 50% no-repeat
-      transparent;
-    background-size: 70%;
-    width: 114px;
-    height: 75px;
-    margin: 0 auto;
-
-    @include mobile {
-      width: 80px;
-      background-size: 100%;
-      margin: 0 auto;
-    }
   }
 }
 
@@ -189,39 +62,6 @@
   transition: all 0.15s ease-out;
 }
 
-.bg-image {
-  @include hacks();
-  height: 100vh;
-  width: 100%;
-  // max-width: 1200px;
-  margin: 0 auto;
-  position: fixed;
-  z-index: 2;
-  overflow: hidden;
-  top: 100vh;
-  left: 0;
-  right: 0;
-  margin: 5.5rem auto 0;
-  // @include prefixed(transition, transform 0.3s ease-out);
-  // @include prefixed(transition, top 0.3s ease-out 0.05s);
-  transform: scale(0, 0);
-  background: url(../../assets/images/me-trans.png) no-repeat top center;
-  background-size: cover;
-
-  &.load-image {
-    transform: scale(1, 1);
-    top: 0;
-  }
-
-  @include mobile {
-    background-size: cover;
-  }
-
-  @include landscape {
-    background-size: cover;
-  }
-}
-
 .static-bg {
   height: 100vh;
   width: 100%;
@@ -232,195 +72,6 @@
   z-index: 1;
   background: url(../../assets/images/digi-bg1.png) repeat center center;
   background-size: cover;
-}
-
-.enter {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  bottom: -20px;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  overflow: hidden;
-  // @include prefixed(transition, 0.5s all ease-out);
-  font: 2rem $font-light;
-  @include hacks();
-
-  &.load-icon {
-    visibility: visible;
-    opacity: 1;
-    bottom: 20px;
-    // @include prefixed(transition, 0.35s all ease-out 3.4s);
-
-    &.mobile {
-      visibility: visible;
-      opacity: 1;
-      // @include prefixed(transition, 0.35s all ease-out 0s);
-    }
-  }
-
-  &.load-icon-instantly {
-    visibility: visible;
-    opacity: 1;
-    bottom: 20px;
-    // @include prefixed(transition, 0.35s all ease-out 0.35s);
-  }
-
-  &:hover {
-    span.text {
-      visibility: visible;
-      opacity: 1;
-      top: 0;
-      transform: scale(1, 1);
-    }
-
-    span.icon {
-      animation: none;
-    }
-  }
-
-  span.text {
-    color: #fff;
-    text-align: center;
-    // @include prefixed(transition, all 0.4s ease-out !important);
-    @include hacks();
-    visibility: visible;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    transform: scale(1, 1);
-    font-weight: bold;
-
-    .white {
-      color: #fff;
-    }
-  }
-
-  span.icon {
-    width: 69px;
-    height: 50px;
-    display: inline-block;
-    margin-top: 20px;
-
-    @include mobile {
-      width: 56px;
-      height: 41px;
-    }
-
-    svg {
-      overflow: visible;
-    }
-
-    .fingers {
-      animation: bounce 3s infinite 0.5s;
-      @include hacks();
-    }
-  }
-
-  @include mobile {
-    font: 1.6rem $font-light;
-    &.show {
-      bottom: 20px;
-      visibility: visible;
-      opacity: 1;
-      transform: scale(1, 1);
-    }
-
-    span.text {
-      transform: scale(1, 1);
-      opacity: 1;
-      visibility: visible;
-      top: 0;
-    }
-  }
-}
-
-.modal-overlay {
-  opacity: 0;
-  visibility: hidden;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(20, 20, 20, 0.75);
-  position: absolute;
-  z-index: 4;
-  // @include prefixed(transition, all 0.25s ease-in-out);
-
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.modal-window {
-  color: $primaryBlue;
-  opacity: 0;
-  border-radius: 4px;
-  border: 3px solid $primaryBlue;
-  visibility: hidden;
-  top: unquote("calc( 50vh - 45% )");
-  right: unquote("calc( 50vw - 45% )");
-  overflow: hidden;
-  width: 70%;
-  height: 90%;
-  background: #fff;
-  position: absolute;
-  z-index: 5;
-  // @include prefixed(transition, all 0.25s ease-in-out);
-
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  @include mobile {
-    width: 80%;
-  }
-
-  .modal-inner {
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    display: block;
-    padding: 16px;
-    @include box-sizing(border-box);
-
-    h2 {
-      color: black;
-    }
-
-    iframe {
-      margin: 0 0 24px;
-      display: inline-block;
-    }
-
-    p {
-      color: rgba(40, 40, 40, 0.25);
-      margin: 0;
-      position: absolute;
-      right: 20px;
-      top: 5px;
-      text-align: right;
-    }
-  }
-}
-
-.pipe {
-  color: #fff;
-  top: -1px;
-  position: relative;
-  font-family: $font-regular;
-  padding: 0 8px;
-
-  @include desktop {
-    padding: 0 8px;
-  }
 }
 
 .mobile-only {
@@ -448,115 +99,5 @@
 
   @include mobile {
     display: none !important;
-  }
-}
-
-.code-link {
-  cursor: pointer;
-  color: $primaryBlue;
-  font-weight: bold;
-
-  &.bio {
-    &:before {
-      background: url(../../assets/images/portfolio/location.svg);
-    }
-  }
-
-  &:before {
-    content: "";
-    width: 0px;
-    height: 0px;
-    display: block;
-    background-size: 100%;
-    margin: 0px 6px 0 0;
-    position: relative;
-    top: 0px;
-    float: left;
-
-    @include mobile {
-      width: 0px;
-      height: 0px;
-    }
-  }
-}
-
-.content {
-  width: 100%;
-  height: 0px;
-  margin: 0 auto;
-  padding: 0px 0 0 12px;
-  @include box-sizing(border-box);
-  cursor: default;
-  transition: 0.15s all linear;
-  left: 28px;
-  position: relative;
-  top: 0px;
-  opacity: 0;
-  visibility: hidden;
-  // @include prefixed(transition, all 0.2s ease-out 0s);
-
-  @include mobile {
-    margin-left: 0px;
-    left: 21px;
-  }
-
-  p {
-    color: #fff;
-    margin: 12px 0px 12px 0px;
-    transition: 0.15s all linear 0s;
-    padding-left: 0;
-    opacity: 0;
-    visibility: hidden;
-
-    @include mobile {
-      transition: 0.1s all linear 0.18s;
-    }
-  }
-
-  img {
-    transition: 0.4s all linear 0.2s;
-    width: 100%;
-    max-width: 600px;
-    margin-bottom: 10px;
-    display: block;
-    position: relative;
-    top: 70px;
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  &.show {
-    height: 43px;
-    top: 0;
-    opacity: 1;
-    visibility: visible;
-
-    @include mobile {
-      height: 32px;
-    }
-
-    p {
-      transition: 0.4s all linear 0s;
-      opacity: 1;
-      visibility: visible;
-    }
-
-    img {
-      top: 0;
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-}
-
-@include keyframes(bounce) {
-  67% {
-    transform: translateY(0px);
-  }
-  92% {
-    transform: translateY(-16px);
-  }
-  100% {
-    transform: translateY(0px);
   }
 }

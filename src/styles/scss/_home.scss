@@ -2,72 +2,96 @@
   padding-top: 0;
   min-height: 100vh;
 
-  h1 {
-    font-family: $font-light;
-    font-size: 4.8rem;
-    margin: 0 auto 0.8rem;
-    color: $primaryBlue;
-    width: 768px;
+  .panel-static {
+    text-align: center;
+  }
+
+  .static-inner {
     position: relative;
+    transform: scale(1, 1);
+    font-size: 2.4rem;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     @include mobile {
-      line-height: 24px;
-      padding: 0px 0px 5px;
-      width: 280px;
+      font-size: 1.8rem;
     }
   }
 
-  .panel-static {
-    text-align: center;  
-    margin-top: -5.5rem;
-  
-    .static-inner {
-      position: relative;
-      transform: scale(1, 1);
-      font-size: 2.4rem;
-      // @include prefixed(transition, all 0.5s ease-out 0.5s);
-      @include hacks();
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  
-      @include mobile {
-        font-size: 1.8rem;
-      }
-    }
-  }
-
-  .name {
-    text-transform: uppercase;
+  .copy-block {
+    position: absolute;
     opacity: 0;
-    visibility: hidden;
-    // @include prefixed(transition, all 0.25s ease-out 2.25s);
-    margin-right: 1.2rem;
-    position: relative;
-    @include hacks();
-
+    transition: opacity 1s ease-in-out 0.35s;
+  
     &.show {
       opacity: 1;
-      visibility: visible;
     }
 
-    @include mobile {
-      // @include prefixed(transition, all 0.25s ease-out 2.25s);
+    h1 {
+      font-family: $font-regular;
+      font-size: 4.8rem;
+      margin: 0 auto 0.8rem;
+      color: $primaryBlue;
+      width: 768px;
+      position: relative;
+  
+      @include mobile {
+        line-height: 24px;
+        padding: 0px 0px 5px;
+        width: 280px;
+      }
 
+      .name {
+        opacity: 0;
+        visibility: hidden;
+        margin-right: 1.2rem;
+        position: relative;
+        
+    
+        &.show {
+          opacity: 1;
+          visibility: visible;
+        }
+    
+        @include mobile {
+    
+          &.show {
+            left: 10px;
+          }
+        }
+      }
+    }
+
+    .tagline {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin: 0em auto;
+      opacity: 0;
+      visibility: hidden;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      left: -30px;
+      
+  
       &.show {
-        left: 10px;
+        opacity: 1;
+        visibility: visible;
+        left: 0;
+      }
+  
+      @include mobile {
+        margin: 0.5em auto;
       }
     }
   }
 
   .title {
-    text-transform: uppercase;
-    font: 1.6rem $font-extralight;
+    font: 1.6rem $font-regular;
     margin: 0;
     opacity: 0;
-    visibility: hidden;
-    // @include prefixed(transition, all 0.35s ease-out 2.4s);
-    @include hacks();
+    visibility: hidden;    
     right: -30px;
     top: 0px;
     position: relative;
@@ -102,8 +126,6 @@
     }
 
     .left-bracket {
-      // transform-origin: bottom center;
-      // animation: spring 1s ease-out 0s;
       opacity: 0;
       transition: opacity 1s ease-in 0s;
 
@@ -115,7 +137,6 @@
 
     .ess {
       transform-origin: bottom center;
-      // animation: spring 1.5s ease-out 1.25s;
       opacity: 0;
       transition: opacity 1s ease-in 0s;
 
@@ -127,7 +148,6 @@
 
     .emm {
       transform-origin: bottom center;
-      // animation: spring 1.5s ease-out 1.5s;
       opacity: 0;
       transition: opacity 1s ease-in 0s;
 
@@ -138,8 +158,6 @@
     }
 
     .right-bracket {
-      // transform-origin: bottom center;
-      // animation: spring 1s ease-out 0.75s;
       opacity: 0;
       transition: opacity 1s ease-in 0s;
 
@@ -157,146 +175,6 @@
     100% {
       transform: rotateZ(360deg);
     }
-  }
-
-  @include keyframes(bounce) {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
-
-    100% {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes spring { 
-    0% {
-      transform: scale(1) translateY(0); 
-    }
-    10% {
-      transform: scale(1.1, 0.9); 
-    }
-    30% { 
-      transform: scale(0.9, 1.0) translateY(-10px); 
-    }
-    50% { 
-      transform: scale(1) translateY(0); 
-    }
-    100% { 
-      transform: translateY(0); 
-    }
-  }
-
-  .tagline {
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin: 0em auto;
-    text-transform: uppercase;
-    opacity: 0;
-    visibility: hidden;
-    // @include prefixed(transition, all 0.35s linear 2.6s);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    left: -30px;
-    @include hacks();
-
-    &.show {
-      opacity: 1;
-      visibility: visible;
-      left: 0;
-    }
-
-    @include mobile {
-      margin: 0.5em auto;
-    }
-  }
-
-  .skills {
-    font-family: $font-light;
-    text-transform: uppercase;
-    padding: 60px 0 0;
-    margin: 0 auto;
-    display: block;
-    opacity: 0;
-    // @include prefixed(transition, all 0.25s linear 0s);
-    position: relative;
-    overflow: hidden;
-    @include hacks();
-    width: 100%;
-
-    @include mobile {
-      padding: 40px 0 0;
-    }
-
-    ul {
-      width: 100%;
-      margin: 0 auto;
-      padding: 0;
-
-      @include mobile {
-        width: 296px;
-      }
-
-      @include tablet {
-        width: 600px;
-      }
-    }
-
-    li {
-      list-style-type: none;
-      display: inline-block;
-    }
-
-    .to-reveal {
-      transform: translateY(35px);
-      // @include prefixed(transition, all 0.15s ease-out);
-      position: relative;
-      opacity: 0;
-      color: #fff;
-
-      &.pipe {
-        transform: translateY(35px);
-      }
-
-      &.show {
-        transform: translateY(0px);
-        opacity: 1;
-        display: inline-block;
-
-        &.pipe {
-          top: -1px;
-          transform: translateY(0px);
-        }
-      }
-
-      &.hide-tablet {
-        @include tablet {
-          display: none;
-        }
-      }
-
-      // &.hide {
-      //   display: none;
-      // }
-    }
-
-    &.show {
-      opacity: 1;
-    }
-  }
-}
-
-@include keyframes(showHide) {
-  0% {
-    width: 100%;
-  }
-
-  100% {
-    width: 0%;
   }
 }
 

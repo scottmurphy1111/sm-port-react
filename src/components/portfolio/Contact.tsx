@@ -28,7 +28,7 @@ const Contact = (params: any) => {
 
   return (
     <section
-      className='contact sliding-panel container-fluid'
+      className='contact section-panel container-fluid'
       data-section='contact'
     >
       <div className="wrap">

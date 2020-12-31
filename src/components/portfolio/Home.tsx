@@ -33,7 +33,7 @@ const Home = (params: any) => {
 
   return (
     <section
-      className='home sliding-panel container-fluid'
+      className='home section-panel container-fluid'
       data-section='home'
     >
       <div className="wrap">

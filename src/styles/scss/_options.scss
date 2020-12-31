@@ -1,47 +1,13 @@
 // DEFAULT OPTIONS
-
-// Prefix for Hover class names
-$nameSpace: "hvr" !default;
-
-// Durations
-$fastDuration: 0.1s !default;
-$mediumDuration: 0.3s !default;
-$slowDuration: 0.5s !default;
+$font-regular: 'Inconsolata', monospace;
 
 // Colors
 $primaryColor: #141414 !default;
-$secondaryColor: rgb(255, 255, 255) !default;
-$bgGray: #eee !default;
-$bgDarkGray: #666;
+$secondaryColor: #ffffff !default;
 $primaryBlue: #0080ff !default;
-$secondaryBlue: #80bfff;
-$darkBlue: #007fff;
-$activeColor: rgba(0, 150, 200, 1) !default;
-$shadowColor: rgba(0, 0, 0, 0.6) !default;
-
-// Speech bubbles options
-$tipWidth: 10px !default; //the width of the speech bubble tip
-$tipHeight: 10px !default; //the height of the speech bubble tip
-$tipColor: $primaryColor !default;
-
-// Arrows options
-$spaceBetweenTextAndArrows: 2.2em !default;
-
-// Curl dimensions
-$curlWidth: 25px !default;
-$curlHeight: 25px !default;
-
-// Curl colors
-$revealAreaColor: white !default; // reveal area behind the curl
-$curlLineColor: #aaa !default; // crease line
-$curlTransitionColor: #ccc !default; // color transitioning from crease line to final color
-$curlLastColor: white !default; // final color of the back of the curl
 
 // Browser Prefixes - Which CSS prefixes should be used?
 $webkit: true !default;
 $moz: true !default;
 $ms: true !default;
 $o: true !default;
-
-// Compile with or without classes
-$includeClasses: true !default;

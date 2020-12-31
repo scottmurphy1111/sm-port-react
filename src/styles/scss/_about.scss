@@ -1,10 +1,5 @@
 .about {
-  h2 {
-    .logo {
-      left: 0;
-    }
-  }
-
+  
   .about-items {
     display: flex;
   }
@@ -18,7 +13,7 @@
     width: 100%;
 
     li {
-      @include box-sizing(border-box);
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
       opacity: 1;
@@ -31,7 +26,6 @@
       position: relative;
       overflow: hidden;
       -webkit-tap-highlight-color: transparent;
-      text-transform: uppercase;
       text-align: left;
       cursor: pointer;
       font-size: 2.4rem;
@@ -41,17 +35,16 @@
         margin-bottom: 0;
       }
 
-      img {
-        width: 5.6rem;
-        height: 5.6rem;
-        margin-right: 0;
-      }
-
       .about-link {
         pointer-events: none;
         color: $primaryBlue;
         display: flex;
         align-items: center;
+
+        img {
+          width: 5.6rem;
+          height: 5.6rem;
+        }
 
         h3 {
           margin: 0;

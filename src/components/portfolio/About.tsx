@@ -83,7 +83,7 @@ const About = (params: any) => {
 
   return (
     <section
-      className='about sliding-panel container-fluid'
+      className='about section-panel container-fluid'
       data-section='about'
     >
       <div className="wrap">

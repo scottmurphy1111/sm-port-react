@@ -6,7 +6,7 @@ const Testimonials = () => {
   const { title, testimonialsArray } = testimonials;
   
   return (
-    <section className="testimonials-section sliding-panel container-fluid">
+    <section className="testimonials-section section-panel container-fluid">
         <div className="wrap">
           <div className='row'>
             <div className='col-xs-12'>
