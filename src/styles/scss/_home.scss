@@ -1,6 +1,7 @@
 .home {
   padding-top: 0;
   min-height: 100vh;
+  justify-content: center;
 
   .panel-static {
     text-align: center;
@@ -33,32 +34,27 @@
       font-size: 4.8rem;
       margin: 0 auto 0.8rem;
       color: $primaryBlue;
-      width: 768px;
-      position: relative;
-  
-      @include mobile {
-        line-height: 24px;
-        padding: 0px 0px 5px;
-        width: 280px;
+      width: 100%;
+
+      @include bp('md') {
+        
       }
+  
+      // @include mobile {
+      //   line-height: 24px;
+      //   padding: 0px 0px 5px;
+      //   width: 280px;
+      // }
 
       .name {
         opacity: 0;
         visibility: hidden;
-        margin-right: 1.2rem;
         position: relative;
         
     
         &.show {
           opacity: 1;
           visibility: visible;
-        }
-    
-        @include mobile {
-    
-          &.show {
-            left: 10px;
-          }
         }
       }
     }
