@@ -30,7 +30,7 @@ export default function VertNav() {
       active: false
     },
     {
-      value: 'quotes',
+      value: 'testimonials',
       active: false
     },
     {
@@ -83,7 +83,7 @@ export default function VertNav() {
                 <Logo />
               </span>
             </div>
-            <div className='col-xs-8 col-md-5 col-md-offset-4 nav-wrapper'>
+            <div className='col-xs-8 col-md-6 col-md-offset-3 nav-wrapper'>
               <div ref={navButtonWrapper} className="nav-button-wrapper" onClick={() => handleNavButtonClick()}>
                 <div className="nav-button"></div>
               </div>

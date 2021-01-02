@@ -14,7 +14,7 @@
           "link": "https://scottmurphy1111.github.io/pga/players",
           "tech": "Angular, RxJS",
           "capabilities": "API, Search, Page Limit, Pagination, Jest Unit Testing, Custom Design",
-          "image": "/assets/images/portfolio/golf-ball.png"
+          "image": "/assets/images/portfolio/pga-seal.png"
         },
         {
           "projectName": "Weather App",

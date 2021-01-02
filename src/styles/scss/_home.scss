@@ -10,7 +10,7 @@
   .static-inner {
     position: relative;
     transform: scale(1, 1);
-    font-size: 2.4rem;    
+    font-size: 2.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,22 +24,22 @@
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease-in-out 0.35s;
-  
+
     &.show {
       opacity: 1;
     }
 
     h1 {
-      font-family: $font-regular;
-      font-size: 4.8rem;
+      font-family: $font-primary;
+      font-size: 4rem;
       margin: 0 auto 0.8rem;
       color: $primaryBlue;
       width: 100%;
 
-      @include bp('md') {
-        
+      @include bp("md") {
+        font-size: 4.8rem;
       }
-  
+
       // @include mobile {
       //   line-height: 24px;
       //   padding: 0px 0px 5px;
@@ -50,8 +50,7 @@
         opacity: 0;
         visibility: hidden;
         position: relative;
-        
-    
+
         &.show {
           opacity: 1;
           visibility: visible;
@@ -69,14 +68,13 @@
       overflow: hidden;
       width: 100%;
       left: -30px;
-      
-  
+
       &.show {
         opacity: 1;
         visibility: visible;
         left: 0;
       }
-  
+
       @include mobile {
         margin: 0.5em auto;
       }
@@ -84,10 +82,9 @@
   }
 
   .title {
-    font: 1.6rem $font-regular;
     margin: 0;
     opacity: 0;
-    visibility: hidden;    
+    visibility: hidden;
     right: -30px;
     top: 0px;
     position: relative;
@@ -102,13 +99,17 @@
   }
 
   .gear-icon {
-    width: 250px;
+    width: 200px;
     opacity: 1;
     transition: opacity 1s ease-out 0s;
 
-      &.hide {
-        opacity: 0;
-      }
+    @include bp('md') {
+      width: 250px;
+    }
+
+    &.hide {
+      opacity: 0;
+    }
 
     .gear {
       animation: spin 5s forwards linear;
@@ -166,7 +167,7 @@
 
   @include keyframes(spin) {
     0% {
-      transform: rotateZ(0deg)
+      transform: rotateZ(0deg);
     }
     100% {
       transform: rotateZ(360deg);
@@ -184,7 +185,7 @@
   right: 0;
   cursor: pointer;
   transform: translateY(100px);
-  transition: all .5s ease-out 0.5s;
+  transition: all 0.5s ease-out 0.5s;
 
   &.show {
     transform: translateY(0px);

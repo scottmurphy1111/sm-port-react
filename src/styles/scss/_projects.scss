@@ -12,6 +12,7 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+    justify-content: space-between;
     
     > li {
       flex-wrap: nowrap;
@@ -32,17 +33,17 @@
       box-sizing: border-box;
       
       @include bp('md') {
-        width: 33.3333%;
-        flex-basis: 33.3333%;        
-        margin: 0 16px 0 0;
+        width: 32%;
+        flex-basis: 32%;        
+        margin: 0;
       }
 
       &:nth-child(3) {
         margin-bottom: 0;
-        
-        @include bp('md') {
-          margin-right: 0;          
-        }
+
+        // @include bp('md') {
+        //   margin-right: 0;          
+        // }
       }
 
       h3 {
@@ -58,9 +59,9 @@
       }
 
       .base-item {
-        background: $primaryColor
-          url(../../assets/images/portfolio/golf-ball.png) no-repeat 50% 0%;
-        background-size: contain;
+        background: #fff
+          url(../../assets/images/portfolio/golf-ball.png) no-repeat 50% 50%;
+        background-size: cover;
         width: 100%;
         height: 260px;
         display: flex;

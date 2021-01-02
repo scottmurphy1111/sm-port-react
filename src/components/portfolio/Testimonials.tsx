@@ -1,12 +1,17 @@
 import { AppContext } from '../../App';
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { getPanelOffset } from './getPanelOffset';
 
-const Testimonials = () => {
+const Testimonials = (params: any) => {
   const { testimonials } = useContext<any>(AppContext);
   const { title, testimonialsArray } = testimonials;
+
+  useEffect(() => {
+    params.setTestimonialsOffset(getPanelOffset('.testimonials-section'));
+  }, [])
   
   return (
-    <section className="testimonials-section section-panel container-fluid">
+    <section className="testimonials-section section-panel container-fluid" data-section='testimonials'>
         <div className="wrap">
           <div className='row'>
             <div className='col-xs-12'>

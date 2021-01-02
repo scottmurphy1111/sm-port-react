@@ -13,6 +13,7 @@ const Portfolio = () => {
   const [skillsOffset, setSkillsOffset] = useState(0);
   const [projectsOffset, setProjectsOffset] = useState(0);
   const [aboutOffset, setAboutOffset] = useState(0);
+  const [testimonialsOffset, setTestimonialsOffset] = useState(0);
   const [contactOffset, setContactOffset] = useState(0);
 
   const navElements = Array.from(document.querySelectorAll('[data-nav]'));
@@ -42,8 +43,10 @@ const Portfolio = () => {
       navItems.active = 'skills';
     } else if (projectsOffset < pageOffset && aboutOffset > pageOffset) {
       navItems.active = 'projects';
-    } else if (aboutOffset < pageOffset && contactOffset > pageOffset) {
+    } else if (aboutOffset < pageOffset && testimonialsOffset > pageOffset) {
       navItems.active = 'about';
+    } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
+      navItems.active = 'testimonials';
     } else {
       navItems.active = 'contact';
     }
@@ -80,7 +83,9 @@ const Portfolio = () => {
       <About
         setAboutOffset={setAboutOffset}
       />
-      <Testimonials />
+      <Testimonials 
+        setTestimonialsOffset={setTestimonialsOffset}
+      />
       <Contact
         setContactOffset={setContactOffset}
       />
