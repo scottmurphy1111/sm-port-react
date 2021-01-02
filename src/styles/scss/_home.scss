@@ -10,13 +10,13 @@
   .static-inner {
     position: relative;
     transform: scale(1, 1);
-    font-size: 2.4rem;
+    // font-size: 2.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include mobile {
-      font-size: 1.8rem;
+      // font-size: 1.8rem;
     }
   }
 
@@ -32,7 +32,7 @@
     h1 {
       font-family: $font-primary;
       font-size: 4rem;
-      margin: 0 auto 0.8rem;
+      // margin: 0 auto 0.8rem;
       color: $primaryBlue;
       width: 100%;
 
@@ -59,8 +59,8 @@
     }
 
     .tagline {
-      font-size: 2.4rem;
-      font-weight: bold;
+      // font-size: 2.4rem;
+       
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
@@ -89,7 +89,7 @@
     top: 0px;
     position: relative;
     color: $primaryBlue;
-    font-weight: bold;
+     
 
     &.show {
       opacity: 1;

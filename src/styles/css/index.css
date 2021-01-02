@@ -14,7 +14,7 @@ body {
 
 body {
   margin: 0;
-  font: 1.6rem "M PLUS Rounded 1c", sans-serif;
+  font: 2rem "M PLUS Rounded 1c", sans-serif;
   background-color: #141414;
   background-position: 50% 100%;
   background-repeat: no-repeat;
@@ -44,7 +44,6 @@ body {
       background: #000; }
       body #portrait-only h2 {
         font-family: "M PLUS Rounded 1c", sans-serif;
-        font-weight: 100;
         font-size: 2.4rem;
         transform: translateY(-50%);
         top: 50%;
@@ -121,7 +120,6 @@ a {
   font-size: 3.2rem;
   font-family: "M PLUS Rounded 1c", sans-serif;
   text-align: center;
-  font-weight: bold;
   visibility: visible; }
   @media (min-width: 600px) {
     .category-title {
@@ -248,12 +246,14 @@ a {
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 1.8rem;
-      font-weight: 600; }
+      font-size: 1.6rem; }
       .nav .nav-items li[data-active='true'] {
         opacity: 1; }
       .nav .nav-items li:hover {
         opacity: 1; }
+      @media (min-width: 600px) {
+        .nav .nav-items li {
+          font-size: 2rem; } }
   .nav .nav-button-wrapper {
     cursor: pointer;
     position: absolute;
@@ -294,13 +294,9 @@ a {
   .home .static-inner {
     position: relative;
     transform: scale(1, 1);
-    font-size: 2.4rem;
     display: flex;
     justify-content: center;
     align-items: center; }
-    @media only screen and (min-width: 0px) and (max-width: 767px) {
-      .home .static-inner {
-        font-size: 1.8rem; } }
   .home .copy-block {
     position: absolute;
     opacity: 0;
@@ -310,7 +306,6 @@ a {
     .home .copy-block h1 {
       font-family: "M PLUS Rounded 1c", sans-serif;
       font-size: 4rem;
-      margin: 0 auto 0.8rem;
       color: #0080ff;
       width: 100%; }
       @media (min-width: 600px) {
@@ -324,8 +319,6 @@ a {
           opacity: 1;
           visibility: visible; }
     .home .copy-block .tagline {
-      font-size: 2.4rem;
-      font-weight: bold;
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
@@ -347,8 +340,7 @@ a {
     right: -30px;
     top: 0px;
     position: relative;
-    color: #0080ff;
-    font-weight: bold; }
+    color: #0080ff; }
     .home .title.show {
       opacity: 1;
       visibility: visible;
@@ -465,9 +457,7 @@ a {
     overflow: hidden;
     -webkit-tap-highlight-color: transparent;
     text-align: left;
-    cursor: pointer;
-    font-size: 2.4rem;
-    font-weight: bold; }
+    cursor: pointer; }
     .about .about-snippets li:last-child {
       margin-bottom: 0; }
     .about .about-snippets li .about-link {
@@ -509,9 +499,7 @@ a {
     margin: 0 0 4.8rem;
     padding: 0;
     color: #fff;
-    font-weight: bold;
     box-sizing: border-box;
-    font-size: 2.4rem;
     width: 100%;
     flex-basis: 100%;
     display: flex;
@@ -579,10 +567,8 @@ a {
       border-radius: 4px;
       border: 8px solid #0080ff;
       color: #fff;
-      font-size: 16px;
       padding: 0px;
       margin: 0 0 4.8rem 0;
-      font-weight: bold;
       text-align: left;
       box-sizing: border-box; }
       @media (min-width: 600px) {
@@ -594,11 +580,9 @@ a {
         margin-bottom: 0; }
       .projects .projects > li h3 {
         margin: 0;
-        color: #fff;
-        font-size: 24px; }
+        color: #fff; }
       .projects .projects > li p {
         margin: 0 0 0.25rem;
-        font-size: 20px;
         color: #0080ff; }
       .projects .projects > li .base-item {
         background: #fff url(../../assets/images/portfolio/golf-ball.png) no-repeat 50% 50%;
@@ -647,14 +631,6 @@ a {
   justify-content: flex-start; }
   .contact h2 .logo {
     left: 0; }
-  .contact h3 {
-    color: #fff;
-    font-size: 24px;
-    font-family: "M PLUS Rounded 1c", sans-serif;
-    margin: 0 0 0.8rem; }
-    @media only screen and (min-width: 0px) and (max-width: 767px) {
-      .contact h3 {
-        margin-top: 0; } }
   .contact .block {
     display: inline-block;
     box-sizing: border-box;
@@ -681,9 +657,7 @@ a {
         display: inline-block;
         text-align: left;
         list-style-type: none;
-        color: #0080ff;
-        font-weight: bold;
-        font-size: 2.4rem; }
+        color: #0080ff; }
         @media only screen and (min-width: 0px) and (max-width: 767px) {
           .contact .block .contact-info li {
             margin: 0 0 5px; } }
@@ -704,8 +678,7 @@ a {
       display: inline-block;
       text-align: left;
       list-style-type: none;
-      color: #0080ff;
-      font-weight: bold; }
+      color: #0080ff; }
       @media only screen and (min-width: 0px) and (max-width: 767px) {
         .contact .block .social li {
           padding: 0 32px 0 0;
@@ -731,12 +704,17 @@ a {
           border-radius: 12px;
           transform: scale(0) translateY(0px);
           transition: all 0.15s ease-out;
-          font-size: 0.75rem;
           transform-origin: bottom left; }
+          .contact .block .social li a.so-link .so-tooltip h3 {
+            color: #fff;
+            font-size: 2.4rem;
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            margin: 0 0 0.8rem; }
+            @media only screen and (min-width: 0px) and (max-width: 767px) {
+              .contact .block .social li a.so-link .so-tooltip h3 {
+                margin-top: 0; } }
           .contact .block .social li a.so-link .so-tooltip p {
             padding: 0px 0px 0px;
-            font-size: 2rem;
-            font-weight: bold;
             width: 100%;
             text-align: left;
             display: inline-block;
@@ -759,11 +737,9 @@ a {
             flex-direction: column; }
           .contact .block .social li a.so-link .so-tooltip li {
             list-style-type: disc;
-            font-weight: 900;
             color: #141414;
             width: 100%;
             padding: 0;
-            font-size: 16px;
             width: 100%;
             max-width: 100%; }
           .contact .block .social li a.so-link .so-tooltip:after {
@@ -782,9 +758,7 @@ a {
     display: inline-block;
     margin-bottom: 4.8rem; }
     .contact .special-note p {
-      font-size: 2.4rem;
       color: #0080ff;
-      font-weight: bold;
       margin: 0; }
 
 .testimonials-section {
@@ -805,11 +779,8 @@ a {
     .testimonials li:last-child {
       margin-bottom: 0; }
   .testimonials h3 {
-    color: #141414;
-    font-size: 2.4rem; }
+    color: #141414; }
   .testimonials .testimonial {
-    font-weight: bold;
-    font-size: 2rem;
     margin: 0;
     color: #141414;
     line-height: 30px; }
@@ -830,8 +801,6 @@ a {
       color: #0080ff; }
   .testimonials .reporter {
     display: block;
-    font-weight: bold;
-    font-size: 2rem;
     color: #0080ff;
     margin-top: 0.4rem;
     font-style: normal; }

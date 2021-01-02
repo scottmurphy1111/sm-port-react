@@ -93,8 +93,7 @@
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 1.8rem;
-      font-weight: 600;
+      font-size: 1.6rem;
 
       &[data-active='true'] {
         opacity: 1;
@@ -102,6 +101,10 @@
 
       &:hover {
         opacity: 1;
+      }
+
+      @include bp('md') {
+        font-size: 2rem;
       }
     }
   }

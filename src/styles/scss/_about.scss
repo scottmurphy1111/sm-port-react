@@ -28,12 +28,16 @@
       -webkit-tap-highlight-color: transparent;
       text-align: left;
       cursor: pointer;
-      font-size: 2.4rem;
-      font-weight: bold;
-
+      // font-size: 2rem;
+       
+      
       &:last-child {
         margin-bottom: 0;
       }
+      
+      // @include bp('md') {
+      //   font-size: 2.4rem;
+      // }
 
       .about-link {
         pointer-events: none;
