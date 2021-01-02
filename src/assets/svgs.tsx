@@ -7,7 +7,7 @@ export const Gear = () => {
     setShow(true);
     setTimeout(() => {
       setShow(false);
-    }, 4000)
+    }, 2000)
   }, [setShow])
 
   return (

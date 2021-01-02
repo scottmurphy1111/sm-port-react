@@ -32,7 +32,7 @@
     h1 {
       font-family: $font-primary;
       font-size: 4rem;
-      // margin: 0 auto 0.8rem;
+      margin: 0 auto;
       color: $primaryBlue;
       width: 100%;
 
@@ -76,7 +76,7 @@
       }
 
       @include mobile {
-        margin: 0.5em auto;
+        // margin: 0.5em auto;
       }
     }
   }
@@ -112,7 +112,7 @@
     }
 
     .gear {
-      animation: spin 5s forwards linear;
+      animation: spin 3s forwards linear;
       transform-origin: center center;
       opacity: 0.125;
       transition: opacity 1s ease-in 0s;
@@ -170,7 +170,7 @@
       transform: rotateZ(0deg);
     }
     100% {
-      transform: rotateZ(360deg);
+      transform: rotateZ(220deg);
     }
   }
 }

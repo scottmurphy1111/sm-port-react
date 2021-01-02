@@ -28,7 +28,7 @@ const Home = (params: any) => {
     setTimeout(() => {
       setShow(true);
       setScrollable(true);
-    }, 4750);
+    }, 2750);
   }, [scrollable]);
 
   return (

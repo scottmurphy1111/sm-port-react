@@ -306,6 +306,7 @@ a {
     .home .copy-block h1 {
       font-family: "M PLUS Rounded 1c", sans-serif;
       font-size: 4rem;
+      margin: 0 auto;
       color: #0080ff;
       width: 100%; }
       @media (min-width: 600px) {
@@ -330,9 +331,6 @@ a {
         opacity: 1;
         visibility: visible;
         left: 0; }
-      @media only screen and (min-width: 0px) and (max-width: 767px) {
-        .home .copy-block .tagline {
-          margin: 0.5em auto; } }
   .home .title {
     margin: 0;
     opacity: 0;
@@ -355,7 +353,7 @@ a {
     .home .gear-icon.hide {
       opacity: 0; }
     .home .gear-icon .gear {
-      animation: spin 5s forwards linear;
+      animation: spin 3s forwards linear;
       transform-origin: center center;
       opacity: 0.125;
       transition: opacity 1s ease-in 0s; }
@@ -392,31 +390,31 @@ a {
   0% {
     transform: rotateZ(0deg); }
   100% {
-    transform: rotateZ(360deg); } }
+    transform: rotateZ(220deg); } }
 
 @-moz-keyframes spin {
   0% {
     transform: rotateZ(0deg); }
   100% {
-    transform: rotateZ(360deg); } }
+    transform: rotateZ(220deg); } }
 
 @-ms-keyframes spin {
   .home 0% {
     transform: rotateZ(0deg); }
   .home 100% {
-    transform: rotateZ(360deg); } }
+    transform: rotateZ(220deg); } }
 
 @-o-keyframes spin {
   0% {
     transform: rotateZ(0deg); }
   100% {
-    transform: rotateZ(360deg); } }
+    transform: rotateZ(220deg); } }
 
 @keyframes spin {
   0% {
     transform: rotateZ(0deg); }
   100% {
-    transform: rotateZ(360deg); } }
+    transform: rotateZ(220deg); } }
 
 .see-more {
   position: absolute;
@@ -469,7 +467,8 @@ a {
         width: 5.6rem;
         height: 5.6rem; }
       .about .about-snippets li .about-link h3 {
-        margin: 0; }
+        margin: 0;
+        font-size: 2.4rem; }
     .about .about-snippets li .about-description {
       padding-left: 5.6rem;
       transition: all 0.1s ease-out 0s;

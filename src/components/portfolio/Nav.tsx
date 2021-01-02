@@ -10,7 +10,7 @@ export default function VertNav() {
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
-    }, 5400);
+    }, 3400);
   })
   const navItems = [
     {

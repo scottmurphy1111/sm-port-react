@@ -45,7 +45,7 @@ const About = (params: any) => {
     const expBio = document.querySelectorAll('.about-snippets li .about-description')[3];
     let calcDate = new Date().getFullYear() - 2009;
 
-    expBio.innerHTML = '<p>I have been coding for ' + calcDate + ' years+</p>';
+    expBio.innerHTML = `<p>${calcDate} years+</p>`;
   }
 
   const revealContent = ((e: any, id: number) => {

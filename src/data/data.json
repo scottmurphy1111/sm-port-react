@@ -153,32 +153,32 @@
         {
           "heading": "Location",
           "icon": "/assets/images/portfolio/location.svg",
-          "description": "I live in Richmond, VA"
+          "description": "Richmond, VA"
         },
         {
           "heading": "School",
           "icon": "/assets/images/portfolio/education.svg",
-          "description": "I studied Music at App State"
+          "description": "Appalachain State"
         },
         {
           "heading": "Experience",
           "icon": "/assets/images/portfolio/exp.svg",
-          "description": "I have been coding for 8 years+"
+          "description": "11 years+"
         },
         {
           "heading": "Work Style",
           "icon": "/assets/images/portfolio/work-style.svg",
-          "description": "I'm known to get my hands dirty"
+          "description": "I get my hands dirty"
         },
         {
           "heading": "Code Editor",
           "icon": "/assets/images/portfolio/tools.svg",
-          "description": "I prefer Visual Studio Code"
+          "description": "Visual Studio Code"
         },
         {
           "heading": "Favorite Languages",
           "icon": "/assets/images/portfolio/langs.svg",
-          "description": "I love Angular, React and Flex"
+          "description": "Angular, React and Flex"
         },
         {
           "heading": "Hobbies",
@@ -197,7 +197,7 @@
           {
             "title": "Contact",
             "phone": "804.836.2326",
-            "email": "scottmurphy1111@gmail.com"
+            "email": "scottmurphy1111@gmail"
           }
         ]
       },
