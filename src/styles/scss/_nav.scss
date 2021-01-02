@@ -9,9 +9,14 @@
   justify-content: space-between;
   transform: translateY(-60px);
   transition: all 0.5s ease-out;
+  padding: 0.8rem 0;
 
   &.show {
     transform: translateY(0px);
+  }
+
+  @include bp('md') {
+    padding: 0;
   }
 
   .container-fluid {
@@ -20,23 +25,66 @@
 
   .logo {
     display: flex;
-    width: 96px;
+    width: 70px;
     height: 100%;
     align-items: center;
     cursor: pointer;
-
+    
     svg {
       width: 100%;
       pointer-events: none;
     }
+    
+    @include bp('md') {
+      width: 96px;
+      
+    }
   }
 
-  ul {
-    padding: 0;
+  .nav-wrapper {
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    @include bp('lg') {
+      overflow: hidden;
+    }
+  }
+
+  .nav-items {
+    padding: 1.6rem;
     display: flex;
     width: 100%;
     list-style: none;
-    justify-content: space-between;
+    justify-content: flex-start;
+    transform: translateX(calc(100% + 3.6rem));
+    transition: all .25s ease-out;
+    margin: 0;
+    min-height: 100vh;
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    top: 0;
+    flex-direction: column;
+    background-color: $primaryColor;
+    
+    &[data-active=true] {
+      transform: translateX(3.6rem);
+    }
+    
+    @include bp('lg') {
+      justify-content: space-between;
+      transform: translateX(0);
+      position: inherit;
+      min-height: auto;
+      flex-direction: row;
+      padding: 0 1.6rem;
+
+      &[data-active=true] {
+        transform: translateX(0);
+      }
+    }
 
     li {
       text-align: center;
@@ -55,6 +103,45 @@
       &:hover {
         opacity: 1;
       }
+    }
+  }
+
+  .nav-button-wrapper {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    padding-top: 1.6rem;
+  }
+
+  .nav-button {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #fff;
+
+    &:before {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transform: translateY(-9px);
+      display: block;
+    }
+
+    &:after {
+      content: '';
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      transform: translateY(6px);
+      display: block;
+    }
+
+    @include bp('lg') {
+      display: none;
     }
   }
 }
