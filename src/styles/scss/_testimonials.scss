@@ -61,4 +61,11 @@
     margin-top: 0.4rem;
     font-style: normal;
   }
+
+  .read-more {
+    // font-size: 1.6rem;
+    cursor: pointer;
+    color: $primaryBlue;
+    text-transform: lowercase;
+  }
 }

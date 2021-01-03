@@ -10,24 +10,16 @@
   .static-inner {
     position: relative;
     transform: scale(1, 1);
-    // font-size: 2.4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include mobile {
-      // font-size: 1.8rem;
     }
   }
 
   .copy-block {
     position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out 0.35s;
-
-    &.show {
-      opacity: 1;
-    }
 
     h1 {
       font-family: $font-primary;
@@ -40,16 +32,11 @@
         font-size: 4.8rem;
       }
 
-      // @include mobile {
-      //   line-height: 24px;
-      //   padding: 0px 0px 5px;
-      //   width: 280px;
-      // }
 
       .name {
         opacity: 0;
         visibility: hidden;
-        position: relative;
+        transition: opacity 1s ease-in-out 0.35s;
 
         &.show {
           opacity: 1;
@@ -58,25 +45,18 @@
       }
     }
 
-    .tagline {
-      // font-size: 2.4rem;
-       
+    .tagline { 
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      left: -30px;
+      transition: opacity 1.5s ease-in-out 1s;
 
       &.show {
         opacity: 1;
         visibility: visible;
-        left: 0;
       }
 
       @include mobile {
-        // margin: 0.5em auto;
       }
     }
   }
@@ -173,21 +153,13 @@
       transform: rotateZ(220deg);
     }
   }
-}
 
-.see-more {
-  position: absolute;
-  display: block;
-  margin: 0 auto;
-  width: 35px;
-  bottom: 16px;
-  left: 0;
-  right: 0;
-  cursor: pointer;
-  transform: translateY(100px);
-  transition: all 0.5s ease-out 0.5s;
-
-  &.show {
-    transform: translateY(0px);
+  .see-next {
+    transform: translateY(100px);
+    transition: all 0.5s ease-out 0.5s;
+  
+    &.show {
+      transform: translateY(0px);
+    }
   }
 }

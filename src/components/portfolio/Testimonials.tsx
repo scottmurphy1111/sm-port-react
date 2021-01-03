@@ -1,6 +1,7 @@
 import { AppContext } from '../../App';
 import React, { useContext, useEffect } from 'react'
 import { getPanelOffset } from './getPanelOffset';
+import Testimonial from './Testimonial';
 
 const Testimonials = (params: any) => {
   const { testimonials } = useContext<any>(AppContext);
@@ -8,7 +9,7 @@ const Testimonials = (params: any) => {
 
   useEffect(() => {
     params.setTestimonialsOffset(getPanelOffset('.testimonials-section'));
-  }, [])
+  }, [params])
   
   return (
     <section className="testimonials-section section-panel container-fluid" data-section='testimonials'>
@@ -18,12 +19,16 @@ const Testimonials = (params: any) => {
               <h2 className='category-title'>{title}</h2>
               <ul className='testimonials'>
                 {testimonialsArray.map((testimonial: any, id: number) => (
-                  <li key={id + 1}>
-                    <p className="testimonial">{testimonial.testimonial}</p>
-                    <span className="reporter">{testimonial.reporter}</span>
-                  </li>
+                  <Testimonial key={id + 1} testimonial={testimonial} />
+                  // <li key={id + 1}>
+                  //   <p className="testimonial">{testimonial.testimonial}</p>
+                  //   <span className="reporter">{testimonial.reporter}</span>
+                  // </li>
                 ))}
               </ul>
+            </div>
+            <div className='see-next' onClick={() => params.goToNextSection('contact')}>
+              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more-black.svg`} />
             </div>
           </div>
         </div>

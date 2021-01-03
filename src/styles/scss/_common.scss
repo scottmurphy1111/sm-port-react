@@ -19,7 +19,7 @@
   justify-content: flex-start;
 
   @include bp('md') {
-    justify-content: center;  
+    // justify-content: center;  
   }
 }
 
@@ -104,4 +104,24 @@
   @include mobile {
     display: none !important;
   }
+}
+
+.fade-item {
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  transition-delay: 0s;
+  transform: translateY(40px);
+}
+
+
+.see-next {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  width: 35px;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  transform: translateY(0px);
 }

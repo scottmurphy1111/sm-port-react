@@ -8,7 +8,7 @@ const Skills = (params: any) => {
 
   useEffect(() => {
     params.setSkillsOffset(getPanelOffset('.skills'));
-  }, [])
+  }, [params])
 
   return (
       <section
@@ -21,9 +21,9 @@ const Skills = (params: any) => {
               <h2 className='category-title'>{title}</h2>
               <ul className='skillset'>
                 {skillset.map((skill: any, id: number) => (
-                  <li key={id + 1}>
+                  <li key={id + 1} className="fade-item">
                     <div className="image-container">
-                      <img src={`${process.env.PUBLIC_URL}${skill.image}`} />
+                      <img alt="skills group" src={`${process.env.PUBLIC_URL}${skill.image}`} />
                     </div>
                     <ul className="skills-array">
                       {skill.skillsArray.map((item: any) => <li key={item}>{item}</li>)}
@@ -31,6 +31,9 @@ const Skills = (params: any) => {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className='see-next' onClick={() => params.goToNextSection('projects')}>
+              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
             </div>
           </div>
         </div>

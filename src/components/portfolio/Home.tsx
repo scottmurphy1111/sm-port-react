@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../App';
 import { getPanelOffset } from './getPanelOffset';
 import { Gear } from '../../assets/svgs';
@@ -9,17 +9,10 @@ const Home = (params: any) => {
   const [show, setShow] = useState(false);
   const [scrollable, setScrollable] = useState(false);
 
-  const disableScroll = () => {
+  const disableScroll = useCallback(() => {
     const body = document.body;
     return scrollable ? body.style.overflow = 'visible' : body.style.overflow = 'hidden';
-  };
-
-  const clickSeeMore = () => {
-    const section: HTMLElement | null = document.querySelector(`[data-section=skills`);
-    const scrollPosition = section?.offsetTop;
-
-    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-  };
+  }, [scrollable]);
 
   useEffect(() => {
     params.setHomeOffset(getPanelOffset('.home'));
@@ -29,7 +22,7 @@ const Home = (params: any) => {
       setShow(true);
       setScrollable(true);
     }, 2750);
-  }, [scrollable]);
+  }, [scrollable, params, disableScroll]);
 
   return (
     <section
@@ -42,13 +35,13 @@ const Home = (params: any) => {
             <div className='panel-static'>
               <div className='static-inner'>
                 <Gear />
-                <div className={`copy-block ${show ? "show" : ""}`}>
+                <div className='copy-block'>
                   <h1>
-                    <span className='name show'>
+                    <span className={`name ${show ? "show" : ""}`}>
                       {name}
                     </span>
                   </h1>
-                  <p className='tagline show'>
+                  <p className={`tagline ${show ? "show" : ""}`}>
                     {subHeadingA + ' '}
                     <br className='mobile-only' />
                     {subHeadingB}
@@ -56,8 +49,8 @@ const Home = (params: any) => {
                 </div>
               </div>
             </div>
-            <div className={`see-more ${show ? "show" : ""}`} onClick={clickSeeMore}>
-              <img src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
+            <div className={`see-next ${show ? "show" : ""}`} onClick={() => params.goToNextSection('skills')}>
+              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ const Contact = (params: any) => {
 
   useEffect(() => {
     params.setContactOffset(getPanelOffset('.contact'))
-  }, [])
+  }, [params])
 
   return (
     <section
@@ -34,11 +34,11 @@ const Contact = (params: any) => {
       <div className="wrap">
         <div className='row'>
           <div className='col-xs-12'>
-            <div className='special-note'>
+            <div className='special-note fade-item'>
               <h2 className='category-title'>{title}</h2>
               <p>{contactContent.specialNote}</p>
             </div>
-            <div className='block'>
+            <div className='block fade-item'>
               <h2 className='category-title'>
                 {contactTitle}
               </h2>
@@ -49,7 +49,7 @@ const Contact = (params: any) => {
                 </ul>
               </div>
             </div>
-            <div className='block'>
+            <div className='block fade-item'>
               <h2 className='category-title'>
                 {socialTitle}
               </h2>

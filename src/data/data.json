@@ -13,22 +13,29 @@
           "projectName": "PGA Tour Info",
           "link": "https://scottmurphy1111.github.io/pga/players",
           "tech": "Angular, RxJS",
-          "capabilities": "API, Search, Page Limit, Pagination, Jest Unit Testing, Custom Design",
+          "capabilities": "Sports API, Search, Page Limit, Pagination, Jest Unit Testing",
           "image": "/assets/images/portfolio/pga-seal.png"
         },
         {
           "projectName": "Weather App",
           "link": "https://scottmurphy1111.github.io/weather-app",
-          "tech": "ReactJS",
-          "capabilities": "Hooks, API, Image Preloading, RxJS, Form Validation",
+          "tech": "React",
+          "capabilities": "Hooks, Weather API, Image Preloading, RxJS, Form Validation",
           "image": "/assets/images/portfolio/thunderstorm.jpg"
         },
         {
           "projectName": "Golf Course Starter",
           "link": "https://scottmurphy1111.github.io/golf-course-starter",
-          "tech": "ReactJS",
+          "tech": "React",
           "capabilities": "Routing, Custom Design",
           "image": "/assets/images/portfolio/golf-course-bg.jpg"
+        },
+        {
+          "projectName": "Coming Soon",
+          "link": "",
+          "tech": "TBD",
+          "capabilities": "TBD",
+          "image": "/assets/images/me-trans.png"
         }
       ],
       "projectsOLD": [
@@ -100,7 +107,7 @@
       "skillset": [
         {
           "image": "/assets/images/portfolio/developer-100.png",
-          "skillsArray": ["Angular", "ReactJS", "RxJS", "Typescript"]
+          "skillsArray": ["Angular", "React", "RxJS", "Typescript"]
         },
         {
           "image": "/assets/images/portfolio/laptop-100.png",
@@ -108,11 +115,11 @@
         },
         {
           "image": "/assets/images/portfolio/merge-git-100.png",
-          "skillsArray": ["Git", "Jest", "Mentorship", "Code Reviews"]
+          "skillsArray": ["Version Control", "Testing", "Mentorship", "Code Reviews"]
         },
         {
           "image": "/assets/images/portfolio/web-100.png",
-          "skillsArray": ["Javascript", "SASS", "HTML", "UI Animations"]
+          "skillsArray": ["Javascript", "CSS/SASS", "HTML", "UI Animations"]
         }
       ]
     },
@@ -137,7 +144,7 @@
           "title": "Learner & Innovator",
           "description": "I set the bar high for any team. My stamina and work horse mentality are a great asset to my teams success",
           "image": "/assets/images/portfolio/benchpress.png",
-          "testimonial": "Scott consistently takes on challenging work that pushes the boundaries, raise concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates when needed. Awesome work - keep it up!",
+          "testimonial": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
           "reporter": "Geoff Laux - Product Owner"
         }
       ]
@@ -158,10 +165,10 @@
         {
           "heading": "School",
           "icon": "/assets/images/portfolio/education.svg",
-          "description": "Appalachain State"
+          "description": "Appalachian State"
         },
         {
-          "heading": "Experience",
+          "heading": "Years Coding",
           "icon": "/assets/images/portfolio/exp.svg",
           "description": "11 years+"
         },

@@ -24,7 +24,7 @@ const Portfolio = () => {
   const navItems = navElements.reduce((acc: any, item: any, index) => {
     acc[keys[index]] = item;
     return acc;
-  }, {})
+  }, {});
 
   const setActive = ((active: any) => {
     navElements.forEach((item: any )=> {
@@ -34,21 +34,40 @@ const Portfolio = () => {
         item.dataset.active = false;
       }
     })
-  })
+  });
+
+  const skillsFadeItems = document.querySelectorAll('.skills .fade-item');
+  const projectsFadeItems = document.querySelectorAll('.projects .fade-item');
+  const aboutFadeItems = document.querySelectorAll('.about .fade-item');
+  const testimonialsFadeItems = document.querySelectorAll('.testimonials-section .fade-item');
+  const contactFadeItems = document.querySelectorAll('.contact .fade-item');
+
+  const fadeInItems = (fadeableItems: any) => {
+    fadeableItems.forEach((element: any, index: number) => {
+      element.style.opacity = 1;
+      element.style.transitionDelay = `${index * 0.15}s`;
+      element.style.transform = 'translate(0)';
+    });
+  }
 
   const getCurrentOffset = (pageOffset: any) => {
     if (homeOffset < pageOffset && skillsOffset > pageOffset) {
       navItems.active = 'home';
     } else if (skillsOffset < pageOffset && projectsOffset > pageOffset) {
       navItems.active = 'skills';
+      fadeInItems(skillsFadeItems);
     } else if (projectsOffset < pageOffset && aboutOffset > pageOffset) {
       navItems.active = 'projects';
+      fadeInItems(projectsFadeItems);
     } else if (aboutOffset < pageOffset && testimonialsOffset > pageOffset) {
       navItems.active = 'about';
+      fadeInItems(aboutFadeItems);
     } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
       navItems.active = 'testimonials';
+      fadeInItems(testimonialsFadeItems);
     } else {
       navItems.active = 'contact';
+      fadeInItems(contactFadeItems);
     }
 
     setActive(navItems.active);
@@ -64,6 +83,13 @@ const Portfolio = () => {
     })
   );
 
+  const goToNextSection = (section: any) => {
+    const nextSection = document.querySelector(`[data-section=${section}`) as HTMLElement;
+    const scrollPosition = nextSection?.offsetTop;
+
+    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+  };
+
   useEffect(() => {
    const subscription = monitorScrolling$().subscribe();
    return () => subscription.unsubscribe();
@@ -72,19 +98,19 @@ const Portfolio = () => {
   return (
     <>
       <Home
-        setHomeOffset={setHomeOffset}
+        setHomeOffset={setHomeOffset} goToNextSection={goToNextSection}
       />
       <Skills
-        setSkillsOffset={setSkillsOffset}
+        setSkillsOffset={setSkillsOffset} goToNextSection={goToNextSection}
       />
       <Projects
-        setProjectsOffset={setProjectsOffset}
+        setProjectsOffset={setProjectsOffset} goToNextSection={goToNextSection}
       />
       <About
-        setAboutOffset={setAboutOffset}
+        setAboutOffset={setAboutOffset} goToNextSection={goToNextSection}
       />
       <Testimonials 
-        setTestimonialsOffset={setTestimonialsOffset}
+        setTestimonialsOffset={setTestimonialsOffset} goToNextSection={goToNextSection}
       />
       <Contact
         setContactOffset={setContactOffset}

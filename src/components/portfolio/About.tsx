@@ -93,7 +93,7 @@ const About = (params: any) => {
             <div className="about-items">
               <ul className='about-snippets'>
                 {aboutSnippets.map((item: AboutItem, id: number) => (
-                  <li key={id} onClick={(e) => revealContent(e, id)}>
+                  <li key={id} className="fade-item" onClick={(e) => revealContent(e, id)}>
                     <div className="about-link" >
                       <img src={`${process.env.PUBLIC_URL}${item.icon}`} alt={`${item.heading}`} />
                       <h3>{item.heading}</h3>
@@ -105,6 +105,9 @@ const About = (params: any) => {
               </ul>
             </div>
           </div>
+          <div className='see-next' onClick={() => params.goToNextSection('testimonials')}>
+              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
+            </div>
         </div>
       </div>
     </section>

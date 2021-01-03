@@ -23,11 +23,14 @@ const Projects = (params: any) => {
             <h2 className='category-title'>{title}</h2>
             <ul className="projects">
               {projectsView.map((project: any, index: number) => (
-                <li key={index}>
+                <li key={index} className="fade-item">
                   <Project project={project} />
                 </li>
               ))}
             </ul>
+          </div>
+          <div className='see-next' onClick={() => params.goToNextSection('about')}>
+            <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more-black.svg`} />
           </div>
         </div>
       </div>

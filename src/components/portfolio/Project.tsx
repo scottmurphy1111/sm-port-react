@@ -6,7 +6,7 @@ const Project = (params: any) => {
 
   return (
     <>
-    <a href={project.link} target="_blank">
+    <a href={project.link} target="_blank" rel="noopener noreferrer">
       <div className="base-item" onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} style={{backgroundImage: `url(${process.env.PUBLIC_URL}${project.image})`}}>
         <div className="info-bar">
           <h3>{project.projectName}</h3>

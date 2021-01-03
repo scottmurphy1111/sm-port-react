@@ -41,28 +41,21 @@ export default function VertNav() {
 
   const handleClick = ((e: any) => {
     const selectedNav = e.target.dataset.nav;
-    const section: HTMLElement | null = document.querySelector(`[data-section=${selectedNav}`);
-    const scrollPosition = section?.offsetTop;
+    const section = document.querySelector(`[data-section=${selectedNav}`) as HTMLElement;
 
-    window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+    section.scrollIntoView({behavior: 'smooth'});
+    setShowMobileMenu(false);
   })
 
   const handleNavButtonClick = () => {
-    console.log('should open');
     setShowMobileMenu(true);
   }
 
   const documentClick = () => {
 
     document.addEventListener('click', (event) => {
-      console.log('evennt target', event.target);
-      console.log('is not UL', !navItemsList.current.contains(event.target));
-      console.log('is not BUTTON', !navButtonWrapper.current.contains(event.target));
       if (!navItemsList.current.contains(event.target) && !navButtonWrapper.current.contains(event.target)) {
-        console.log('should close', );
         setShowMobileMenu(false);
-      } else {
-        console.log('not target',);
       }
     })
   }
@@ -83,7 +76,7 @@ export default function VertNav() {
                 <Logo />
               </span>
             </div>
-            <div className='col-xs-8 col-md-6 col-md-offset-3 nav-wrapper'>
+            <div className='col-xs-8 col-md-8 col-md-offset-1 nav-wrapper'>
               <div ref={navButtonWrapper} className="nav-button-wrapper" onClick={() => handleNavButtonClick()}>
                 <div className="nav-button"></div>
               </div>
@@ -92,6 +85,8 @@ export default function VertNav() {
                   navItems.map((item: any, index: number) => {
                     if (index !== 0) {
                       return <li key={index} data-nav={item.value} onClick={handleClick}>{item.value}</li>
+                    } else {
+                      return null;
                     }
                   })
                 }
