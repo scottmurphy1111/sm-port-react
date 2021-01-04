@@ -32,7 +32,6 @@
         font-size: 4.8rem;
       }
 
-
       .name {
         opacity: 0;
         visibility: hidden;
@@ -45,7 +44,7 @@
       }
     }
 
-    .tagline { 
+    .tagline {
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
@@ -54,9 +53,6 @@
       &.show {
         opacity: 1;
         visibility: visible;
-      }
-
-      @include mobile {
       }
     }
   }
@@ -69,7 +65,6 @@
     top: 0px;
     position: relative;
     color: $primaryBlue;
-     
 
     &.show {
       opacity: 1;
@@ -83,7 +78,7 @@
     opacity: 1;
     transition: opacity 1s ease-out 0s;
 
-    @include bp('md') {
+    @include bp("md") {
       width: 250px;
     }
 
@@ -157,7 +152,7 @@
   .see-next {
     transform: translateY(100px);
     transition: all 0.5s ease-out 0.5s;
-  
+
     &.show {
       transform: translateY(0px);
     }

@@ -37,69 +37,6 @@
           "capabilities": "TBD",
           "image": "/assets/images/me-trans.png"
         }
-      ],
-      "projectsOLD": [
-        {
-          "companyName": "Capital One",
-          "icon": "/assets/images/portfolio/c1.svg",
-          "role": "Senior Software Engineer",
-          "sites": [
-            {
-              "name": "Credit Cards",
-              "link": "http://www.capitalone.com/credit-cards",
-              "modal": false
-            },
-            {
-              "name": "Creditwise",
-              "link": "app/components/portfolio/modal-templates/creditwise.html",
-              "modal": true
-            },
-            {
-              "name": "Income Calculator",
-              "link": "app/components/portfolio/modal-templates/income-calc.html",
-              "modal": true
-            }
-          ]
-        },
-        {
-          "companyName": "Rocket Pop Media",
-          "icon": "/assets/images/portfolio/rp.svg",
-          "role": "Web Developer",
-          "sites": [
-            {
-              "name": "VCU Ramtech",
-              "link": "http://apps.bsv.vcu.edu/RamTech/Index.html",
-              "modal": false
-            },
-            {
-              "name": "Willow Lawn Mall",
-              "link": "http://willowlawn.com",
-              "modal": false
-            },
-            {
-              "name": "Olli Salumeria",
-              "link": "https://olli.com",
-              "modal": false
-            }
-          ]
-        },
-        {
-          "companyName": "Freelance",
-          "icon": "/assets/images/portfolio/c9.svg",
-          "role": "Web Developer",
-          "sites": [
-            {
-              "name": "1 Stop Mini Storage",
-              "link": "http://1stopministorage.com",
-              "modal": false
-            },
-            {
-              "name": "Katie Adcock - Designer",
-              "link": "http://katieadcock.com",
-              "modal": false
-            }
-          ]
-        }
       ]
     },
     "skills": {
@@ -127,23 +64,14 @@
       "title": "Testimonials",
       "testimonialsArray": [
         {
-          "title": "Design Execution & UI Specialist",
-          "description": "I utilize modern coding practices to implement smooth animations and optimized visual elements into web user interfaces",
-          "image": "/assets/images/portfolio/design-execution.png",
           "testimonial": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye.",
           "reporter": "John Jones - Designer"
         },
         {
-          "title": "Collaborator & Team Asset",
-          "description": "I deliver lean, mean and clean front-end code that is ready for use in production environments and custom websites",
-          "image": "/assets/images/portfolio/prod-code.png",
           "testimonial": "Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent.  His collaboration was very much appreciated.",
           "reporter": "Lance Rogers - Creative Manager"
         },
         {
-          "title": "Learner & Innovator",
-          "description": "I set the bar high for any team. My stamina and work horse mentality are a great asset to my teams success",
-          "image": "/assets/images/portfolio/benchpress.png",
           "testimonial": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
           "reporter": "Geoff Laux - Product Owner"
         }
@@ -218,11 +146,6 @@
           "title": "Stack Overflow",
           "icon": "/assets/images/portfolio/stk-o.svg",
           "link": "http://stackoverflow.com/users/5711949/scott-murphy"
-        },
-        {
-          "title": "jsFiddle",
-          "icon": "/assets/images/portfolio/jsfiddle.svg",
-          "link": "https://jsfiddle.net/user/scottmurphy1111/fiddles/"
         },
         {
           "title": "linkedIn",

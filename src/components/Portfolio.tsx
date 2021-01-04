@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Home from './Home';
-import Projects from './Projects';
-import Skills from './Skills';
-import About from './About';
-import Contact from './Contact';
+import Home from './portfolio/Home';
+import Projects from './portfolio/Projects';
+import Skills from './portfolio/Skills';
+import About from './portfolio/About';
+import Contact from './portfolio/Contact';
 import { BehaviorSubject, fromEvent } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import Testimonials from './Testimonials';
+import Testimonials from './portfolio/Testimonials';
 
 const Portfolio = () => {
   const [homeOffset, setHomeOffset] = useState(0);

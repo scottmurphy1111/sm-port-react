@@ -71,18 +71,6 @@ a {
     .container {
       overflow-x: hidden; } }
 
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("../../assets/fonts/SourceSansPro-Regular.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "Source Sans Pro Light";
-  src: url("../../assets/fonts/SourceSansPro-Light.ttf") format("truetype"); }
-
-@font-face {
-  font-family: "Source Sans Pro ExtraLight";
-  src: url("../../assets/fonts/SourceSansPro-ExtraLight.ttf") format("truetype"); }
-
 .wrap {
   box-sizing: border-box;
   width: 100%;
@@ -229,7 +217,7 @@ a {
     list-style: none;
     justify-content: flex-start;
     transform: translateX(calc(100% + 3.6rem));
-    transition: all .25s ease-out;
+    transition: all 0.25s ease-out;
     margin: 0;
     min-height: 100vh;
     position: absolute;
@@ -238,7 +226,7 @@ a {
     top: 0;
     flex-direction: column;
     background-color: #141414; }
-    .nav .nav-items[data-active=true] {
+    .nav .nav-items[data-active="true"] {
       transform: translateX(3.6rem); }
     @media (min-width: 1024px) {
       .nav .nav-items {
@@ -248,7 +236,7 @@ a {
         min-height: auto;
         flex-direction: row;
         padding: 0 1.6rem; }
-        .nav .nav-items[data-active=true] {
+        .nav .nav-items[data-active="true"] {
           transform: translateX(0); } }
     .nav .nav-items li {
       text-align: center;
@@ -258,7 +246,7 @@ a {
       opacity: 0.5;
       transition: all 0.25s ease-out;
       font-size: 1.6rem; }
-      .nav .nav-items li[data-active='true'] {
+      .nav .nav-items li[data-active="true"] {
         opacity: 1; }
       .nav .nav-items li:hover {
         opacity: 1; }
@@ -279,14 +267,14 @@ a {
     height: 3px;
     background-color: #fff; }
     .nav .nav-button:before {
-      content: '';
+      content: "";
       width: 100%;
       height: 3px;
       background-color: #fff;
       transform: translateY(-9px);
       display: block; }
     .nav .nav-button:after {
-      content: '';
+      content: "";
       width: 100%;
       height: 3px;
       background-color: #fff;
@@ -690,7 +678,7 @@ a {
           opacity: 0;
           position: absolute;
           z-index: 10;
-          background: #80BFFF;
+          background: #80bfff;
           color: #141414;
           padding: 1.6rem;
           border-radius: 12px;
@@ -740,7 +728,7 @@ a {
             height: 0;
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
-            border-top: 6px solid #80BFFF;
+            border-top: 6px solid #80bfff;
             display: block;
             margin: 0 auto;
             position: absolute;
@@ -778,7 +766,7 @@ a {
     line-height: 30px; }
     .testimonials .testimonial:before {
       content: '"';
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-style: italic;
       font-size: 28px;
       color: #0080ff;
@@ -787,7 +775,7 @@ a {
       left: -5px; }
     .testimonials .testimonial:after {
       content: '"';
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-style: italic;
       font-size: 28px;
       color: #0080ff; }

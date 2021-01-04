@@ -17,10 +17,6 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  @include bp('md') {
-    // justify-content: center;  
-  }
 }
 
 .panel-wrapper {
@@ -39,8 +35,7 @@
   margin: 0 auto 3.2rem;
   font-size: 3.2rem;
   font-family: $font-primary;
-  text-align: center;
-   
+  text-align: center;   
   visibility: visible;
 
   @include bp('md') {

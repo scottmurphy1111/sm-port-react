@@ -25,18 +25,16 @@
 
   h3 {
     color: $primaryColor;
-    // font-size: 2.4rem;
   }
 
   .testimonial {
-    // font-size: 2rem;
     margin: 0;
     color: $primaryColor;
     line-height: 30px;
-    
+
     &:before {
       content: '"';
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-style: italic;
       font-size: 28px;
       color: $primaryBlue;
@@ -47,7 +45,7 @@
 
     &:after {
       content: '"';
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       font-style: italic;
       font-size: 28px;
       color: $primaryBlue;
@@ -56,14 +54,12 @@
 
   .reporter {
     display: block;
-    // font-size: 2rem;
     color: $primaryBlue;
     margin-top: 0.4rem;
     font-style: normal;
   }
 
   .read-more {
-    // font-size: 1.6rem;
     cursor: pointer;
     color: $primaryBlue;
     text-transform: lowercase;

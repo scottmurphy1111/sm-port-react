@@ -1,7 +1,7 @@
 import React, { createContext, useEffect } from 'react';
 import data from './data/data.json';
 import Nav from './components/portfolio/Nav';
-import Portfolio from './components/portfolio/Portfolio';
+import Portfolio from './components/Portfolio';
 import BgImage from './components/portfolio/BgImage';
 
 export const appData = {

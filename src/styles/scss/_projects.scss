@@ -13,7 +13,7 @@
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+
     > li {
       flex-wrap: nowrap;
       display: flex;
@@ -23,44 +23,35 @@
       background: #fff;
       overflow: hidden;
       border-radius: 4px;
-      // border: 8px solid $primaryBlue;
       color: #fff;
-      // font-size: 16px;
       padding: 0px;
       margin: 0 0 4.8rem 0;
-       
       text-align: left;
       box-sizing: border-box;
-      
-      @include bp('md') {
+
+      @include bp("md") {
         width: 32%;
-        flex-basis: 32%;        
+        flex-basis: 32%;
         margin: 0 0 3.2rem;
       }
 
       &:last-child {
         margin-bottom: 0;
-
-        // @include bp('md') {
-        //   margin-right: 0;          
-        // }
       }
 
       h3 {
         margin: 0;
         color: #fff;
-        // font-size: 24px;
       }
 
       p {
         margin: 0 0 0.25rem;
-        // font-size: 20px;
         color: $primaryBlue;
       }
 
       .base-item {
-        background: #e1e1e1
-          url(../../assets/images/me-trans.png) no-repeat 50% 0%;
+        background: #e1e1e1 url(../../assets/images/me-trans.png) no-repeat 50%
+          0%;
         background-size: cover;
         width: 100%;
         height: 260px;
@@ -72,7 +63,7 @@
         padding: 2.4rem;
         box-sizing: border-box;
 
-        @include bp('md') {
+        @include bp("md") {
           background-size: contain;
         }
 
