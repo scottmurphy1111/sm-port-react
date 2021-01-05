@@ -29,8 +29,7 @@
         padding: 0;
         display: inline-block;
         width: 100%;
-        margin-top: 0px;
-        margin-bottom: 10px;
+        margin: 0;
       }
 
       li {
@@ -182,9 +181,18 @@
     display: inline-block;
     margin-bottom: 4.8rem;
 
-    p {
+    span {
+      display: inline-block;
       color: $primaryBlue;
-      margin: 0;
+      margin: 0 0 1.6rem;
+
+      &.white-text {
+        color: #fff;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
     }
   }
 }

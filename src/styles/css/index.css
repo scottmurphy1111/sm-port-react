@@ -628,8 +628,7 @@ a {
         padding: 0;
         display: inline-block;
         width: 100%;
-        margin-top: 0px;
-        margin-bottom: 10px; }
+        margin: 0; }
       .contact .block .contact-info li {
         width: 100%;
         padding: 0 0px;
@@ -737,9 +736,14 @@ a {
   .contact .special-note {
     display: inline-block;
     margin-bottom: 4.8rem; }
-    .contact .special-note p {
+    .contact .special-note span {
+      display: inline-block;
       color: #0080ff;
-      margin: 0; }
+      margin: 0 0 1.6rem; }
+      .contact .special-note span.white-text {
+        color: #fff; }
+      .contact .special-note span:last-child {
+        margin: 0; }
 
 .testimonials-section {
   background: url(../../assets/images/bg-pattern-light.png); }
@@ -770,7 +774,7 @@ a {
       font-style: italic;
       font-size: 28px;
       color: #0080ff;
-      margin-left: -1.5rem;
+      margin-left: -1.1rem;
       position: relative;
       left: -5px; }
     .testimonials .testimonial:after {

@@ -36,7 +36,16 @@ const Contact = (params: any) => {
           <div className='col-xs-12'>
             <div className='special-note fade-item'>
               <h2 className='category-title'>{title}</h2>
-              <p>{contactContent.specialNote}</p>
+              {
+                contactContent.specialNote.map((note: string, index: number) => {
+                  if (index === 2) {
+                    return <span key={index} className="white-text">{note}&nbsp;</span>
+                  } else {
+                    return <><span key={index}>{note}</span></>
+                  }
+                  
+                })
+              }
             </div>
             <div className='block fade-item'>
               <h2 className='category-title'>
