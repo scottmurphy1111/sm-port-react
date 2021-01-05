@@ -241,18 +241,15 @@ a {
     .nav .nav-items li {
       text-align: center;
       position: relative;
-      line-height: 36px;
+      line-height: 48px;
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 1.6rem; }
+      font-size: 2rem; }
       .nav .nav-items li[data-active="true"] {
         opacity: 1; }
       .nav .nav-items li:hover {
         opacity: 1; }
-      @media (min-width: 600px) {
-        .nav .nav-items li {
-          font-size: 2rem; } }
   .nav .nav-button-wrapper {
     cursor: pointer;
     position: absolute;
@@ -736,14 +733,14 @@ a {
   .contact .special-note {
     display: inline-block;
     margin-bottom: 4.8rem; }
-    .contact .special-note span {
+    .contact .special-note p {
       display: inline-block;
       color: #0080ff;
-      margin: 0 0 1.6rem; }
-      .contact .special-note span.white-text {
-        color: #fff; }
-      .contact .special-note span:last-child {
+      margin: 0 0 3.2rem; }
+      .contact .special-note p:last-child {
         margin: 0; }
+    .contact .special-note .white-text {
+      color: #fff; }
 
 .testimonials-section {
   background: url(../../assets/images/bg-pattern-light.png); }

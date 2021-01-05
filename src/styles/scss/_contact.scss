@@ -181,18 +181,18 @@
     display: inline-block;
     margin-bottom: 4.8rem;
 
-    span {
+    p {
       display: inline-block;
       color: $primaryBlue;
-      margin: 0 0 1.6rem;
-
-      &.white-text {
-        color: #fff;
-      }
+      margin: 0 0 3.2rem;
 
       &:last-child {
         margin: 0;
       }
+    }
+
+    .white-text {
+      color: #fff;
     }
   }
 }

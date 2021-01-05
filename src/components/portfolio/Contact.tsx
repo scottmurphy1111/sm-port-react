@@ -5,7 +5,7 @@ import Socials from './Socials';
 
 const Contact = (params: any) => {
   const { contact } = useContext<any>(AppContext);
-  const { title, contactTitle, socialTitle, contactContent, socials } = contact;
+  const { title, contactTitle, socialTitle, socials } = contact;
 
   const loadContact = () => {
     const phone = '804.836.2326';
@@ -36,16 +36,10 @@ const Contact = (params: any) => {
           <div className='col-xs-12'>
             <div className='special-note fade-item'>
               <h2 className='category-title'>{title}</h2>
-              {
-                contactContent.specialNote.map((note: string, index: number) => {
-                  if (index === 2) {
-                    return <span key={index} className="white-text">{note}&nbsp;</span>
-                  } else {
-                    return <><span key={index}>{note}</span></>
-                  }
-                  
-                })
-              }
+              <p>THANK YOU FOR VISITING MY SITE! TO PUT IT SIMPLY, I LOVE TO CODE.</p>
+              <p>WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.</p>
+              <p><span className='white-text'>PLEASE CLICK BELOW </span>TO SEND ME A NOTE OR DROP ME A LINE.</p>
+              <p>I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER IN THE FUTURE.</p>
             </div>
             <div className='block fade-item'>
               <h2 className='category-title'>

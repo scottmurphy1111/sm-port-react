@@ -84,11 +84,11 @@
     li {
       text-align: center;
       position: relative;
-      line-height: 36px;
+      line-height: 48px;
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 1.6rem;
+      font-size: 2rem;
 
       &[data-active="true"] {
         opacity: 1;
@@ -96,10 +96,6 @@
 
       &:hover {
         opacity: 1;
-      }
-
-      @include bp("md") {
-        font-size: 2rem;
       }
     }
   }
