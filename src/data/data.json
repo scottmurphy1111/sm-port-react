@@ -111,9 +111,9 @@
           "description": "Visual Studio Code"
         },
         {
-          "heading": "Favorite Languages",
+          "heading": "Favorite Tools",
           "icon": "/assets/images/portfolio/langs.svg",
-          "description": "Angular, React and Flex"
+          "description": "Angular, React and RxJS"
         },
         {
           "heading": "Hobbies",
