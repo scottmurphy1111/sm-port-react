@@ -4,7 +4,7 @@ const USER_ID = '5711949';
 
 const Socials = (({ data }: any) => {
   const [stackOverflowData, setStackOverflowData] = useState({ reputation: 0, badge_counts: { bronze: 0, silver: 0, gold: 0 } });
-  const { reputation, badge_counts } = stackOverflowData
+  const { reputation, badge_counts } = stackOverflowData;
 
 
   const fetchStackOverflowData = async () => {
@@ -22,7 +22,7 @@ const Socials = (({ data }: any) => {
 
   useEffect(() => {
     fetchStackOverflowData();
-  }, [])
+  }, []);
 
   return (
     <ul>
@@ -48,7 +48,7 @@ const Socials = (({ data }: any) => {
         )
       )}
     </ul>
-  )
+  );
 });
 
 export default Socials;

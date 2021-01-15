@@ -44,7 +44,7 @@
       "skillset": [
         {
           "image": "/assets/images/portfolio/developer-100.png",
-          "skillsArray": ["Angular", "React", "RxJS", "Typescript"]
+          "skillsArray": ["Angular", "React/Redux", "RxJS", "Typescript"]
         },
         {
           "image": "/assets/images/portfolio/laptop-100.png",
@@ -64,16 +64,20 @@
       "title": "Testimonials",
       "testimonialsArray": [
         {
-          "testimonial": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye.",
-          "reporter": "John Jones - Designer"
+          "copy": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
+          "reporter": "Geoff Laux - Product Owner"
         },
         {
-          "testimonial": "Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent.  His collaboration was very much appreciated.",
+          "copy": "Scott Murphy is an honest and fair engineer. He brings ingenuity and efficiency into every project he’s a part of - whether a single page app or a large enterprise project. He’ll get it done accurately under tight deadlines while presenting potential risks to business stakeholders and correcting any hurdle that may present itself.",
+          "reporter": "Joel Shaw - Software Engineer"
+        },
+        {
+          "copy": "Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent.  His collaboration was very much appreciated.",
           "reporter": "Lance Rogers - Creative Manager"
         },
         {
-          "testimonial": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
-          "reporter": "Geoff Laux - Product Owner"
+          "copy": "Scott not only creates phenomenal websites/prototypes from a coding perspective, but he also has a very keen visual design eye.",
+          "reporter": "John Jones - Designer"
         }
       ]
     },

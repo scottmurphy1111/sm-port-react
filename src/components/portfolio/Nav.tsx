@@ -1,68 +1,70 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Logo } from '../../assets/svgs';
 
-export default function VertNav() {
+const navItems = [
+  {
+    value: 'home',
+    active: true
+  },
+  {
+    value: 'skills',
+    active: false
+  },
+  {
+    value: 'projects',
+    active: false
+  },
+  {
+    value: 'about',
+    active: false
+  },
+  {
+    value: 'testimonials',
+    active: false
+  },
+  {
+    value: 'contact',
+    active: false
+  }
+];
+
+const documentClick = (navList: any, navButtonWrap: any, setShowMobile: any) => {
+  document.addEventListener('click', (event) => {
+    if (!navList.contains(event.target) && !navButtonWrap.contains(event.target)) {
+      setShowMobile(false);
+    }
+  });
+};
+
+const Nav = () => {
   const [show, setShow] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const navItemsList = useRef<any>(null)
-  const navButtonWrapper = useRef<any>(null)
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const navItemsList = useRef<HTMLUListElement>(null);
+  const navButtonWrapper = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setShow(true)
+      setShow(true);
     }, 3400);
-  })
-  const navItems = [
-    {
-      value: 'home',
-      active: true
-    },
-    {
-      value: 'skills',
-      active: false
-    },
-    {
-      value: 'projects',
-      active: false
-    },
-    {
-      value: 'about',
-      active: false
-    },
-    {
-      value: 'testimonials',
-      active: false
-    },
-    {
-      value: 'contact',
-      active: false
-    }
-  ];
+  });  
 
   const handleClick = ((e: any) => {
     const selectedNav = e.target.dataset.nav;
-    const section = document.querySelector(`[data-section=${selectedNav}`) as HTMLElement;
+    const section: HTMLElement | null = document.querySelector(`[data-section=${selectedNav}`);
 
-    section.scrollIntoView({behavior: 'smooth'});
-    setShowMobileMenu(false);
-  })
+    if (section) {
+      section.scrollIntoView({behavior: 'smooth'});
+      setShowMobileMenu(false);
+    }
+  });
 
   const handleNavButtonClick = () => {
     setShowMobileMenu(true);
-  }
-
-  const documentClick = () => {
-
-    document.addEventListener('click', (event) => {
-      if (!navItemsList.current.contains(event.target) && !navButtonWrapper.current.contains(event.target)) {
-        setShowMobileMenu(false);
-      }
-    })
-  }
+  };
 
   useEffect(() => {
-   documentClick();
-  }, [])
+    documentClick(navItemsList.current, navButtonWrapper.current, setShowMobileMenu);
+  }, []);
 
 
   return (
@@ -84,7 +86,7 @@ export default function VertNav() {
                 {
                   navItems.map((item: any, index: number) => {
                     if (index !== 0) {
-                      return <li key={index} data-nav={item.value} onClick={handleClick}>{item.value}</li>
+                      return <li key={index} data-nav={item.value} onClick={handleClick}>{item.value}</li>;
                     } else {
                       return null;
                     }
@@ -97,4 +99,6 @@ export default function VertNav() {
       </div>
     </div>
   );
-}
+};
+
+export default Nav;

@@ -3,7 +3,11 @@ import React, { useContext, useEffect } from 'react';
 import { getPanelOffset } from './getPanelOffset';
 import Socials from './Socials';
 
-const Contact = (params: any) => {
+interface SectionProps {
+  setContactOffset: (val: number) => void;
+}
+
+const Contact = ({setContactOffset}: SectionProps) => {
   const { contact } = useContext<any>(AppContext);
   const { title, contactTitle, socialTitle, socials } = contact;
 
@@ -14,17 +18,17 @@ const Contact = (params: any) => {
     const domain = 'gmail.com';
     const emailDiv = document.querySelector('.insert-email');
 
-    phoneDiv!.innerHTML = `<a href="tel:${phone}">${phone || '804.836.2326'}</a>`;
-    emailDiv!.innerHTML = '<a href="mailto:' + user + '@' + domain + '">' + user + '@' + domain + '</a>';
-  }
+    if (phoneDiv) phoneDiv.innerHTML = `<a href="tel:${phone}">${phone || '804.836.2326'}</a>`;
+    if (emailDiv) emailDiv.innerHTML = `<a target="_blank" href="mailto:${user}@${domain}">${user}@${domain}</a>`;
+  };
 
   useEffect(() => {
     loadContact();
-  });
+  }, []);
 
   useEffect(() => {
-    params.setContactOffset(getPanelOffset('.contact'))
-  }, [params])
+    setContactOffset(getPanelOffset('.contact'));
+  }, [setContactOffset]);
 
   return (
     <section
@@ -37,7 +41,7 @@ const Contact = (params: any) => {
             <div className='special-note fade-item'>
               <h2 className='category-title'>{title}</h2>
               <p>THANK YOU FOR VISITING MY SITE! TO PUT IT SIMPLY, I LOVE TO CODE.</p>
-              <p>WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.</p>
+              <p>WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.</p>
               <p><span className='white-text'>PLEASE CLICK BELOW </span>TO SEND ME A NOTE OR DROP ME A LINE.</p>
               <p>I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER IN THE FUTURE.</p>
             </div>
@@ -65,6 +69,6 @@ const Contact = (params: any) => {
       </div>
     </section>
   );
-}
+};
 
 export default Contact;

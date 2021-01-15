@@ -11,7 +11,7 @@ export const appData = {
   about: data.panels.about,
   testimonials: data.panels.testimonials,
   contact: data.panels.contact
-}
+};
 
 export const AppContext = createContext(appData);
 
@@ -19,12 +19,12 @@ const App = () => {
   const resetPage = () => {
     window.onbeforeunload = function () {
       window.scrollTo(0, 0);
-    }
-  }
+    };
+  };
 
   useEffect(() => {
     resetPage();
-  }, [])
+  }, []);
 
   return (
     <AppContext.Provider value={appData}>
@@ -33,6 +33,6 @@ const App = () => {
       <BgImage />
     </AppContext.Provider>
   );
-}
+};
 
 export default App;

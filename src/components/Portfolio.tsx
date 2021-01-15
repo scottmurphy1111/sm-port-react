@@ -20,20 +20,20 @@ const Portfolio = () => {
   const keys = navElements.map(item => {
     return item.textContent ? item.textContent.toLowerCase() : 'home';
   });
-  
+
   const navItems = navElements.reduce((acc: any, item: any, index) => {
     acc[keys[index]] = item;
     return acc;
   }, {});
 
   const setActive = ((active: any) => {
-    navElements.forEach((item: any )=> {
+    navElements.forEach((item: any) => {
       if (item.dataset.nav === active) {
         item.dataset.active = true;
       } else {
         item.dataset.active = false;
       }
-    })
+    });
   });
 
   const skillsFadeItems = document.querySelectorAll('.skills .fade-item');
@@ -48,7 +48,7 @@ const Portfolio = () => {
       element.style.transitionDelay = `${index * 0.15}s`;
       element.style.transform = 'translate(0)';
     });
-  }
+  };
 
   const getCurrentOffset = (pageOffset: any) => {
     if (homeOffset < pageOffset && skillsOffset > pageOffset) {
@@ -74,25 +74,25 @@ const Portfolio = () => {
   };
 
   const bgOverlay$ = new BehaviorSubject<any>(null);
-  
+
   const monitorScrolling$ = () => fromEvent(window, 'scroll').pipe(
     map(() => window.pageYOffset),
     tap(value => {
       bgOverlay$.next(document.querySelector('.bg-overlay'));
-      getCurrentOffset(value);     
+      getCurrentOffset(value);
     })
   );
 
   const goToNextSection = (section: any) => {
-    const nextSection = document.querySelector(`[data-section=${section}`) as HTMLElement;
+    const nextSection: HTMLElement | null = document.querySelector(`[data-section=${section}`);
     const scrollPosition = nextSection?.offsetTop;
 
     window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
   };
 
   useEffect(() => {
-   const subscription = monitorScrolling$().subscribe();
-   return () => subscription.unsubscribe();
+    const subscription = monitorScrolling$().subscribe();
+    return () => subscription.unsubscribe();
   });
 
   return (
@@ -109,7 +109,7 @@ const Portfolio = () => {
       <About
         setAboutOffset={setAboutOffset} goToNextSection={goToNextSection}
       />
-      <Testimonials 
+      <Testimonials
         setTestimonialsOffset={setTestimonialsOffset} goToNextSection={goToNextSection}
       />
       <Contact
@@ -117,6 +117,6 @@ const Portfolio = () => {
       />
     </>
   );
-}
+};
 
 export default Portfolio;

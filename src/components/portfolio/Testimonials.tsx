@@ -1,39 +1,41 @@
 import { AppContext } from '../../App';
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react';
 import { getPanelOffset } from './getPanelOffset';
 import Testimonial from './Testimonial';
+import { TestimonialItem } from 'models/testimonial-item';
 
-const Testimonials = (params: any) => {
+interface SectionProps {
+  setTestimonialsOffset: (val: number) => void;
+  goToNextSection: (val: string) => void;
+}
+
+const Testimonials = ({setTestimonialsOffset, goToNextSection}: SectionProps) => {
   const { testimonials } = useContext<any>(AppContext);
   const { title, testimonialsArray } = testimonials;
 
   useEffect(() => {
-    params.setTestimonialsOffset(getPanelOffset('.testimonials-section'));
-  }, [params])
-  
+    setTestimonialsOffset(getPanelOffset('.testimonials-section'));
+  }, [setTestimonialsOffset]);
+
   return (
     <section className="testimonials-section section-panel container-fluid" data-section='testimonials'>
-        <div className="wrap">
-          <div className='row'>
-            <div className='col-xs-12'>
-              <h2 className='category-title'>{title}</h2>
-              <ul className='testimonials'>
-                {testimonialsArray.map((testimonial: any, id: number) => (
-                  <Testimonial key={id + 1} testimonial={testimonial} />
-                  // <li key={id + 1}>
-                  //   <p className="testimonial">{testimonial.testimonial}</p>
-                  //   <span className="reporter">{testimonial.reporter}</span>
-                  // </li>
-                ))}
-              </ul>
-            </div>
-            <div className='see-next' onClick={() => params.goToNextSection('contact')}>
-              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more-black.svg`} />
-            </div>
+      <div className="wrap">
+        <div className='row'>
+          <div className='col-xs-12'>
+            <h2 className='category-title'>{title}</h2>
+            <ul className='testimonials'>
+              {testimonialsArray.map((testimonial: TestimonialItem, id: number) => (
+                <Testimonial key={id + 1} {...testimonial} />
+              ))}
+            </ul>
+          </div>
+          <div className='see-next' onClick={() => goToNextSection('contact')}>
+            <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more-black.svg`} />
           </div>
         </div>
-      </section>
-  )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Testimonials
+export default Testimonials;

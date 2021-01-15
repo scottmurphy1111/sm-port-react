@@ -1,19 +1,18 @@
-import { fromEvent } from "rxjs";
-import { map } from "rxjs/operators";
+import { fromEvent, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-export function getPanelOffset(panel: string) {
-  const section = document.querySelector(panel);
+export function getPanelOffset(panel: string): number {
+  const section: HTMLElement | null = document.querySelector(panel);
   
   if (section) {
-    const panelOffset = (section as HTMLElement).offsetTop - 400;
-    return panelOffset;
+    return section.offsetTop - 400;
   } else {
     return 0;
   }  
 }
 
-export function monitorScrolling$(panel: string) {
+export function monitorScrolling$(panel: string): Observable<boolean> {
   return fromEvent(window, 'scroll').pipe(
     map(() => window.pageYOffset > getPanelOffset(panel))
-  )
+  );
 }

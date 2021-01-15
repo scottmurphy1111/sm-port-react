@@ -3,7 +3,12 @@ import { AppContext } from '../../App';
 import { getPanelOffset } from './getPanelOffset';
 import { Gear } from '../../assets/svgs';
 
-const Home = (params: any) => {
+interface SectionProps {
+  setHomeOffset: (val: number) => void;
+  goToNextSection: (val: string) => void;
+}
+
+const Home = ({setHomeOffset, goToNextSection}: SectionProps) => {
   const { home } = useContext<any>(AppContext);
   const { name, subHeadingA, subHeadingB } = home;
   const [show, setShow] = useState(false);
@@ -15,14 +20,14 @@ const Home = (params: any) => {
   }, [scrollable]);
 
   useEffect(() => {
-    params.setHomeOffset(getPanelOffset('.home'));
-    disableScroll()
+    setHomeOffset(getPanelOffset('.home'));
+    disableScroll();
 
     setTimeout(() => {
       setShow(true);
       setScrollable(true);
     }, 2750);
-  }, [scrollable, params, disableScroll]);
+  }, [scrollable, setHomeOffset, disableScroll]);
 
   return (
     <section
@@ -37,11 +42,11 @@ const Home = (params: any) => {
                 <Gear />
                 <div className='copy-block'>
                   <h1>
-                    <span className={`name ${show ? "show" : ""}`}>
+                    <span className={`name ${show ? 'show' : ''}`}>
                       {name}
                     </span>
                   </h1>
-                  <p className={`tagline ${show ? "show" : ""}`}>
+                  <p className={`tagline ${show ? 'show' : ''}`}>
                     {subHeadingA + ' '}
                     <br className='mobile-only' />
                     {subHeadingB}
@@ -49,7 +54,7 @@ const Home = (params: any) => {
                 </div>
               </div>
             </div>
-            <div className={`see-next ${show ? "show" : ""}`} onClick={() => params.goToNextSection('skills')}>
+            <div className={`see-next ${show ? 'show': ''}`} onClick={() => goToNextSection('skills')}>
               <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
             </div>
           </div>
@@ -57,6 +62,6 @@ const Home = (params: any) => {
       </div>
     </section>
   );
-}
+};
 
 export default Home;

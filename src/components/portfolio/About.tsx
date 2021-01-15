@@ -8,78 +8,89 @@ interface AboutItem {
   icon: string
 }
 
-const hideShownContent = (content: any) => {
-  if (content) {
-    content.classList.remove('show');
-    (content as HTMLElement).style.height = '0px';
-  }
+interface SectionProps {
+  setAboutOffset: (val: number) => void;
+  goToNextSection: (val: string) => void;
 }
 
-const addText = ((content: any, text: string) => {
-  content.textContent += text[0];
-  if (text.length > 1) {
-    setTimeout(() => {
-      addText(content, text.slice(1))
-    }, 12)
+const hideShownContent = (content: HTMLElement | null) => {
+  if (content) {
+    content.classList.remove('show');
+    content.style.height = '0px';
+  }
+};
+
+const addText = ((content: HTMLElement | null, text: string) => {
+  if (content) {
+    content.textContent += text[0];
+    if (text.length > 1) {
+      setTimeout(() => {
+        addText(content, text.slice(1));
+      }, 12);
+    }
   }
 });
 
 const removeText = ((content: any) => {
   content.innerHTML = '';
-})
+});
 
-const About = (params: any) => {
+const About = ({setAboutOffset, goToNextSection}: SectionProps) => {
   const { about } = useContext<any>(AppContext);
   const { title, aboutSnippets } = about;
 
   const getContent: any = () => {
     const els = Array.from(document.querySelectorAll('.about-description p'));
-    const text = els.map(el => el.textContent);
-
-    return text;
+    return els.map(el => el.textContent);
   };
 
   const textCollection = getContent();
 
   const appendExperience = () => {
     const expBio = document.querySelectorAll('.about-snippets li .about-description')[3];
-    let calcDate = new Date().getFullYear() - 2009;
+    const calcDate = new Date().getFullYear() - 2009;
 
     expBio.innerHTML = `<p>${calcDate} years+</p>`;
-  }
+  };
 
   const revealContent = ((e: any, id: number) => {
-    let description = e.target.querySelector('.about-description');
-    let shownContent = document.querySelector('.about-snippets li .about-description.show');
-    let currentCopy = shownContent?.querySelector('p')
+    const description = e.target?.querySelector('.about-description');
+    const shownContent: HTMLElement | null = document.querySelector('.about-snippets li .about-description.show');
+    const currentCopy: HTMLParagraphElement | null | undefined = shownContent?.querySelector('p');
 
     if (!description) return;
     if (description.classList.contains('show')) {
-
-      hideShownContent(shownContent);
-      removeText(currentCopy)
+      hideAboutContent(shownContent, currentCopy);
     } else {
-      hideShownContent(shownContent);
-      description.classList.add('show');
-
-      let showDiv = document.querySelector('.about-description.show p');
-
-      if (showDiv !== null) {
-        let height = showDiv.clientHeight;
-        (description as HTMLElement).style.height = height + 'px';
-        if (textCollection) {
-          removeText(showDiv)
-          addText(showDiv, textCollection[id])
-        }
-      }
+      showAboutContent(shownContent, description, id);
     }
   });
 
-  useEffect(() => {
-    params.setAboutOffset(getPanelOffset('.about'));
-    appendExperience();
-  })
+  const hideAboutContent = (shown: HTMLElement | null, current: HTMLElement | null | undefined) => {
+    hideShownContent(shown);
+    removeText(current);
+  };
 
+  const showAboutContent = (shown: HTMLElement | null, description: HTMLElement, id: number) => {
+    hideShownContent(shown);
+    description.classList.add('show');
+
+    const showDiv: HTMLElement | null = document.querySelector('.about-description.show p');
+
+    if (showDiv) {
+      const height = showDiv.clientHeight;
+      description.style.height = height + 'px';
+      if (textCollection) {
+        removeText(showDiv);
+        addText(showDiv, textCollection[id]);
+      }
+    }
+  };
+
+  useEffect(() => {
+    setAboutOffset(getPanelOffset('.about'));
+    appendExperience();
+  }, [setAboutOffset]);
 
   return (
     <section
@@ -93,7 +104,7 @@ const About = (params: any) => {
             <div className="about-items">
               <ul className='about-snippets'>
                 {aboutSnippets.map((item: AboutItem, id: number) => (
-                  <li key={id} className="fade-item" onClick={(e) => revealContent(e, id)}>
+                  <li key={id} className="fade-item" onClick={(e: any) => revealContent(e, id)}>
                     <div className="about-link" >
                       <img src={`${process.env.PUBLIC_URL}${item.icon}`} alt={`${item.heading}`} />
                       <h3>{item.heading}</h3>
@@ -105,13 +116,13 @@ const About = (params: any) => {
               </ul>
             </div>
           </div>
-          <div className='see-next' onClick={() => params.goToNextSection('testimonials')}>
-              <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
-            </div>
+          <div className='see-next' onClick={() => goToNextSection('testimonials')}>
+            <img alt="see next" src={`${process.env.PUBLIC_URL}/assets/images/portfolio/see-more.svg`} />
+          </div>
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default About;
