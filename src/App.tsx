@@ -24,6 +24,9 @@ const App = () => {
 
   useEffect(() => {
     resetPage();
+    // eslint-disable-next-line no-console
+    console.log(`
+    WELCOME TO MY SITE, PLEASE MAKE YOURSELF AT HOME!`);
   }, []);
 
   return (

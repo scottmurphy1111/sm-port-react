@@ -10,6 +10,7 @@ interface AboutItem {
 
 interface SectionProps {
   setAboutOffset: (val: number) => void;
+  isAbout: boolean; 
   goToNextSection: (val: string) => void;
 }
 
@@ -35,7 +36,7 @@ const removeText = ((content: any) => {
   content.innerHTML = '';
 });
 
-const About = ({setAboutOffset, goToNextSection}: SectionProps) => {
+const About = ({setAboutOffset, isAbout, goToNextSection}: SectionProps) => {
   const { about } = useContext<any>(AppContext);
   const { title, aboutSnippets } = about;
 
@@ -87,10 +88,23 @@ const About = ({setAboutOffset, goToNextSection}: SectionProps) => {
     }
   };
 
+  const initOpenItem = () => {
+    setTimeout(() => {
+      const clickEvent = document.createEvent('MouseEvent');
+      clickEvent.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      const element = document.querySelector('.about-snippets li');
+      element?.dispatchEvent(clickEvent);
+    }, 1400);
+  };
+
   useEffect(() => {
     setAboutOffset(getPanelOffset('.about'));
     appendExperience();
   }, [setAboutOffset]);
+
+  useEffect(() => {
+    if(isAbout) return initOpenItem();
+  }, [isAbout]);
 
   return (
     <section

@@ -1,7 +1,7 @@
 import { ProjectItem } from 'models/project-item';
 import React, { useState } from 'react';
 
-const Project = ({projectName, link,  tech, capabilities, image}: ProjectItem) => {
+const Project = ({projectName, link,  tech, capabilities, image, description}: ProjectItem) => {
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -17,6 +17,7 @@ const Project = ({projectName, link,  tech, capabilities, image}: ProjectItem) =
           </div>
         </div>
       </a>
+      <p className="description">{description}</p>
     </>
   );
 };

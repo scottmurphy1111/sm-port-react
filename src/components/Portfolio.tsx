@@ -13,6 +13,7 @@ const Portfolio = () => {
   const [skillsOffset, setSkillsOffset] = useState(0);
   const [projectsOffset, setProjectsOffset] = useState(0);
   const [aboutOffset, setAboutOffset] = useState(0);
+  const [isAbout, setIsAbout] = useState(false);
   const [testimonialsOffset, setTestimonialsOffset] = useState(0);
   const [contactOffset, setContactOffset] = useState(0);
 
@@ -28,11 +29,7 @@ const Portfolio = () => {
 
   const setActive = ((active: any) => {
     navElements.forEach((item: any) => {
-      if (item.dataset.nav === active) {
-        item.dataset.active = true;
-      } else {
-        item.dataset.active = false;
-      }
+      return item.dataset.nav === active ? item.dataset.active = true : item.dataset.active = false;
     });
   });
 
@@ -62,6 +59,7 @@ const Portfolio = () => {
     } else if (aboutOffset < pageOffset && testimonialsOffset > pageOffset) {
       navItems.active = 'about';
       fadeInItems(aboutFadeItems);
+      setIsAbout(true);
     } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
       navItems.active = 'testimonials';
       fadeInItems(testimonialsFadeItems);
@@ -107,7 +105,7 @@ const Portfolio = () => {
         setProjectsOffset={setProjectsOffset} goToNextSection={goToNextSection}
       />
       <About
-        setAboutOffset={setAboutOffset} goToNextSection={goToNextSection}
+        setAboutOffset={setAboutOffset} isAbout={isAbout} goToNextSection={goToNextSection}
       />
       <Testimonials
         setTestimonialsOffset={setTestimonialsOffset} goToNextSection={goToNextSection}

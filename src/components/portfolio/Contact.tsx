@@ -42,7 +42,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
               <h2 className='category-title'>{title}</h2>
               <p>THANK YOU FOR VISITING MY SITE! TO PUT IT SIMPLY, I LOVE TO CODE.</p>
               <p>WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.</p>
-              <p><span className='white-text'>PLEASE CLICK BELOW </span>TO SEND ME A NOTE OR DROP ME A LINE.</p>
+              <p>PLEASE <span className='white-text'>CLICK BELOW </span>TO SEND ME A NOTE OR DROP ME A LINE.</p>
               <p>I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER IN THE FUTURE.</p>
             </div>
             <div className='block fade-item'>

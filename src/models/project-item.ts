@@ -4,4 +4,5 @@ export interface ProjectItem {
   tech: string;
   capabilities: string;
   image: string;
+  description: string;  
 }

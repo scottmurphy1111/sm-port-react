@@ -26,7 +26,7 @@ const Projects = ({setProjectsOffset, goToNextSection}: SectionProps) => {
         <div className='row'>
           <div className='col-xs-12'>
             <h2 className='category-title'>{title}</h2>
-            <ul className="projects">
+            <ul className="projects-list">
               {projectsView.map((project: ProjectItem, index: number) => (
                 <li key={index} className="fade-item">
                   <Project {...project} />

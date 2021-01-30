@@ -1,5 +1,27 @@
 .testimonials-section {
-  background: url(../../assets/images/bg-pattern-light.png);
+  background: #fff;
+
+  &:before, &:after {
+    background: inherit;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    transform-origin: 100%;
+    z-index: -1;
+  }
+  
+  &:before {
+    transform: skewY(-1.5deg);
+    top: -50px;
+  }
+
+  &:after {
+    transform: skewY(-1.5deg);
+  }
 
   h2 {
     color: $primaryColor;
@@ -31,6 +53,7 @@
     margin: 0;
     color: $primaryColor;
     line-height: 30px;
+    display: inline;
 
     &:before {
       content: '"';
@@ -63,5 +86,7 @@
     cursor: pointer;
     color: $primaryBlue;
     text-transform: lowercase;
+    display: inline;
+    margin-left: 0.8rem;
   }
 }

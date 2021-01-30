@@ -12,30 +12,34 @@
         {
           "projectName": "PGA Tour Info",
           "link": "https://scottmurphy1111.github.io/pga/players",
-          "tech": "Angular, RxJS",
+          "tech": "Angular",
           "capabilities": "Sports API, Search, Page Limit, Pagination, Jest Unit Testing",
-          "image": "/assets/images/portfolio/pga-seal.png"
+          "image": "/assets/images/portfolio/pga-seal.png",
+          "description": "API-driven web app designed to lookup PGA Tournaments and Player's Info"
         },
         {
           "projectName": "Weather App",
           "link": "https://scottmurphy1111.github.io/weather-app",
-          "tech": "React",
+          "tech": "ReactJS",
           "capabilities": "Hooks, Weather API, Image Preloading, RxJS, Form Validation",
-          "image": "/assets/images/portfolio/thunderstorm.jpg"
+          "image": "/assets/images/portfolio/thunderstorm.jpg",
+          "description": "Enter your Zip Code to easily query the current weather in your area"
         },
         {
           "projectName": "Golf Course Starter",
           "link": "https://scottmurphy1111.github.io/golf-course-starter",
-          "tech": "React",
+          "tech": "ReactJS",
           "capabilities": "Routing, Custom Design",
-          "image": "/assets/images/portfolio/golf-course-bg.jpg"
+          "image": "/assets/images/portfolio/golf-course-bg.jpg",
+          "description": "Web demo for golf course businesses needing a website"
         },
         {
           "projectName": "Coming Soon",
           "link": "",
           "tech": "TBD",
           "capabilities": "TBD",
-          "image": "/assets/images/me-trans.png"
+          "image": "/assets/images/me-trans.png",
+          "description": "TBD"
         }
       ]
     },
@@ -44,11 +48,11 @@
       "skillset": [
         {
           "image": "/assets/images/portfolio/developer-100.png",
-          "skillsArray": ["Angular", "React/Redux", "RxJS", "Typescript"]
+          "skillsArray": ["ReactJS/Redux", "Angular", "RxJS", "Typescript"]
         },
         {
           "image": "/assets/images/portfolio/laptop-100.png",
-          "skillsArray": ["Mac", "VS Code", "Content Systems", "Design Tools"]
+          "skillsArray": ["Mac", "Visual Studio Code", "Content Systems", "Design Tools"]
         },
         {
           "image": "/assets/images/portfolio/merge-git-100.png",
@@ -56,7 +60,7 @@
         },
         {
           "image": "/assets/images/portfolio/web-100.png",
-          "skillsArray": ["Javascript", "CSS/SASS", "HTML", "UI Animations"]
+          "skillsArray": ["UI/UX", "HTML", "CSS/SASS", "Javascript"]
         }
       ]
     },
@@ -64,12 +68,16 @@
       "title": "Testimonials",
       "testimonialsArray": [
         {
-          "copy": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
-          "reporter": "Geoff Laux - Product Owner"
+          "copy": "Scott is a workhorse... he loves taking on new challenges and pours himself into his work. In my 15+ years of web development I have found few other peers who are so hard-working and determined to deliver quality results ahead of schedule. Scott is a constant learner... whether it’s at work or on a weekend, he displays a great curiosity about new tools and technologies and loves to work toward mastering them. He is what I would consider a “unicorn” in that he not only is able to grasp more complex technical concepts, but he cares deeply about the aesthetic and UX side of web development, and his commitment to pixel-perfect work makes him extremely popular among his design partners.",
+          "reporter": "Luke Simpson - Tech Lead/Manager"
         },
         {
           "copy": "Scott Murphy is an honest and fair engineer. He brings ingenuity and efficiency into every project he’s a part of - whether a single page app or a large enterprise project. He’ll get it done accurately under tight deadlines while presenting potential risks to business stakeholders and correcting any hurdle that may present itself.",
-          "reporter": "Joel Shaw - Software Engineer"
+          "reporter": "Joel Shaw - Senior Software Engineer"
+        },
+        {
+          "copy": "Scott consistently takes on challenging work that pushes the boundaries, raises concerns when/where needed, communicates up appropriately when there are constraints and is the first to jump in to help teammates. Awesome work - keep it up!",
+          "reporter": "Geoff Laux - Product Owner"
         },
         {
           "copy": "Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent.  His collaboration was very much appreciated.",
@@ -117,7 +125,7 @@
         {
           "heading": "Favorite Tools",
           "icon": "/assets/images/portfolio/langs.svg",
-          "description": "Angular, React and RxJS"
+          "description": "ReactJs and Angular"
         },
         {
           "heading": "Hobbies",
