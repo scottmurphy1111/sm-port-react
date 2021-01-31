@@ -5,7 +5,7 @@ import { TestimonialItem } from '../../models/testimonial-item';
 const Testimonial = ({ copy, reporter }: TestimonialItem) => {
   const divCopy = useRef<any>(null);
   const allCopy = copy;
-  const fragCopy = `${allCopy.split(' ').slice(0, 7).join(' ')}...`;
+  const fragCopy = `${allCopy.split(' ').slice(0, 6).join(' ')}...`;
 
   const [testimonial, setTestimonial] = useState({
     copy: fragCopy,

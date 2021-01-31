@@ -17,6 +17,7 @@
 
   .container-fluid {
     width: 100%;
+    padding: 0;
   }
 
   .logo {
@@ -48,7 +49,7 @@
   }
 
   .nav-items {
-    padding: 1.6rem;
+    padding: 0 1.6rem;
     display: flex;
     width: 100%;
     list-style: none;
@@ -65,7 +66,7 @@
     background-color: $primaryColor;
 
     &[data-active="true"] {
-      transform: translateX(3.6rem);
+      transform: translateX(1.2rem);
     }
 
     @include bp("lg") {
@@ -102,12 +103,13 @@
 
   .nav-button-wrapper {
     cursor: pointer;
-    position: absolute;
-    right: 0;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    padding-top: 1.6rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    @include bp('lg') {
+      display: none;
+    }
   }
 
   .nav-button {
