@@ -545,10 +545,10 @@ a {
     transform-origin: 100%;
     z-index: -1; }
   .projects:before {
-    transform: skewY(-1.5deg);
+    transform: skewY(-2.5deg);
     top: -50px; }
   .projects:after {
-    transform: skewY(-1.5deg); }
+    transform: skewY(-2.5deg); }
   .projects h2 {
     color: #141414; }
   .projects .projects-list {
@@ -786,10 +786,10 @@ a {
     transform-origin: 100%;
     z-index: -1; }
   .testimonials-section:before {
-    transform: skewY(-1.5deg);
+    transform: skewY(-2.5deg);
     top: -50px; }
   .testimonials-section:after {
-    transform: skewY(-1.5deg); }
+    transform: skewY(-2.5deg); }
   .testimonials-section h2 {
     color: #141414; }
 
