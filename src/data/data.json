@@ -11,7 +11,7 @@
       "projectsView": [
         {
           "projectName": "PGA Tour Info",
-          "link": "https://scottmurphy1111.github.io/pga/players",
+          "link": "https://pga-tour-info.netlify.app/",
           "tech": "Angular",
           "capabilities": "Sports API, Search, Page Limit, Pagination, Jest Unit Testing",
           "image": "/assets/images/portfolio/pga-seal.png",
