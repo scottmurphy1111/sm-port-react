@@ -19,7 +19,7 @@
         },
         {
           "projectName": "Weather App",
-          "link": "https://scottmurphy1111.github.io/weather-app",
+          "link": "https://weather-app-sm-react.netlify.app/",
           "tech": "ReactJS",
           "capabilities": "Hooks, Weather API, Image Preloading, RxJS, Form Validation",
           "image": "/assets/images/portfolio/thunderstorm.jpg",
