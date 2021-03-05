@@ -532,23 +532,7 @@ a {
 
 .projects {
   color: #141414;
-  background: #fff; }
-  .projects:before, .projects:after {
-    background: inherit;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform-origin: 100%;
-    z-index: -1; }
-  .projects:before {
-    transform: skewY(-2.5deg);
-    top: -50px; }
-  .projects:after {
-    transform: skewY(-2.5deg); }
+  background: url(../../assets/images/bg-pattern-light.png); }
   .projects h2 {
     color: #141414; }
   .projects .projects-list {
@@ -773,23 +757,7 @@ a {
       color: #fff; }
 
 .testimonials-section {
-  background: #fff; }
-  .testimonials-section:before, .testimonials-section:after {
-    background: inherit;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform-origin: 100%;
-    z-index: -1; }
-  .testimonials-section:before {
-    transform: skewY(-2.5deg);
-    top: -50px; }
-  .testimonials-section:after {
-    transform: skewY(-2.5deg); }
+  background: url(../../assets/images/bg-pattern-light.png); }
   .testimonials-section h2 {
     color: #141414; }
 

@@ -1,28 +1,6 @@
 .projects {
   color: $primaryColor;
-  background: #fff;
-
-  &:before, &:after {
-    background: inherit;
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 50px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    transform-origin: 100%;
-    z-index: -1;
-  }
-  
-  &:before {
-    transform: skewY(-2.5deg);
-    top: -50px;
-  }
-
-  &:after {
-    transform: skewY(-2.5deg);
-  }
+  background: url(../../assets/images/bg-pattern-light.png);
 
   h2 {
     color: $primaryColor;
