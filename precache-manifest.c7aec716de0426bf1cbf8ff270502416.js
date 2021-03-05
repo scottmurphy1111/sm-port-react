@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "03f13c6403c70793d60c8aaf3c43faab",
+    "revision": "3cb86c421bbc1cc613d7c3bbb60ae3d2",
     "url": "/sm-port-react/index.html"
   },
   {
-    "revision": "43e88fee2643dd3ac799",
-    "url": "/sm-port-react/static/css/main.7a889798.chunk.css"
+    "revision": "d535f587f79264e06053",
+    "url": "/sm-port-react/static/css/main.b50dfdac.chunk.css"
   },
   {
     "revision": "b503debfb691232f3e47",
@@ -16,12 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sm-port-react/static/js/2.56407371.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "43e88fee2643dd3ac799",
+    "revision": "d535f587f79264e06053",
     "url": "/sm-port-react/static/js/main.16a8b388.chunk.js"
   },
   {
     "revision": "2d83528658ea9ed9867f",
     "url": "/sm-port-react/static/js/runtime-main.4cf05acd.js"
+  },
+  {
+    "revision": "603934185ba4500d610a71d6fea6de8d",
+    "url": "/sm-port-react/static/media/bg-pattern-light.60393418.png"
   },
   {
     "revision": "3cf818fefc94072ecc87291972c1acc6",
