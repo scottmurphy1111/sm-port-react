@@ -616,7 +616,8 @@ a {
       .projects .projects-list > li > a {
         margin-bottom: 1.6rem; }
       .projects .projects-list > li .description {
-        color: #141414; }
+        color: #141414;
+        padding: 0 1.6rem 1.6rem; }
 
 .contact {
   height: 100vh; }
