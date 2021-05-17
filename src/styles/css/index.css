@@ -14,7 +14,7 @@ body {
 
 body {
   margin: 0;
-  font: 2rem "M PLUS Rounded 1c", sans-serif;
+  font: 2rem "Nunito", sans-serif;
   background-color: #141414;
   background-position: 50% 100%;
   background-repeat: no-repeat;
@@ -43,7 +43,7 @@ body {
       z-index: 100;
       background: #000; }
       body #portrait-only h2 {
-        font-family: "M PLUS Rounded 1c", sans-serif;
+        font-family: "Nunito", sans-serif;
         font-size: 2.4rem;
         transform: translateY(-50%);
         top: 50%;
@@ -103,7 +103,8 @@ a {
   padding: 0;
   margin: 0 auto 3.2rem;
   font-size: 3.2rem;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
   text-align: center;
   visibility: visible; }
   @media (min-width: 600px) {
@@ -227,7 +228,7 @@ a {
     top: 0;
     flex-direction: column;
     background-color: #141414; }
-    .nav .nav-items[data-active="true"] {
+    .nav .nav-items[data-active='true'] {
       transform: translateX(1.2rem); }
     @media (min-width: 1024px) {
       .nav .nav-items {
@@ -237,7 +238,7 @@ a {
         min-height: auto;
         flex-direction: row;
         padding: 0 1.6rem; }
-        .nav .nav-items[data-active="true"] {
+        .nav .nav-items[data-active='true'] {
           transform: translateX(0); } }
     .nav .nav-items li {
       text-align: center;
@@ -246,8 +247,9 @@ a {
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 2rem; }
-      .nav .nav-items li[data-active="true"] {
+      font-size: 2rem;
+      font-weight: 700; }
+      .nav .nav-items li[data-active='true'] {
         opacity: 1; }
       .nav .nav-items li:hover {
         opacity: 1; }
@@ -265,14 +267,14 @@ a {
     height: 3px;
     background-color: #fff; }
     .nav .nav-button:before {
-      content: "";
+      content: '';
       width: 100%;
       height: 3px;
       background-color: #fff;
       transform: translateY(-9px);
       display: block; }
     .nav .nav-button:after {
-      content: "";
+      content: '';
       width: 100%;
       height: 3px;
       background-color: #fff;
@@ -296,7 +298,7 @@ a {
   .home .copy-block {
     position: absolute; }
     .home .copy-block h1 {
-      font-family: "M PLUS Rounded 1c", sans-serif;
+      font-family: "Nunito", sans-serif;
       font-size: 4rem;
       margin: 0 auto;
       color: #0080ff;
@@ -315,7 +317,8 @@ a {
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1.5s ease-in-out 1s; }
+      transition: opacity 1.5s ease-in-out 1s;
+      font-weight: 700; }
       .home .copy-block .tagline.show {
         opacity: 1;
         visibility: visible; }
@@ -526,7 +529,8 @@ a {
     height: 100%;
     text-align: center; }
     .skillset .skills-array li {
-      margin: 0 0 1.6rem; }
+      margin: 0 0 1.6rem;
+      font-weight: 700; }
       .skillset .skills-array li:last-child {
         margin-bottom: 0; }
 
@@ -561,8 +565,9 @@ a {
           width: 32%;
           flex-basis: 32%;
           margin: 0 0 3.2rem; } }
-      .projects .projects-list > li:last-child {
-        margin-bottom: 0; }
+      .projects .projects-list > li:first-child .base-item {
+        background-size: 50%;
+        background-position-y: 40%; }
       .projects .projects-list > li h3 {
         margin: 0;
         color: #fff; }
@@ -592,10 +597,10 @@ a {
           z-index: 2;
           background: #0080ff;
           color: #fff;
-          padding: 2.4rem 1.6rem 1.6rem;
+          padding: 1.6rem;
           box-sizing: border-box; }
       .projects .projects-list > li .slide-item {
-        background: rgba(0, 0, 0, 0.8);
+        background: black;
         width: 100%;
         height: 100%;
         display: flex;
@@ -606,10 +611,12 @@ a {
         top: 0;
         left: 0;
         transform: translate3d(-101%, 0, 0);
-        transition: all 0.3s ease-out; }
+        transition: all 0.3s ease-out;
+        font-weight: 700; }
         .projects .projects-list > li .slide-item span {
-          color: #fff; }
-      .projects .projects-list > li .slide-item[data-active="true"] {
+          color: #fff;
+          font-weight: 400; }
+      .projects .projects-list > li .slide-item[data-active='true'] {
         transform: translate3d(0, 0, 0); }
       .projects .projects-list > li .tech {
         margin-bottom: 1.6rem; }
@@ -620,7 +627,8 @@ a {
         padding: 0 1.6rem 1.6rem; }
 
 .contact {
-  height: 100vh; }
+  height: 100vh;
+  font-weight: 700; }
   .contact h2 .logo {
     left: 0; }
   .contact .block {
@@ -699,7 +707,7 @@ a {
           .contact .block .social li a.so-link .so-tooltip h3 {
             color: #fff;
             font-size: 2.4rem;
-            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-family: "Nunito", sans-serif;
             margin: 0 0 0.8rem; }
             @media only screen and (min-width: 0px) and (max-width: 767px) {
               .contact .block .social li a.so-link .so-tooltip h3 {
@@ -734,7 +742,7 @@ a {
             width: 100%;
             max-width: 100%; }
           .contact .block .social li a.so-link .so-tooltip:after {
-            content: "";
+            content: '';
             width: 0;
             height: 0;
             border-left: 8px solid transparent;
@@ -765,7 +773,9 @@ a {
 .testimonials {
   margin: 0;
   padding: 0 0;
-  list-style-type: none; }
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap; }
   .testimonials li {
     padding: 1.6rem 1.6rem 1.6rem 2.4rem;
     box-sizing: border-box;
@@ -786,7 +796,7 @@ a {
     display: inline; }
     .testimonials .testimonial:before {
       content: '"';
-      font-family: "Times New Roman", Times, serif;
+      font-family: 'Times New Roman', Times, serif;
       font-style: italic;
       font-size: 28px;
       color: #0080ff;
@@ -795,7 +805,7 @@ a {
       left: -5px; }
     .testimonials .testimonial:after {
       content: '"';
-      font-family: "Times New Roman", Times, serif;
+      font-family: 'Times New Roman', Times, serif;
       font-style: italic;
       font-size: 28px;
       color: #0080ff; }

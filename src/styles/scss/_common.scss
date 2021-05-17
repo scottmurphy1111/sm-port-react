@@ -34,8 +34,9 @@
   padding: 0;
   margin: 0 auto 3.2rem;
   font-size: 3.2rem;
+  font-weight: 400;
   font-family: $font-primary;
-  text-align: center;   
+  text-align: center;
   visibility: visible;
 
   @include bp('md') {
@@ -52,7 +53,7 @@
 .bg-overlay {
   height: 100vh;
   width: 100%;
-  background-color: rgba(8, 42, 76, 0.10);
+  background-color: rgba(8, 42, 76, 0.1);
   margin: 0 auto;
   position: fixed;
   z-index: 2;
@@ -107,7 +108,6 @@
   transition-delay: 0s;
   transform: translateY(40px);
 }
-
 
 .see-next {
   position: absolute;

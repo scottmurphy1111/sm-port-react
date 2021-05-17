@@ -17,7 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  @include bp("md") {
+  @include bp('md') {
     flex-wrap: nowrap;
     padding: 0;
   }
@@ -38,13 +38,13 @@
       margin-bottom: 0;
       padding-bottom: 0;
 
-      @include bp("md") {
+      @include bp('md') {
         margin-right: 0;
         padding-right: 0;
       }
     }
 
-    @include bp("md") {
+    @include bp('md') {
       width: 25%;
       flex-basis: 25%;
       margin: 0 1.6rem 0rem 0;
@@ -79,6 +79,7 @@
 
     li {
       margin: 0 0 1.6rem;
+      font-weight: 700;
 
       &:last-child {
         margin-bottom: 0;

@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { TestimonialItem } from '../../models/testimonial-item';
 
-
 const Testimonial = ({ copy, reporter }: TestimonialItem) => {
   const divCopy = useRef<any>(null);
   const allCopy = copy;
-  const fragCopy = `${allCopy.split(' ').slice(0, 6).join(' ')}...`;
+  const fragCopy = `${allCopy.split(' ').slice(0, 9).join(' ')}...`;
 
   const [testimonial, setTestimonial] = useState({
     copy: fragCopy,
     linkCopy: 'Read More',
-    isShowing: false
+    isShowing: false,
   });
 
   const toggleTestimonial = () => {
@@ -18,14 +17,25 @@ const Testimonial = ({ copy, reporter }: TestimonialItem) => {
       setTestimonial({ copy: allCopy, linkCopy: 'Read Less', isShowing: true });
       divCopy.current.innerText = allCopy;
     } else {
-      setTestimonial({ copy: fragCopy, linkCopy: 'Read More', isShowing: false });
+      setTestimonial({
+        copy: fragCopy,
+        linkCopy: 'Read More',
+        isShowing: false,
+      });
       divCopy.current.innerText = fragCopy;
     }
   };
 
   return (
     <li className="fade-item">
-      <p ref={divCopy} className="testimonial">{testimonial.copy}</p><span className="read-more" onClick={() => toggleTestimonial()}>{testimonial.linkCopy}</span>
+      <p
+        ref={divCopy}
+        className="testimonial"
+        dangerouslySetInnerHTML={{ __html: testimonial.copy }}
+      />
+      <span className="read-more" onClick={() => toggleTestimonial()}>
+        {testimonial.linkCopy}
+      </span>
       <span className="reporter">{reporter}</span>
     </li>
   );

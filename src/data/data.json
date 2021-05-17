@@ -10,28 +10,28 @@
       "title": "Projects",
       "projectsView": [
         {
+          "projectName": "Portfolio",
+          "link": "https://scottmurphy1111.github.io/sm-port-react/",
+          "tech": "React",
+          "capabilities": "React Hooks, Context Api, Custom Design",
+          "image": "/assets/images/gear-sm.svg",
+          "description": "Front End & User Interface Engineer Custom Built Portfolio"
+        },
+        {
           "projectName": "PGA Tour Info",
           "link": "https://pga-tour-info.netlify.app/",
           "tech": "Angular",
-          "capabilities": "Sports API, Search, Page Limit, Pagination, Jest Unit Testing",
+          "capabilities": "Sports API, RxJS, Search, Page Limit, Pagination, Jest Unit Testing",
           "image": "/assets/images/portfolio/pga-seal.png",
           "description": "API-driven web app designed to lookup PGA Tournaments and Player's Info"
         },
         {
           "projectName": "Weather App",
           "link": "https://weather-app-sm-react.netlify.app/",
-          "tech": "ReactJS",
+          "tech": "React",
           "capabilities": "Hooks, Weather API, Image Preloading, RxJS, Form Validation",
           "image": "/assets/images/portfolio/thunderstorm.jpg",
           "description": "Enter your Zip Code to easily query the current weather in your area"
-        },
-        {
-          "projectName": "Golf Course Starter",
-          "link": "https://scottmurphy1111.github.io/golf-course-starter",
-          "tech": "ReactJS",
-          "capabilities": "Routing, Custom Design",
-          "image": "/assets/images/portfolio/golf-course-bg.jpg",
-          "description": "Web demo for golf course businesses needing a website"
         },
         {
           "projectName": "Coming Soon",
@@ -48,15 +48,25 @@
       "skillset": [
         {
           "image": "/assets/images/portfolio/developer-100.png",
-          "skillsArray": ["ReactJS/Redux", "Angular", "RxJS", "Typescript"]
+          "skillsArray": ["React/Redux", "Angular", "RxJS", "Typescript"]
         },
         {
           "image": "/assets/images/portfolio/laptop-100.png",
-          "skillsArray": ["Mac", "Visual Studio Code", "Content Systems", "Design Tools"]
+          "skillsArray": [
+            "Mac",
+            "Visual Studio Code",
+            "Content Systems",
+            "Design Tools"
+          ]
         },
         {
           "image": "/assets/images/portfolio/merge-git-100.png",
-          "skillsArray": ["Version Control", "Testing", "Mentorship", "Code Reviews"]
+          "skillsArray": [
+            "Version Control",
+            "Testing",
+            "Mentorship",
+            "Code Reviews"
+          ]
         },
         {
           "image": "/assets/images/portfolio/web-100.png",
@@ -68,11 +78,15 @@
       "title": "Testimonials",
       "testimonialsArray": [
         {
-          "copy": "Scott is a workhorse... he loves taking on new challenges and pours himself into his work. In my 15+ years of web development I have found few other peers who are so hard-working and determined to deliver quality results ahead of schedule. Scott is a constant learner... whether it’s at work or on a weekend, he displays a great curiosity about new tools and technologies and loves to work toward mastering them. He is what I would consider a “unicorn” in that he not only is able to grasp more complex technical concepts, but he cares deeply about the aesthetic and UX side of web development, and his commitment to pixel-perfect work makes him extremely popular among his design partners.",
+          "copy": "Scott is a workhorse... he loves taking on new challenges and pours himself into his work. In my 15+ years of web development I have found few other peers who are so <strong>hard-working and determined</strong> to deliver quality results ahead of schedule.<br /><br />Scott is a constant learner... whether it’s at work or on a weekend, he displays a great curiosity about new tools and technologies and loves to work toward mastering them. He is what I would consider a “unicorn” in that he not only is able to grasp more complex technical concepts, but <strong>he cares deeply about the aesthetic</strong> and UX side of web development, and his commitment to pixel-perfect work makes him extremely popular among his design partners.",
           "reporter": "Luke Simpson - Tech Lead / Manager"
         },
         {
-          "copy": "Scott Murphy is an honest and fair engineer. He brings ingenuity and efficiency into every project he’s a part of - whether a single page app or a large enterprise project. He’ll get it done accurately under tight deadlines while presenting potential risks to business stakeholders and correcting any hurdle that may present itself.",
+          "copy": "Scott is by far one of the best engineers I have ever had the opportunity to work with at Capital One. I have had the pleasure of working with Scott from day one of my time at Capital One. He's the ideal teammate. He’s a team player and puts in the work and then some. He’s very easy to talk to and very understanding. Everyone loves working with him, including myself.<br /><br />He’s been my go-to guy for when I needed help on a specific task and he’s always willing to help. His technical ability and <strong>his knack for solving complex problems never ceases to amaze me</strong>. He’s the ideal tech lead. He’s always open to help out when you need him, he drops everything he’s working on to help you solve your problem, and he’s a <strong>fantastic teacher</strong>. He’s been a great mentor through it all and I continue to learn from him day in and day out. I can’t wait to see what is in store for him in the future because he’s capable of anything he puts his mind to.",
+          "reporter": "Jary Moth - Software Engineer"
+        },
+        {
+          "copy": "Scott Murphy is an honest and fair engineer. He brings ingenuity and efficiency into every project he’s a part of - whether a single page app or a large enterprise project. He’ll get it done <strong>accurately under tight deadlines</strong> while presenting potential risks to business stakeholders and correcting any hurdle that may present itself.",
           "reporter": "Joel Shaw - Senior Software Engineer"
         },
         {
@@ -80,11 +94,11 @@
           "reporter": "Geoff Laux - Product Owner"
         },
         {
-          "copy": "Scott was easy to work with, very open to trying alternate ideas and developing creative code options for, sometimes challenging, UI intent.  His collaboration was very much appreciated.",
+          "copy": "Scott was easy to work with, very open to trying alternate ideas and developing <strong>creative code options</strong> for, sometimes <strong>challenging, UI</strong> intent.  His collaboration was very much appreciated.",
           "reporter": "Lance Rogers - Creative Manager"
         },
         {
-          "copy": "Scott not only creates phenomenal websites / prototypes from a coding perspective, but he also has a very keen visual design eye.",
+          "copy": "Scott not only creates phenomenal websites / prototypes from a coding perspective, but he also has a <strong>very keen visual design eye</strong>.",
           "reporter": "John Jones - Designer"
         }
       ]
@@ -125,7 +139,7 @@
         {
           "heading": "Favorite Tools",
           "icon": "/assets/images/portfolio/langs.svg",
-          "description": "ReactJs and Angular"
+          "description": "React, VS Code"
         },
         {
           "heading": "Hobbies",
