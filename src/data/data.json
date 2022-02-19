@@ -13,7 +13,7 @@
           "projectName": "Portfolio",
           "link": "https://scottmurphy1111.github.io/sm-port-react/",
           "tech": "React",
-          "capabilities": "React Hooks, Context Api, Custom Design",
+          "capabilities": "React Hooks, Context Api, Styled Components, Custom Design",
           "image": "/assets/images/gear-sm.svg",
           "description": "Front End & User Interface Engineer Custom Built Portfolio"
         },
@@ -47,30 +47,40 @@
       "title": "Skills & Tools",
       "skillset": [
         {
-          "image": "/assets/images/portfolio/developer-100.png",
-          "skillsArray": ["React/Redux", "Angular", "RxJS", "Typescript"]
-        },
-        {
           "image": "/assets/images/portfolio/laptop-100.png",
           "skillsArray": [
-            "Mac",
-            "Visual Studio Code",
-            "Content Systems",
-            "Design Tools"
+            "React / TypeScript",
+            "Styled Components",
+            "State Management",
+            "Optimization"
+          ]
+        },
+        {
+          "image": "/assets/images/portfolio/web-100.png",
+          "skillsArray": [
+            "UX",
+            "HTML, CSS, JS",
+            "UI Libraries",
+            "Testing"
+          ]
+        },
+        {
+          "image": "/assets/images/portfolio/developer-100.png",
+          "skillsArray": [
+            "Leadership",
+            "Mentorship",
+            "Learning",
+            "Collaboration"
           ]
         },
         {
           "image": "/assets/images/portfolio/merge-git-100.png",
           "skillsArray": [
-            "Version Control",
-            "Testing",
-            "Mentorship",
-            "Code Reviews"
+            "Git",
+            "VS Code",
+            "Content Systems",
+            "Design Tools"
           ]
-        },
-        {
-          "image": "/assets/images/portfolio/web-100.png",
-          "skillsArray": ["UI/UX", "HTML", "CSS/SASS", "Javascript"]
         }
       ]
     },
@@ -155,7 +165,8 @@
       "contactContent": {
         "specialNote": [
           "THANK YOU FOR VISITING MY SITE!",
-          "TO PUT IT SIMPLY, I LOVE TO CODE. WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.",
+          "TO PUT IT SIMPLY, I LOVE TO CODE.",
+          "WHETHER I'M DOING FREELANCE WORK OR EMBEDDED INTO A PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.",
           "PLEASE CLICK BELOW",
           "TO SEND ME A NOTE OR DROP ME A LINE.",
           "I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER IN THE FUTURE."

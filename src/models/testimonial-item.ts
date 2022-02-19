@@ -1,4 +1,4 @@
 export interface TestimonialItem {
-  copy: string;
-  reporter: string;
+  copy: string
+  reporter: string
 }

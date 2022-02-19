@@ -1,8 +1,8 @@
-.home {
-  // padding-top: 0;
-  min-height: 100vh;
-  justify-content: center;
+import styled from 'styled-components'
+import {Colors} from 'styles/Colors.style'
+import media from 'styles/MediaQueries.style'
 
+export const HomeStyled = styled.div`
   .panel-static {
     text-align: center;
   }
@@ -13,24 +13,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    @include mobile {
-    }
   }
 
   .copy-block {
     position: absolute;
 
     h1 {
-      font-family: $font-primary;
-      font-size: 4rem;
+      font-size: 4.8rem;
       margin: 0 auto;
-      color: $primaryBlue;
+      color: ${Colors.primaryBlue};
       width: 100%;
 
-      @include bp('md') {
-        font-size: 4.8rem;
-      }
+      ${media.md`
+        font-size: 4rem;
+      `}
 
       .name {
         opacity: 0;
@@ -58,24 +54,6 @@
     }
   }
 
-  .title {
-    margin: 0;
-    opacity: 0;
-    visibility: hidden;
-    right: -30px;
-    top: 0px;
-    position: relative;
-    color: $primaryBlue;
-
-    &.show {
-      opacity: 1;
-      visibility: visible;
-      right: 0px;
-    }
-  }
-
-  
-
   .see-next {
     transform: translateY(100px);
     transition: all 0.5s ease-out 0.5s;
@@ -84,4 +62,4 @@
       transform: translateY(0px);
     }
   }
-}
+`

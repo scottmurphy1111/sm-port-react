@@ -1,8 +1,10 @@
-import React, { createContext, useEffect } from 'react';
-import data from './data/data.json';
-import Nav from './components/portfolio/Nav';
-import Portfolio from './components/Portfolio';
-import BgImage from './components/portfolio/BgImage';
+import {GlobalStyles} from 'Global.style'
+import React, {createContext, useEffect} from 'react'
+
+import Portfolio from './components/Portfolio/Portfolio'
+import BgImage from './components/shared/BgImage'
+import Nav from './components/shared/Nav/Nav'
+import data from './data/data.json'
 
 export const appData = {
   home: data.panels.home,
@@ -10,32 +12,31 @@ export const appData = {
   projects: data.panels.projects,
   about: data.panels.about,
   testimonials: data.panels.testimonials,
-  contact: data.panels.contact
-};
+  contact: data.panels.contact,
+}
 
-export const AppContext = createContext(appData);
+export const AppContext = createContext(appData)
 
 const App = () => {
   const resetPage = () => {
     window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-  };
+      window.scrollTo(0, 0)
+    }
+  }
 
   useEffect(() => {
-    resetPage();
-    // eslint-disable-next-line no-console
-    console.log(`
-    WELCOME TO MY SITE, PLEASE MAKE YOURSELF AT HOME!`);
-  }, []);
+    resetPage()
+    console.log('WELCOME TO MY SITE, PLEASE MAKE YOURSELF AT HOME!')
+  }, [])
 
   return (
     <AppContext.Provider value={appData}>
+      <GlobalStyles />
       <Nav />
       <Portfolio />
       <BgImage />
     </AppContext.Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

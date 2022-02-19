@@ -8,7 +8,6 @@
 
 // import { Provider } from 'react-redux';
 
-
 // configure({adapter: new Adapter()});
 
 // describe('App', () => {
