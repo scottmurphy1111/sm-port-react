@@ -9,7 +9,7 @@ interface SocialsProps {
   data: Social[]
 }
 
-const Socials = ({data}: SocialsProps) => {
+const Socials = React.memo(({data}: SocialsProps) => {
   const [openTooltip, setOpenTooltip] = useState(false)
   const [stackOverflowData, setStackOverflowData] = useState({
     reputation: 0,
@@ -44,7 +44,7 @@ const Socials = ({data}: SocialsProps) => {
 
   return (
     <ul>
-      {data.map((social: Social, index: number) => (
+      {data?.map((social: Social, index: number) => (
         <li key={index}>
           <a
             title={social.title}
@@ -71,6 +71,6 @@ const Socials = ({data}: SocialsProps) => {
       ))}
     </ul>
   )
-}
+})
 
 export default Socials

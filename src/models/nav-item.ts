@@ -1,4 +1,3 @@
-export interface NavItem {
+export interface NavItemType {
   value: string
-  active: boolean
 }

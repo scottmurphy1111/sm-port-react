@@ -1,8 +1,8 @@
-import {AppContext} from 'App'
+import {useAppContext} from 'common/context/useAppContext'
 import {getPanelOffset} from 'components/shared/getPanelOffset'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {TestimonialItem} from 'models/testimonial-item'
-import React, {useContext, useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -14,8 +14,17 @@ interface SectionProps {
 }
 
 const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
-  const {testimonials} = useContext(AppContext)
-  const {title, testimonialsArray} = testimonials
+  const {state, dispatch} = useAppContext()
+  const {title, testimonialsItems} = state.testimonials
+
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (state.testimonials && sectionRef) {
+      // console.log(sectionRef)
+      dispatch({type: 'SET_SECTION_REF', payload: sectionRef})
+    }
+  }, [state.testimonials, sectionRef])
 
   useEffect(() => {
     setTestimonialsOffset(getPanelOffset('.testimonials-section'))
@@ -26,6 +35,7 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
       light
       data-section="testimonials"
       className="testimonials-section"
+      ref={sectionRef}
     >
       <TestimonialsStyled>
         <Grid>
@@ -33,7 +43,7 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
             <Col xs={12}>
               <h2 className="category-title">{title}</h2>
               <ul className="testimonials">
-                {testimonialsArray.map(
+                {testimonialsItems?.map(
                   (testimonial: TestimonialItem, id: number) => (
                     <Testimonial key={id + 1} {...testimonial} />
                   )

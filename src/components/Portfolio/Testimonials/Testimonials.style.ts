@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styles/Colors.style'
-import media from 'styles/MediaQueries.style'
+import {Colors} from 'styled-components/helpers/Colors.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 export const TestimonialsStyled = styled.div`
   .testimonials {
@@ -12,14 +12,13 @@ export const TestimonialsStyled = styled.div`
     font-weight: 400;
 
     li {
-      padding: 3.2rem 3.2rem 3.2rem 4.8rem;
+      padding: 3.2rem 0;
       box-sizing: border-box;
-      border: 2px solid #0080ff;
       border-radius: 4px;
       margin-bottom: 4.8rem;
 
       ${media.md`
-        padding: 1.6rem 1.6rem 1.6rem 2.4rem;
+        padding: 1.6rem 0;
       `}
 
       &:last-child {
@@ -48,20 +47,22 @@ export const TestimonialsStyled = styled.div`
         left: -5px;
       }
 
-      &:after {
-        content: '"';
-        font-family: 'Times New Roman', Times, serif;
-        font-style: italic;
-        font-size: 28px;
-        color: ${Colors.primaryBlue};
+      &.showing {
+        &:after {
+          content: '"';
+          font-family: 'Times New Roman', Times, serif;
+          font-style: italic;
+          font-size: 28px;
+          color: ${Colors.primaryBlue};
+        }
       }
     }
 
     .reporter {
       display: block;
       color: ${Colors.primaryBlue};
-      margin-top: 0.4rem;
-      font-style: normal;
+      margin-top: 10px;
+      font-style: italic;
     }
 
     .read-more {
@@ -69,7 +70,7 @@ export const TestimonialsStyled = styled.div`
       color: ${Colors.primaryBlue};
       text-transform: lowercase;
       display: inline;
-      margin-left: 0.8rem;
+      margin-left: 8px;
     }
   }
 `

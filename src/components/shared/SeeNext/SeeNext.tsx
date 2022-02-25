@@ -9,7 +9,6 @@ interface SeeNextProps {
 }
 
 const SeeNext = ({section, show, light}: SeeNextProps) => {
-  console.log(`show =  ${show}`)
   const [nextSection, setNextSection] = useState(section)
 
   useEffect(() => {

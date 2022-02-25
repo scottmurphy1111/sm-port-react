@@ -1,5 +1,5 @@
 import styled, {keyframes} from 'styled-components'
-import media from 'styles/MediaQueries.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 const spin = keyframes`
   0% {

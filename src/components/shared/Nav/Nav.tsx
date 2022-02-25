@@ -1,37 +1,49 @@
+import {AppContext} from 'common/context/AppContext'
+import {useAppContext} from 'common/context/useAppContext'
 import useMediaMatcher from 'hooks/useMediaMatcher'
-import {NavItem} from 'models/nav-item'
-import React, {useEffect, useRef, useState} from 'react'
+import {NavItemType} from 'models/nav-item'
+import {type} from 'os'
+import React, {
+  MouseEvent,
+  RefObject,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 
 import Logo from './Logo'
 import {NavStyled} from './Nav.style'
+import NavItem from './NavItem'
 
-const navItems: NavItem[] = [
-  {
-    value: 'home',
-    active: true,
-  },
-  {
-    value: 'skills',
-    active: false,
-  },
-  {
-    value: 'projects',
-    active: false,
-  },
-  {
-    value: 'about',
-    active: false,
-  },
-  {
-    value: 'testimonials',
-    active: false,
-  },
-  {
-    value: 'contact',
-    active: false,
-  },
-]
+// const navItems: NavItem[] = [
+//   {
+//     value: 'home',
+//     active: true,
+//   },
+//   {
+//     value: 'skills',
+//     active: false,
+//   },
+//   {
+//     value: 'projects',
+//     active: false,
+//   },
+//   {
+//     value: 'about',
+//     active: false,
+//   },
+//   {
+//     value: 'testimonials',
+//     active: false,
+//   },
+//   {
+//     value: 'contact',
+//     active: false,
+//   },
+// ]
 
 const documentClick = (
   navList: any,
@@ -54,23 +66,32 @@ const Nav = () => {
   const navItemsList = useRef<HTMLUListElement>(null)
   const navButtonWrapper = useRef<HTMLDivElement>(null)
 
+  const {state, dispatch} = useAppContext()
+  const {navItems} = state.nav
+
   useEffect(() => {
     setTimeout(() => {
       setShow(true)
     }, 3400)
   })
 
-  const handleClick = (e: any) => {
-    const selectedNav = e.target.dataset.nav
-    const section: HTMLElement | null = document.querySelector(
-      `[data-section=${selectedNav}`
-    )
-
-    if (section) {
-      section.scrollIntoView({behavior: 'smooth'})
-      setShowMobileMenu(false)
-    }
+  const handleHomeClick = () => {
+    dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
   }
+
+  useEffect(() => {
+    const scrollToSection = () => {
+      const {sectionRefs} = state
+      sectionRefs.map((sectionRef: RefObject<HTMLDivElement>) => {
+        if (sectionRef.current?.dataset.section === state.activeNav.value) {
+          sectionRef.current.scrollIntoView({behavior: 'smooth'})
+          setShowMobileMenu(false)
+        }
+      })
+    }
+
+    scrollToSection()
+  }, [state.activeNav])
 
   const handleNavButtonClick = () => {
     setShowMobileMenu(true)
@@ -89,7 +110,7 @@ const Nav = () => {
       <Grid>
         <Row>
           <Col xs={4} md={3}>
-            <span className="logo" data-nav="home" onClick={handleClick}>
+            <span className="logo" data-nav="home" onClick={handleHomeClick}>
               <Logo />
             </span>
           </Col>
@@ -106,13 +127,9 @@ const Nav = () => {
               className="nav-items"
               data-active={showMobileMenu}
             >
-              {navItems.map((item: NavItem, index: number) => {
+              {navItems?.map((item: NavItemType, index: number) => {
                 if (index !== 0) {
-                  return (
-                    <li key={index} data-nav={item.value} onClick={handleClick}>
-                      {item.value}
-                    </li>
-                  )
+                  return <NavItem key={`nav-key${index}`} item={item} />
                 } else {
                   return null
                 }

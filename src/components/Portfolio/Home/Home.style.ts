@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styles/Colors.style'
-import media from 'styles/MediaQueries.style'
+import {Colors} from 'styled-components/helpers/Colors.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 export const HomeStyled = styled.div`
   .panel-static {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styles/Colors.style'
-import media from 'styles/MediaQueries.style'
+import {Colors} from 'styled-components/helpers/Colors.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 export const SkillsStyled = styled.div`
   .skills {
@@ -8,38 +8,38 @@ export const SkillsStyled = styled.div`
       color: #fff;
     }
 
-    .see-next {
+    /* .see-next {
       bottom: 66px;
-    }
+    } */
   }
 
-  .skillset {
+  .skillset-wrapper {
     display: flex;
     margin: 0;
     padding: 0;
     width: 100%;
     list-style-type: none;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
 
     ${media.md`
       flex-wrap: wrap;
       padding: 0 0 4.8rem;
     `}
 
-    > li {
-      padding: 0 1.6rem 0 0;
+    .skillset-item {
+      padding: 0;
       color: #fff;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      width: 25%;
-      flex-basis: 25%;
-      margin: 0 1.6rem 0rem 0;
+      width: 21%;
+      flex-basis: 21%;
+      /* margin: 0 1.6rem 0rem 0; */
       align-items: flex-start;
       justify-content: stretch;
 
-      &:last-child {
+      /* &:last-child {
         margin-right: 0;
         padding-right: 0;
 
@@ -47,7 +47,7 @@ export const SkillsStyled = styled.div`
         margin-bottom: 0;
         padding-bottom: 0;
         `}
-      }
+      } */
 
       ${media.md`
         width: 100%;
@@ -55,6 +55,14 @@ export const SkillsStyled = styled.div`
         margin: 0 0 4.8rem;
         padding: 0;
       `}
+    }
+
+    .image-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: center;
     }
 
     .image-container {
@@ -72,15 +80,26 @@ export const SkillsStyled = styled.div`
     }
 
     .skills-array {
-      margin: 0 1.6rem;
+      margin: 0;
       padding: 3.2rem 0rem 0;
       list-style: none;
       color: #fff;
-      border-top: 2px solid ${Colors.primaryBlue};
-      width: calc(100% - 3.2rem);
+      /* border-top: 4px solid ${Colors.primaryBlue}; */
+      width: 100%;
       box-sizing: border-box;
       height: 100%;
       text-align: center;
+
+      &:before {
+        content: '';
+        width: 50%;
+        height: 4px;
+        background-color: ${Colors.primaryBlue};
+        display: block;
+        margin: 0 auto;
+        top: -32px;
+        position: relative;
+      }
 
       li {
         margin: 0 0 1.6rem;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from 'styles/Colors.style'
+import {Colors} from 'styled-components/helpers/Colors.style'
 
 import lightBgImage from '../assets/images/bg-pattern-light.png'
 

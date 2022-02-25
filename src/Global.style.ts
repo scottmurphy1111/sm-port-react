@@ -1,8 +1,8 @@
 import {createGlobalStyle} from 'styled-components'
-import media from 'styles/MediaQueries.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 import digiBg from './assets/images/digi-bg1.png'
-import {Colors} from './styles/Colors.style'
+import {Colors} from './styled-components/helpers/Colors.style'
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -72,7 +72,7 @@ export const GlobalStyles = createGlobalStyle`
   .category-title {
     color: #fff;
     padding: 0;
-    margin: 0 auto 3.2rem;
+    margin: 0 0 3.2rem;
     font-size: 3.2rem;
     font-weight: 400;
     text-align: left;

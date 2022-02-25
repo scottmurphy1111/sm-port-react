@@ -1,8 +1,10 @@
-import React, {useContext, useEffect} from 'react'
+import {AppContext} from 'common/context/AppContext'
+import {useAppContext} from 'common/context/useAppContext'
+import useMediaMatcher from 'hooks/useMediaMatcher'
+import React, {useContext, useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
-import {AppContext} from '../../../App'
 import {getPanelOffset} from '../../shared/getPanelOffset'
 import {ContactStyled} from './Contact.style'
 import Socials from './Socials/Socials'
@@ -12,8 +14,16 @@ interface SectionProps {
 }
 
 const Contact = ({setContactOffset}: SectionProps) => {
-  const {contact} = useContext(AppContext)
-  const {title, contactTitle, socials} = contact
+  const {state, dispatch} = useAppContext()
+  const {title, socials} = state.contact
+
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (state.contact && sectionRef) {
+      dispatch({type: 'SET_SECTION_REF', payload: sectionRef})
+    }
+  }, [state.contact, sectionRef])
 
   const loadContact = () => {
     const phone = '804.836.2326'
@@ -39,7 +49,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
   }, [setContactOffset])
 
   return (
-    <SectionPanel data-section="contact" className="contact">
+    <SectionPanel data-section="contact" className="contact" ref={sectionRef}>
       <ContactStyled>
         <Grid>
           <Row>
@@ -61,6 +71,15 @@ const Contact = ({setContactOffset}: SectionProps) => {
                   THE FUTURE.
                 </p>
               </div>
+              <div
+                className="fade-item"
+                style={{
+                  width: '7.5%',
+                  height: '4px',
+                  margin: '0 0 32px',
+                  background: '#fff',
+                }}
+              ></div>
               <div className="block fade-item">
                 <div className="contact-info">
                   <ul>

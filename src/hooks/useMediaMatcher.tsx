@@ -14,7 +14,7 @@ import {ScreenSizes} from '../common/enum'
  *  {useMediaMatcher('md') && <div>Shows on mobile only</div>}
  */
 
-export default function useMediaMatcher(size: keyof typeof ScreenSizes = 'md') {
+const useMediaMatcher = (size: keyof typeof ScreenSizes = 'md'): boolean => {
   const media = ScreenSizes[size]
   const [match, setMatch] = useState(false)
 
@@ -41,3 +41,5 @@ export default function useMediaMatcher(size: keyof typeof ScreenSizes = 'md') {
 
   return match
 }
+
+export default useMediaMatcher

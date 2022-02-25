@@ -1,23 +1,37 @@
+import {AppContextProvider} from 'common/context/AppContext'
+import {useAppContext} from 'common/context/useAppContext'
 import {GlobalStyles} from 'Global.style'
-import React, {createContext, useEffect} from 'react'
+import React, {useEffect} from 'react'
 
 import Portfolio from './components/Portfolio/Portfolio'
 import BgImage from './components/shared/BgImage'
 import Nav from './components/shared/Nav/Nav'
 import data from './data/data.json'
 
-export const appData = {
-  home: data.panels.home,
-  skills: data.panels.skills,
-  projects: data.panels.projects,
-  about: data.panels.about,
-  testimonials: data.panels.testimonials,
-  contact: data.panels.contact,
-}
+// export const appData = {
+//   home: data.home,
+//   skills: data.skills,
+//   projects: data.projects,
+//   about: data.about,
+//   testimonials: data.testimonials,
+//   contact: data.contact,
+// }
 
-export const AppContext = createContext(appData)
+// export const AppContext = createContext(appData)
 
 const App = () => {
+  const {state, dispatch} = useAppContext()
+  const fetchAppData = () => Promise.resolve(data)
+
+  useEffect(() => {
+    fetchAppData().then(payload => {
+      dispatch({
+        type: 'GET_DATA',
+        payload: payload,
+      })
+    })
+  }, [])
+
   const resetPage = () => {
     window.onbeforeunload = function () {
       window.scrollTo(0, 0)
@@ -30,12 +44,12 @@ const App = () => {
   }, [])
 
   return (
-    <AppContext.Provider value={appData}>
+    <>
       <GlobalStyles />
       <Nav />
       <Portfolio />
       <BgImage />
-    </AppContext.Provider>
+    </>
   )
 }
 

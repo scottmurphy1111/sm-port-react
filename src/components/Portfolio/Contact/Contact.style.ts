@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styles/Colors.style'
-import media from 'styles/MediaQueries.style'
+import {Colors} from 'styled-components/helpers/Colors.style'
+import media from 'styled-components/helpers/MediaQueries.style'
 
 export const ContactStyled = styled.div`
   .block {
@@ -81,7 +81,7 @@ export const ContactStyled = styled.div`
   .special-note {
     display: flex;
     flex-direction: column;
-    margin-bottom: 4.8rem;
+    margin-bottom: 32px;
 
     p {
       display: inline-block;

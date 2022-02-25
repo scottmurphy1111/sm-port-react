@@ -1,10 +1,17 @@
+import {AppContext} from 'common/context/AppContext'
+import {useAppContext} from 'common/context/useAppContext'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import useMediaMatcher from 'hooks/useMediaMatcher'
-import React, {useCallback, useContext, useEffect, useState} from 'react'
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import {Col, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
-import {AppContext} from '../../../App'
 import {getPanelOffset} from '../../shared/getPanelOffset'
 import Gear from './Gear/Gear'
 import {HomeStyled} from './Home.style'
@@ -14,10 +21,18 @@ interface SectionProps {
 }
 
 const Home = ({setHomeOffset}: SectionProps) => {
-  const {home} = useContext(AppContext)
-  const {name, subHeadingA, subHeadingB} = home
+  const {state, dispatch} = useAppContext()
+  const {name, subHeadingA, subHeadingB} = state.home
   const [show, setShow] = useState(false)
   const [scrollable, setScrollable] = useState(false)
+
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    if (state.home && sectionRef) {
+      dispatch({type: 'SET_SECTION_REF', payload: sectionRef})
+    }
+  }, [state.home, sectionRef])
 
   const disableScroll = useCallback(() => {
     const body = document.body
@@ -37,7 +52,12 @@ const Home = ({setHomeOffset}: SectionProps) => {
   }, [scrollable, setHomeOffset, disableScroll])
 
   return (
-    <SectionPanel data-section="home" section="home" className="home">
+    <SectionPanel
+      data-section="home"
+      section="home"
+      className="home"
+      ref={sectionRef}
+    >
       <HomeStyled>
         <Row>
           <Col xs={12}>
