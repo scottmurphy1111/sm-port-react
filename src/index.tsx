@@ -6,9 +6,11 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
-  <AppContextProvider>
-    <App />
-  </AppContextProvider>,
+  <React.StrictMode>
+    <AppContextProvider>
+      <App />
+    </AppContextProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 )
 

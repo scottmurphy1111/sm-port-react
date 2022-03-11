@@ -1,4 +1,4 @@
-import {AppContextProvider} from 'common/context/AppContext'
+// import {AppContextProvider} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
 import {GlobalStyles} from 'Global.style'
 import React, {useEffect} from 'react'
@@ -16,6 +16,7 @@ import data from './data/data.json'
 //   testimonials: data.testimonials,
 //   contact: data.contact,
 // }
+console.log('text =')
 
 // export const AppContext = createContext(appData)
 

@@ -1,47 +1,35 @@
-import {RefObject, useEffect, useState} from 'react'
+import {RefObject} from 'react'
 
 export const handleFadeIn = (elRef: RefObject<HTMLElement>) => {
-  // const [visible, setVisible] = useState(false)
+  interface FadeStyles {
+    opacity: number
+    transform: string
+  }
 
-  const animateStyles = {
+  const animateStyles: FadeStyles = {
     opacity: 1,
     transform: 'translateY(0px)',
   }
 
-  // useEffect(() => {
-  console.log('running obs')
   const itemEl: HTMLElement | null = elRef?.current
   let visible = false
 
-  console.log('itemel', itemEl)
-  function addStyles(target: any, styles: any) {
+  function addStyles(
+    target: any,
+    styles: {opacity: number; transform: string}
+  ) {
     Object.entries(styles).map(([key, value]) => {
       target.style[key] = value
     })
   }
 
-  // function loopChilds(target: any) {
-  //   for (let i = 0; i < target.childNodes.length; i++) {
-  //     const child = target.childNodes[i]
-  //     if (!visible && child instanceof HTMLElement) {
-  //       console.log(child)
-  //       loopChilds(child)
-  //       addStyles(child, animateStyles)
-  //     }
-  //   }
-  // }
-
   const observer = new IntersectionObserver(
     ([e]) => {
       // console.log(e)
-      // console.log(`visible = ${visible}`)
-      // console.log(`e.intersectionRatio =  ${e.intersectionRatio}`)
       if (!visible && (e as IntersectionObserverEntry).isIntersecting) {
-        console.log('is visible')
-        // loopChilds(e.target)
-        // setVisible(true)
         visible = true
-        addStyles(e.target, animateStyles)
+        // console.log(e.target)
+        addStyles(e.target as HTMLElement, animateStyles)
       }
     },
     {rootMargin: '0px'}
@@ -52,11 +40,4 @@ export const handleFadeIn = (elRef: RefObject<HTMLElement>) => {
   }
 
   return {visible}
-
-  // return () => {
-  //   if (itemEl) {
-  //     observer.unobserve(itemEl)
-  //   }
-  // }
-  // }, [elRef])
 }

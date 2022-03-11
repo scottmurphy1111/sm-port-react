@@ -30,6 +30,7 @@ export interface AppState {
   contact: ContactData
   activeNav: NavItemType
   sectionRefs: any
+  introAnimDone: boolean
 }
 
 export const initialState: AppState = {
@@ -42,6 +43,7 @@ export const initialState: AppState = {
   contact: {},
   activeNav: {value: 'home'},
   sectionRefs: [],
+  introAnimDone: false,
 } as AppState
 
 export const AppContext = createContext<{

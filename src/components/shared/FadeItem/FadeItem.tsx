@@ -1,41 +1,15 @@
-import React, {
-  cloneElement,
-  ReactElement,
-  ReactNode,
-  RefObject,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
-import {transform} from 'typescript'
-
-import {FadeItemStyled} from './FadeItem.style'
+import React, {cloneElement, ReactElement, useCallback} from 'react'
 
 interface FadeItemProps {
-  children: any
+  children: ReactElement[]
 }
 
 const FadeItem = ({children}: FadeItemProps) => {
-  // const [visible, setVisible] = useState(false)
-  const childrenRef = useRef<RefObject<any>>()
-
-  const initStyles = {
-    opacity: 0,
-    transform: 'translateY(-40px)',
-  }
-
-  const animateStyles = {
-    opacity: 1,
-    transform: 'translateY(0px)',
-  }
-
   const recursiveMap = useCallback(
     (
       children: ReactElement[],
       fn: (child: ReactElement, index: number) => ReactElement
     ): ReactElement[] => {
-      // console.log(children)
       return React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) {
           return child
@@ -55,7 +29,7 @@ const FadeItem = ({children}: FadeItemProps) => {
   )
 
   const cloneChild = (child: ReactElement, index: number) => {
-    console.log(child)
+    // console.log(child)
     return cloneElement(
       child,
       {
@@ -69,39 +43,7 @@ const FadeItem = ({children}: FadeItemProps) => {
     )
   }
 
-  // const renderChildren = (children: any, callback: any) => {
-  //   return React.Children.map(children, (child, index) => {
-  //     console.log(child)
-  //     child.props.children
-  //       ? [
-  //           callback(child, index),
-  //           renderChildren(child.props.children, callback),
-  //         ]
-  //       : callback(child, index)
-  //   })
-  // }
-
-  // function renderChildren(children: any) {
-  //   return React.Children.map(children, (child, index) => {
-  //     console.log(child)
-  //     console.log(`index =  ${index}`)
-  //     return cloneElement(child, {
-  //       style: {
-  //         opacity: '0',
-  //         transform: 'translateY(40px)',
-  //         transitionDelay: `${index * 0.25}s`,
-  //         transition: 'all 0.5s ease-out',
-  //       },
-  //     })
-  //   })
-  // }
-
-  return (
-    // <div ref={itemRef}>
-    /* <div ref={itemRef}>{renderChildren(children, cloneChild)}</div> */
-    <>{recursiveMap(children, cloneChild)}</>
-    // </div>
-  )
+  return <>{recursiveMap(children, cloneChild)}</>
 }
 
 export default FadeItem

@@ -14,6 +14,11 @@ const reducer: ReducerType = (
         ...state,
         ...action.payload,
       }
+    case 'INTRO_ANIMATION_DONE':
+      return {
+        ...state,
+        introAnimDone: true,
+      }
     case 'SET_ACTIVE_NAV':
       return {
         ...state,

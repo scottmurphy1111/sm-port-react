@@ -1,9 +1,75 @@
-import React, {useEffect, useState} from 'react'
+import {useAppContext} from 'common/context/useAppContext'
+import React, {useEffect, useRef, useState} from 'react'
 
 import {GearStyled} from './Gear.style'
 
 const Gear = () => {
   const [show, setShow] = useState(false)
+  const [gearDone, setGearDone] = useState(false)
+  const [logoDone, setLogoDone] = useState(false)
+  const {state, dispatch} = useAppContext()
+  const gearRef = useRef<any>(null)
+  const logoRef = useRef<any>(null)
+
+  let spinStart: any, spinPrevTime: any
+
+  const spin = (timestamp: any) => {
+    if (spinStart === undefined) {
+      spinStart = timestamp
+    }
+
+    const elapsed = timestamp - spinStart
+
+    if (spinPrevTime !== timestamp) {
+      const count = Math.min(0.1 * elapsed, 200)
+      gearRef.current.style.transform = `rotateZ(${count}deg)`
+      if (count === 360) setGearDone(true)
+    }
+
+    if (elapsed < 2000) {
+      spinPrevTime = timestamp
+      !gearDone && requestAnimationFrame(spin)
+    } else {
+      dispatch({type: 'INTRO_ANIMATION_DONE'})
+    }
+  }
+
+  let fadeStart: any, fadePrevTime: any
+  const fade = (timestamp: any) => {
+    if (fadeStart === undefined) {
+      fadeStart = timestamp
+    }
+
+    const elapsed = timestamp - fadeStart
+    console.log(`fadeStart =  ${fadeStart}`)
+    console.log(`timestamp =  ${timestamp}`)
+    console.log(`elapsed =  ${elapsed}`)
+    console.log(`fadePrevTime =  ${fadePrevTime}`)
+
+    if (fadePrevTime !== timestamp) {
+      const count = Math.round(0.05 * elapsed) / 10
+      console.log(`count =  ${count}`)
+      logoRef.current.style.opacity = `${count}`
+    }
+
+    if (elapsed < 200) {
+      fadePrevTime = timestamp
+      !logoDone && requestAnimationFrame(fade)
+    }
+
+    let countdown = 1
+    if (timestamp + 200 > fadeStart) {
+      countdown -= 0.1
+      console.log(`countdown =  ${countdown}`)
+      logoRef.current.style.opacity = countdown
+      if (countdown === 0) setLogoDone(true)
+    }
+  }
+
+  useEffect(() => {
+    requestAnimationFrame(spin)
+    requestAnimationFrame(fade)
+  }, [])
 
   useEffect(() => {
     setShow(true)
@@ -24,7 +90,8 @@ const Gear = () => {
         viewBox="0 0 328 328"
       >
         <path
-          className={`gear ${show ? 'show' : ''} `}
+          ref={gearRef}
+          className={'gear'}
           fill="#fff"
           d="M325.1,169c1-0.4,1.9-1.6,1.9-2.7c0,0,0-0.4,0-1.7c0-12.2-3.5-33.4-3.5-33.4c-0.2-1.1-1.2-2.1-2.3-2.2l-23.6-2.6
       c-1.1-0.1-2.3-1.1-2.6-2.1l-3.7-10.4c-0.4-1-0.1-2.5,0.6-3.3l16.3-17.9c0.7-0.8,0.9-2.3,0.3-3.2l-19.1-28.7c-0.7-0.9-2-1.3-3.1-0.9
@@ -45,6 +112,7 @@ const Gear = () => {
         />
 
         <path
+          ref={logoRef}
           className={`left-bracket ${show ? 'show' : ''}`}
           fill="#0080ff"
           d="M120.9,194.4h-4.8c-5.4,0-8.9-0.8-10.8-2.4c-1.8-1.6-2.8-4.8-2.8-9.6v-6.8c0-3.1-0.5-5.2-1.6-6.4c-1.1-1.1-3-1.7-5.9-1.7
