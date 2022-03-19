@@ -1,12 +1,16 @@
+import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import {AboutItem} from 'models/about-item'
 import React, {useEffect, useRef} from 'react'
+import {CSSProperties} from 'styled-components'
 
 interface AboutSnippetProps {
   item: AboutItem
   id: number
+  computedStyle: CSSProperties | undefined
 }
 
-const AboutSnippet = React.memo(({item, id}: AboutSnippetProps) => {
+const AboutSnippet = ({item, id, computedStyle}: AboutSnippetProps) => {
+  const aboutSnippetRef = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -14,6 +18,10 @@ const AboutSnippet = React.memo(({item, id}: AboutSnippetProps) => {
       appendExperience()
     }
   }, [item])
+
+  useEffect(() => {
+    handleFadeIn(aboutSnippetRef)
+  }, [])
 
   const getContent = (): string[] => {
     const els = Array.from(document.querySelectorAll('.about-description p'))
@@ -98,7 +106,12 @@ const AboutSnippet = React.memo(({item, id}: AboutSnippetProps) => {
   }
 
   return (
-    <li className="fade-item" onClick={(e: any) => revealContent(e, id)}>
+    <div
+      ref={aboutSnippetRef}
+      className="about-snippet"
+      style={computedStyle}
+      onClick={(e: any) => revealContent(e, id)}
+    >
       <div className="about-link">
         <img
           src={`${process.env.PUBLIC_URL}${item.icon}`}
@@ -109,8 +122,8 @@ const AboutSnippet = React.memo(({item, id}: AboutSnippetProps) => {
       <div className="about-description" ref={descriptionRef}>
         <p>{item.description}</p>
       </div>
-    </li>
+    </div>
   )
-})
+}
 
 export default AboutSnippet

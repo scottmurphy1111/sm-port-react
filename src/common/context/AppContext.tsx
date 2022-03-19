@@ -1,6 +1,5 @@
 import {
   AboutData,
-  AppData,
   ContactData,
   HomeData,
   NavData,
@@ -9,13 +8,7 @@ import {
   TestimonialsData,
 } from 'models/data'
 import {NavItemType} from 'models/nav-item'
-import React, {
-  createContext,
-  Dispatch,
-  ReactNode,
-  useContext,
-  useReducer,
-} from 'react'
+import {createContext, Dispatch, ReactNode, useReducer} from 'react'
 
 import {Action} from './ActionTypes'
 import reducer from './reducer'

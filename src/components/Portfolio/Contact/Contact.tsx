@@ -1,12 +1,12 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
-import useMediaMatcher from 'hooks/useMediaMatcher'
-import React, {useContext, useEffect, useRef} from 'react'
+import FadeItem from 'components/shared/FadeItem/FadeItem'
+import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
 import {getPanelOffset} from '../../shared/getPanelOffset'
 import {ContactStyled} from './Contact.style'
+import ContactBlock from './ContactBlock'
 import Socials from './Socials/Socials'
 
 interface SectionProps {
@@ -54,45 +54,48 @@ const Contact = ({setContactOffset}: SectionProps) => {
         <Grid>
           <Row>
             <Col xs={12}>
-              <div className="special-note fade-item">
-                <h2 className="category-title">{title}</h2>
-                <p>TO PUT IT SIMPLY, I LOVE TO CODE.</p>
-                <p>
-                  WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A
-                  PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE CHALLENGES
-                  OF BRINGING USER EXPERIENCES TO LIFE.
-                </p>
-                <p>
-                  PLEASE <span style={{color: '#fff'}}>CLICK BELOW </span>TO
-                  SEND ME A NOTE OR DROP ME A LINE.
-                </p>
-                <p>
-                  I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER IN
-                  THE FUTURE.
-                </p>
-              </div>
-              <div
-                className="fade-item"
-                style={{
-                  width: '7.5%',
-                  height: '4px',
-                  margin: '0 0 32px',
-                  background: '#fff',
-                }}
-              ></div>
-              <div className="block fade-item">
-                <div className="contact-info">
-                  <ul>
-                    <li className="insert-phone" />
-                    <li className="insert-email" />
-                  </ul>
-                </div>
-              </div>
-              <div className="block fade-item">
-                <div className="social">
-                  <Socials data={socials} />
-                </div>
-              </div>
+              <FadeItem>
+                <ContactBlock computedStyle={undefined}>
+                  <div className="special-note">
+                    <h2 className="category-title">{title}</h2>
+                    <p>TO PUT IT SIMPLY, I LOVE TO CODE.</p>
+                    <p>
+                      WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A
+                      PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE
+                      CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.
+                    </p>
+                    <p>
+                      PLEASE <span style={{color: '#fff'}}>CLICK BELOW </span>
+                      TO SEND ME A NOTE OR DROP ME A LINE.
+                    </p>
+                    <p>
+                      I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER
+                      IN THE FUTURE.
+                    </p>
+                  </div>
+                  <div
+                    className=""
+                    style={{
+                      width: '7.5%',
+                      height: '4px',
+                      margin: '0 0 32px',
+                      background: '#fff',
+                    }}
+                  ></div>
+                </ContactBlock>
+                <ContactBlock computedStyle={undefined}>
+                  <div className="contact-info">
+                    <ul>
+                      <li className="insert-phone" />
+                      <li className="insert-email" />
+                    </ul>
+                  </div>
+
+                  <div className="social">
+                    <Socials data={socials} />
+                  </div>
+                </ContactBlock>
+              </FadeItem>
             </Col>
           </Row>
         </Grid>

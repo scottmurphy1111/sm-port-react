@@ -11,7 +11,7 @@ export const ProjectsStyled = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
 
-    > li {
+    .project-item {
       flex-wrap: nowrap;
       display: flex;
       flex-direction: column;

@@ -46,7 +46,7 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
                       <SkillsetItem
                         key={id + 1}
                         skill={skill}
-                        computedStyle={null}
+                        computedStyle={undefined}
                       />
                     ))}
                   </FadeItem>

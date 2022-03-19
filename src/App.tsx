@@ -1,27 +1,14 @@
-// import {AppContextProvider} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
 import {GlobalStyles} from 'Global.style'
-import React, {useEffect} from 'react'
+import {useEffect} from 'react'
 
 import Portfolio from './components/Portfolio/Portfolio'
 import BgImage from './components/shared/BgImage'
 import Nav from './components/shared/Nav/Nav'
 import data from './data/data.json'
 
-// export const appData = {
-//   home: data.home,
-//   skills: data.skills,
-//   projects: data.projects,
-//   about: data.about,
-//   testimonials: data.testimonials,
-//   contact: data.contact,
-// }
-console.log('text =')
-
-// export const AppContext = createContext(appData)
-
 const App = () => {
-  const {state, dispatch} = useAppContext()
+  const {dispatch} = useAppContext()
   const fetchAppData = () => Promise.resolve(data)
 
   useEffect(() => {

@@ -1,14 +1,7 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import useMediaMatcher from 'hooks/useMediaMatcher'
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import {useCallback, useEffect, useRef, useState} from 'react'
 import {Col, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -45,11 +38,11 @@ const Home = ({setHomeOffset}: SectionProps) => {
     setHomeOffset(getPanelOffset('.home'))
     disableScroll()
 
-    setTimeout(() => {
+    if (state.introAnimDone) {
       setShow(true)
       setScrollable(true)
-    }, 2750)
-  }, [scrollable, setHomeOffset, disableScroll])
+    }
+  }, [scrollable, setHomeOffset, disableScroll, state.introAnimDone])
 
   return (
     <SectionPanel

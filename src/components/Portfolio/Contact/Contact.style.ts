@@ -3,7 +3,7 @@ import {Colors} from 'styled-components/helpers/Colors.style'
 import media from 'styled-components/helpers/MediaQueries.style'
 
 export const ContactStyled = styled.div`
-  .block {
+  .contact-block {
     display: inline-block;
     box-sizing: border-box;
     width: 100%;

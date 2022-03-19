@@ -11,7 +11,7 @@ export const TestimonialsStyled = styled.div`
     flex-wrap: wrap;
     font-weight: 400;
 
-    li {
+    .testimonial-item {
       padding: 3.2rem 0;
       box-sizing: border-box;
       border-radius: 4px;
@@ -71,6 +71,7 @@ export const TestimonialsStyled = styled.div`
       text-transform: lowercase;
       display: inline;
       margin-left: 8px;
+      font-size: 14px;
     }
   }
 `

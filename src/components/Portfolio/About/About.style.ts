@@ -5,9 +5,8 @@ import media from 'styled-components/helpers/MediaQueries.style'
 export const AboutStyled = styled.div`
   .about-items {
     display: flex;
-  }
 
-  .about-snippets {
+    /* .about-snippets { */
     margin: 0px auto 0;
     padding: 0;
     display: flex;
@@ -19,7 +18,7 @@ export const AboutStyled = styled.div`
       padding: 0 0 4.8rem;
     `}
 
-    li {
+    .about-snippet {
       box-sizing: border-box;
       display: flex;
       flex-direction: column;

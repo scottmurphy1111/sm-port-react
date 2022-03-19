@@ -1,5 +1,6 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import React, {forwardRef, useEffect, useRef} from 'react'
+import {CSSProperties} from 'styled-components'
 
 import {Skillset} from '../../../models/skillset'
 import FadeItem from '../../shared/FadeItem/FadeItem'
@@ -7,7 +8,7 @@ import SkillsArrayItem from './SkillsArrayItem'
 
 interface SkillsetItemProps {
   skill: Skillset
-  computedStyle: any
+  computedStyle: CSSProperties | undefined
 }
 
 const SkillsetItem = React.memo(({skill, computedStyle}: SkillsetItemProps) => {
@@ -17,7 +18,7 @@ const SkillsetItem = React.memo(({skill, computedStyle}: SkillsetItemProps) => {
     handleFadeIn(skillsetRef)
   }, [])
   return (
-    <div className="skillset-item" style={computedStyle} ref={skillsetRef}>
+    <div ref={skillsetRef} className="skillset-item" style={computedStyle}>
       <div className="image-wrapper">
         <div className="image-container">
           <img
@@ -33,7 +34,7 @@ const SkillsetItem = React.memo(({skill, computedStyle}: SkillsetItemProps) => {
             // <li key={item} ref={skillsArrayItemRef}>
             //   {item}
             // </li>
-            <SkillsArrayItem key={item} item={item} computedStyle={null} />
+            <SkillsArrayItem key={item} item={item} computedStyle={undefined} />
           ))}
         </FadeItem>
       </ul>

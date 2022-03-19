@@ -12,7 +12,7 @@ export const NavStyled = styled.div`
   display: flex;
   justify-content: space-between;
   transform: translateY(-60px);
-  transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out 0.8s;
   padding: 0.8rem 0;
 
   &.show {
@@ -87,7 +87,7 @@ export const NavStyled = styled.div`
       font-size: 2rem;
       font-weight: 700;
 
-      &[data-active='true'] {
+      &.active {
         opacity: 1;
       }
 

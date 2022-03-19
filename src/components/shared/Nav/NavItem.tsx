@@ -15,7 +15,11 @@ const NavItem = ({item}: NavItemProps) => {
   }
 
   return (
-    <li ref={navItemRef} onClick={handleClick}>
+    <li
+      ref={navItemRef}
+      onClick={handleClick}
+      className={state.activeNav.value === item.value ? 'active' : undefined}
+    >
       {item.value}
     </li>
   )

@@ -1,5 +1,6 @@
 import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
+import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {ProjectItem} from 'models/project-item'
 import React, {useContext, useEffect, useRef} from 'react'
@@ -43,11 +44,11 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
             <Col xs={12}>
               <h2 className="category-title">{title}</h2>
               <ul className="projects-list">
-                {projectsItems?.map((project: ProjectItem, index: number) => (
-                  <li key={index} className="fade-item">
-                    <Project {...project} />
-                  </li>
-                ))}
+                <FadeItem>
+                  {projectsItems?.map((project: ProjectItem, index: number) => (
+                    <Project key={index + 1} {...project} />
+                  ))}
+                </FadeItem>
               </ul>
             </Col>
             <SeeNext section="about" light />

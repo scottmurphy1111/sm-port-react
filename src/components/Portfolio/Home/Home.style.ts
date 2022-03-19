@@ -31,7 +31,7 @@ export const HomeStyled = styled.div`
       .name {
         opacity: 0;
         visibility: hidden;
-        transition: opacity 1s ease-in-out 0.35s;
+        transition: opacity 0.5s ease-in-out;
 
         &.show {
           opacity: 1;
@@ -44,7 +44,7 @@ export const HomeStyled = styled.div`
       margin: 0em auto;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1.5s ease-in-out 1s;
+      transition: opacity 0.5s ease-in-out 0.4s;
       font-weight: 700;
 
       &.show {
@@ -56,7 +56,7 @@ export const HomeStyled = styled.div`
 
   .see-next {
     transform: translateY(100px);
-    transition: all 0.5s ease-out 0.5s;
+    transition: all 0.5s ease-out 0.8s;
 
     &.show {
       transform: translateY(0px);

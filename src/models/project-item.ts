@@ -5,4 +5,5 @@ export interface ProjectItem {
   capabilities: string
   image: string
   description: string
+  computedStyle?: any
 }

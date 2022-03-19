@@ -1,32 +1,74 @@
 import {useAppContext} from 'common/context/useAppContext'
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 import {GearStyled} from './Gear.style'
 
+interface LogoPathProps {
+  el: string
+  fill: string
+  d: string
+}
+
+const LogoPath = (props: LogoPathProps) => {
+  const logoRef = useRef<null | SVGPathElement>(null)
+
+  useEffect(() => {
+    requestAnimationFrame(fade)
+  }, [])
+
+  let fadeStart: number, fadePrevTime: number
+  let count = 0
+
+  const fade = (timestamp: number) => {
+    const logoRefEl = logoRef.current
+    if (fadeStart === undefined) {
+      fadeStart = timestamp
+    }
+
+    const elapsed = timestamp - fadeStart
+
+    if (logoRefEl) {
+      if (fadePrevTime !== timestamp && elapsed < 2400) {
+        count = count > 1 ? 1 : count + 0.0125
+        logoRefEl.style.opacity = `${count}`
+      } else {
+        count = count < 0 ? 0 : count - 0.05
+        logoRefEl.style.opacity = `${count}`
+      }
+    }
+    if (elapsed < 3600) {
+      fadePrevTime = timestamp
+      requestAnimationFrame(fade)
+    }
+  }
+
+  return <path ref={logoRef} {...props} />
+}
+
 const Gear = () => {
-  const [show, setShow] = useState(false)
   const [gearDone, setGearDone] = useState(false)
-  const [logoDone, setLogoDone] = useState(false)
-  const {state, dispatch} = useAppContext()
-  const gearRef = useRef<any>(null)
-  const logoRef = useRef<any>(null)
+  const {dispatch} = useAppContext()
+  const gearRef = useRef<null | SVGPathElement>(null)
 
-  let spinStart: any, spinPrevTime: any
+  let spinStart: number, spinPrevTime: number
 
-  const spin = (timestamp: any) => {
+  const spin = (timestamp: number) => {
     if (spinStart === undefined) {
       spinStart = timestamp
     }
 
+    const gearRefEl = gearRef.current
     const elapsed = timestamp - spinStart
 
-    if (spinPrevTime !== timestamp) {
-      const count = Math.min(0.1 * elapsed, 200)
-      gearRef.current.style.transform = `rotateZ(${count}deg)`
-      if (count === 360) setGearDone(true)
+    if (gearRefEl) {
+      if (spinPrevTime !== timestamp) {
+        const count = Math.min(0.1 * elapsed, 200)
+        gearRefEl.style.transform = `rotateZ(${count}deg)`
+        if (count === 360) setGearDone(true)
+      }
     }
 
-    if (elapsed < 2000) {
+    if (elapsed < 2750) {
       spinPrevTime = timestamp
       !gearDone && requestAnimationFrame(spin)
     } else {
@@ -34,48 +76,8 @@ const Gear = () => {
     }
   }
 
-  let fadeStart: any, fadePrevTime: any
-  const fade = (timestamp: any) => {
-    if (fadeStart === undefined) {
-      fadeStart = timestamp
-    }
-
-    const elapsed = timestamp - fadeStart
-    console.log(`fadeStart =  ${fadeStart}`)
-    console.log(`timestamp =  ${timestamp}`)
-    console.log(`elapsed =  ${elapsed}`)
-    console.log(`fadePrevTime =  ${fadePrevTime}`)
-
-    if (fadePrevTime !== timestamp) {
-      const count = Math.round(0.05 * elapsed) / 10
-      console.log(`count =  ${count}`)
-      logoRef.current.style.opacity = `${count}`
-    }
-
-    if (elapsed < 200) {
-      fadePrevTime = timestamp
-      !logoDone && requestAnimationFrame(fade)
-    }
-
-    let countdown = 1
-    if (timestamp + 200 > fadeStart) {
-      countdown -= 0.1
-      console.log(`countdown =  ${countdown}`)
-      logoRef.current.style.opacity = countdown
-      if (countdown === 0) setLogoDone(true)
-    }
-  }
-
   useEffect(() => {
     requestAnimationFrame(spin)
-    requestAnimationFrame(fade)
-  }, [])
-
-  useEffect(() => {
-    setShow(true)
-    setTimeout(() => {
-      setShow(false)
-    }, 2000)
   }, [])
 
   return (
@@ -111,9 +113,8 @@ const Gear = () => {
       L325.1,169z M164,264.2c-55.2,0-100-44.8-100-100c0-55.2,44.8-100,100-100s100,44.8,100,100C264,219.4,219.2,264.2,164,264.2z"
         />
 
-        <path
-          ref={logoRef}
-          className={`left-bracket ${show ? 'show' : ''}`}
+        <LogoPath
+          el={'left-bracket'}
           fill="#0080ff"
           d="M120.9,194.4h-4.8c-5.4,0-8.9-0.8-10.8-2.4c-1.8-1.6-2.8-4.8-2.8-9.6v-6.8c0-3.1-0.5-5.2-1.6-6.4c-1.1-1.1-3-1.7-5.9-1.7
       h-2c-0.2,0-0.3-0.1-0.3-0.3v-6.1c0-0.2,0.1-0.3,0.3-0.3h2c2.9,0,4.8-0.6,5.9-1.7c1.1-1.1,1.6-3.3,1.6-6.4v-6.8c0-4.7,0.9-8,2.8-9.6
@@ -121,8 +122,8 @@ const Gear = () => {
       v6.6c0,3.5-0.5,6.1-1.6,7.5c-0.9,1.2-2.3,2-4.3,2.6c2,0.5,3.4,1.4,4.3,2.6c1.1,1.5,1.6,4,1.6,7.5v6.5c0,3,0.3,4.9,1,5.7
       c0.7,0.8,2.1,1.2,4.2,1.2h3.9c0.2,0,0.3,0.1,0.3,0.3v6.1C121.2,194.3,121.1,194.4,120.9,194.4z"
         />
-        <path
-          className={`ess ${show ? 'show' : ''}`}
+        <LogoPath
+          el={'ess'}
           fill="#fff"
           d="M144.6,183.8c-2,0-4-0.2-6-0.7c-2-0.4-4-1.1-5.8-2c-0.1-0.1-0.2-0.2-0.2-0.3v-7.6c0-0.1,0.1-0.2,0.2-0.3
       c0.1-0.1,0.2,0,0.3,0c2.1,1.4,4.1,2.4,6,3.1c1.9,0.7,3.9,1,5.7,1c1.9,0,3.3-0.4,4.3-1.2c1-0.8,1.5-1.8,1.5-3.2c0-1-0.3-1.9-1-2.7
@@ -132,15 +133,15 @@ const Gear = () => {
       c0,0.9,0.3,1.7,1,2.3c0.7,0.6,2.2,1.4,4.5,2.2l3.4,1.2c3.3,1.1,5.7,2.6,7.2,4.5c1.6,1.9,2.4,4.2,2.4,7.1c0,3.8-1.2,6.8-3.7,8.7
       C153.2,182.8,149.5,183.8,144.6,183.8z"
         />
-        <path
-          className={`emm ${show ? 'show' : ''}`}
+        <LogoPath
+          el={'emm'}
           fill="#fff"
           d="M195.8,183.1h-7.1c-0.2,0-0.3-0.1-0.3-0.3v-27.6l-4.3,14.7c0,0.1-0.2,0.2-0.3,0.2h-5.5c-0.1,0-0.3-0.1-0.3-0.2l-4.4-14.7
       v27.6c0,0.2-0.1,0.3-0.3,0.3h-7.1c-0.2,0-0.3-0.1-0.3-0.3v-37.2c0-0.2,0.1-0.3,0.3-0.3h9.8c0.1,0,0.3,0.1,0.3,0.2l4.7,15.3
       l4.6-15.3c0-0.1,0.2-0.2,0.3-0.2h9.9c0.2,0,0.3,0.1,0.3,0.3v37.2C196.1,182.9,196,183.1,195.8,183.1z"
         />
-        <path
-          className={`right-bracket ${show ? 'show' : ''}`}
+        <LogoPath
+          el={'right-bracket'}
           fill="#0080ff"
           d="M211.8,194.4h-4.8c-0.2,0-0.3-0.1-0.3-0.3v-6.1c0-0.2,0.1-0.3,0.3-0.3h3.8c2.1,0,3.5-0.4,4.2-1.2c0.7-0.8,1.1-2.8,1.1-5.7
         v-6.5c0-3.6,0.5-6,1.6-7.5c0.9-1.2,2.3-2.1,4.2-2.6c-2-0.5-3.4-1.4-4.2-2.6c-1.1-1.5-1.6-3.9-1.6-7.5v-6.6c0-2.9-0.4-4.8-1.1-5.6

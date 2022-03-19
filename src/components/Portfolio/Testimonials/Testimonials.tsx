@@ -1,4 +1,5 @@
 import {useAppContext} from 'common/context/useAppContext'
+import FadeItem from 'components/shared/FadeItem/FadeItem'
 import {getPanelOffset} from 'components/shared/getPanelOffset'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {TestimonialItem} from 'models/testimonial-item'
@@ -16,7 +17,7 @@ interface SectionProps {
 const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, testimonialsItems} = state.testimonials
-
+  console.log(state)
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -42,13 +43,19 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
           <Row>
             <Col xs={12}>
               <h2 className="category-title">{title}</h2>
-              <ul className="testimonials">
-                {testimonialsItems?.map(
-                  (testimonial: TestimonialItem, id: number) => (
-                    <Testimonial key={id + 1} {...testimonial} />
-                  )
-                )}
-              </ul>
+              <div className="testimonials">
+                <FadeItem>
+                  {testimonialsItems?.map(
+                    (testimonial: TestimonialItem, id: number) => (
+                      <Testimonial
+                        key={id + 1}
+                        {...testimonial}
+                        computedStyle={undefined}
+                      />
+                    )
+                  )}
+                </FadeItem>
+              </div>
             </Col>
             <SeeNext section="contact" light />
           </Row>

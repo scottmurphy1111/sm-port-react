@@ -1,4 +1,5 @@
 import {AppContext} from 'common/context/AppContext'
+import {useAppContext} from 'common/context/useAppContext'
 import React, {useCallback, useContext, useEffect, useState} from 'react'
 import {BehaviorSubject, fromEvent} from 'rxjs'
 import {map, tap} from 'rxjs/operators'
@@ -19,7 +20,8 @@ const Portfolio = () => {
   const [testimonialsOffset, setTestimonialsOffset] = useState(0)
   const [contactOffset, setContactOffset] = useState(0)
 
-  const data = useContext(AppContext)
+  // const data = useContext(AppContext)
+  const {state, dispatch} = useAppContext()
 
   const navElements = Array.from(document.querySelectorAll('[data-nav]'))
   const keys = navElements.map(item => {
@@ -42,56 +44,56 @@ const Portfolio = () => {
     })
   }
 
-  let skillsFadeItems: any = []
-  let projectsFadeItems: any = []
-  let aboutFadeItems: any = []
-  let testimonialsFadeItems: any = []
-  let contactFadeItems: any = []
+  // let skillsFadeItems: any = []
+  // let projectsFadeItems: any = []
+  // let aboutFadeItems: any = []
+  // let testimonialsFadeItems: any = []
+  // let contactFadeItems: any = []
 
-  useEffect(() => {
-    if (data) {
-      skillsFadeItems = document.querySelectorAll('.skills .fade-item')
-      projectsFadeItems = document.querySelectorAll('.projects .fade-item')
-      aboutFadeItems = document.querySelectorAll('.about .fade-item')
-      testimonialsFadeItems = document.querySelectorAll(
-        '.testimonials-section .fade-item'
-      )
-      contactFadeItems = document.querySelectorAll('.contact .fade-item')
-    }
-  }, [data])
+  // useEffect(() => {
+  //   if (data) {
+  //     skillsFadeItems = document.querySelectorAll('.skills .fade-item')
+  //     projectsFadeItems = document.querySelectorAll('.projects .fade-item')
+  //     aboutFadeItems = document.querySelectorAll('.about .fade-item')
+  //     testimonialsFadeItems = document.querySelectorAll(
+  //       '.testimonials-section .fade-item'
+  //     )
+  //     contactFadeItems = document.querySelectorAll('.contact .fade-item')
+  //   }
+  // }, [data])
 
-  const fadeInItems = (fadeableItems: any) => {
-    // console.log(fadeableItems)
-    // console.log(testimonialsFadeItems)
-    fadeableItems.forEach((element: any, index: number) => {
-      element.style.opacity = 1
-      element.style.transitionDelay = `${index * 0.05}s`
-      element.style.transform = 'translate(0)'
-    })
-  }
+  // const fadeInItems = (fadeableItems: any) => {
+  //   // console.log(fadeableItems)
+  //   // console.log(testimonialsFadeItems)
+  //   fadeableItems.forEach((element: any, index: number) => {
+  //     element.style.opacity = 1
+  //     element.style.transitionDelay = `${index * 0.05}s`
+  //     element.style.transform = 'translate(0)'
+  //   })
+  // }
 
   const getCurrentOffset = (pageOffset: any) => {
     if (homeOffset < pageOffset && skillsOffset > pageOffset) {
-      navItems.active = 'home'
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
     } else if (skillsOffset < pageOffset && projectsOffset > pageOffset) {
-      navItems.active = 'skills'
-      fadeInItems(skillsFadeItems)
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'skills'}})
+      // fadeInItems(skillsFadeItems)
     } else if (projectsOffset < pageOffset && aboutOffset > pageOffset) {
-      navItems.active = 'projects'
-      fadeInItems(projectsFadeItems)
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'projects'}})
+      // fadeInItems(projectsFadeItems)
     } else if (aboutOffset < pageOffset && testimonialsOffset > pageOffset) {
-      navItems.active = 'about'
-      fadeInItems(aboutFadeItems)
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'about'}})
+      // fadeInItems(aboutFadeItems)
       setIsAbout(true)
     } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
-      navItems.active = 'testimonials'
-      fadeInItems(testimonialsFadeItems)
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'testimonials'}})
+      // fadeInItems(testimonialsFadeItems)
     } else {
-      navItems.active = 'contact'
-      fadeInItems(contactFadeItems)
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'contact'}})
+      // fadeInItems(contactFadeItems)
     }
 
-    setActive(navItems.active)
+    // setActive(navItems.active)
   }
 
   const bgOverlay$ = new BehaviorSubject<any>(null)

@@ -1,3 +1,4 @@
+import {StackOverflowData} from 'models/stack-overflow-data'
 import React, {useCallback, useEffect, useState} from 'react'
 
 import {Social} from '../../../../models/social'
@@ -11,10 +12,12 @@ interface SocialsProps {
 
 const Socials = React.memo(({data}: SocialsProps) => {
   const [openTooltip, setOpenTooltip] = useState(false)
-  const [stackOverflowData, setStackOverflowData] = useState({
-    reputation: 0,
-    badge_counts: {bronze: 0, silver: 0, gold: 0},
-  })
+  const [stackOverflowData, setStackOverflowData] = useState<StackOverflowData>(
+    {
+      reputation: 0,
+      badge_counts: {bronze: 0, silver: 0, gold: 0},
+    }
+  )
 
   const fetchStackOverflowData = async () => {
     const api_call = await fetch(

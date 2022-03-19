@@ -1,20 +1,14 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
+import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {AboutItem} from 'models/about-item'
-import React, {useContext, useEffect, useRef, useState} from 'react'
+import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
 import {getPanelOffset} from '../../shared/getPanelOffset'
 import {AboutStyled} from './About.style'
 import AboutSnippet from './AboutSnippet'
-
-// interface AboutItem {
-//   description: string
-//   heading: string
-//   icon: string
-// }
 
 interface SectionProps {
   setAboutOffset: (val: number) => void
@@ -175,9 +169,16 @@ const About = ({setAboutOffset, isAbout}: SectionProps) => {
               <h2 className="category-title">{title}</h2>
               <div className="about-items">
                 {/* <ul className="about-snippets"> */}
-                {aboutItems?.map((item: AboutItem, id: number) => (
-                  <AboutSnippet key={`${id}`} item={item} id={id} />
-                ))}
+                <FadeItem>
+                  {aboutItems?.map((item: AboutItem, id: number) => (
+                    <AboutSnippet
+                      key={`${id}`}
+                      item={item}
+                      id={id}
+                      computedStyle={undefined}
+                    />
+                  ))}
+                </FadeItem>
                 {/* </ul> */}
               </div>
             </Col>

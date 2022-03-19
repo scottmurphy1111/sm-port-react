@@ -70,10 +70,10 @@ const Nav = () => {
   const {navItems} = state.nav
 
   useEffect(() => {
-    setTimeout(() => {
+    if (state.introAnimDone) {
       setShow(true)
-    }, 3400)
-  })
+    }
+  }, [state.introAnimDone])
 
   const handleHomeClick = () => {
     dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
