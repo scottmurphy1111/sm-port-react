@@ -8,10 +8,15 @@ interface NavItemProps {
 
 const NavItem = ({item}: NavItemProps) => {
   const {state, dispatch} = useAppContext()
-  const navItemRef = useRef(null)
+  const navItemRef = useRef<null | HTMLLIElement>(null)
 
   const handleClick = () => {
-    dispatch({type: 'SET_ACTIVE_NAV', payload: item})
+    const scrollToSection = state.sectionRefs.find(
+      (section: RefObject<HTMLDivElement> | null) =>
+        section?.current?.dataset.section === navItemRef?.current?.textContent
+    )
+
+    scrollToSection?.current?.scrollIntoView({behavior: 'smooth'})
   }
 
   return (

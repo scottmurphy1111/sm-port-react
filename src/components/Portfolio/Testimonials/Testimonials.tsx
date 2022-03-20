@@ -17,7 +17,7 @@ interface SectionProps {
 const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, testimonialsItems} = state.testimonials
-  console.log(state)
+
   const sectionRef = useRef(null)
 
   useEffect(() => {

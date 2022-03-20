@@ -79,19 +79,19 @@ const Nav = () => {
     dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
   }
 
-  useEffect(() => {
-    const scrollToSection = () => {
-      const {sectionRefs} = state
-      sectionRefs.map((sectionRef: RefObject<HTMLDivElement>) => {
-        if (sectionRef.current?.dataset.section === state.activeNav.value) {
-          sectionRef.current.scrollIntoView({behavior: 'smooth'})
-          setShowMobileMenu(false)
-        }
-      })
-    }
+  // useEffect(() => {
+  //   const scrollToSection = () => {
+  //     const {sectionRefs} = state
+  //     sectionRefs.map((sectionRef: RefObject<HTMLDivElement>) => {
+  //       if (sectionRef.current?.dataset.section === state.activeNav.value) {
+  //         sectionRef.current.scrollIntoView({behavior: 'smooth'})
+  //         setShowMobileMenu(false)
+  //       }
+  //     })
+  //   }
 
-    scrollToSection()
-  }, [state.activeNav])
+  //   scrollToSection()
+  // }, [state.activeNav])
 
   const handleNavButtonClick = () => {
     setShowMobileMenu(true)
