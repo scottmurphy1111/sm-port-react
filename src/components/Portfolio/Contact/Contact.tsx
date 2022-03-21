@@ -1,4 +1,5 @@
 import {useAppContext} from 'common/context/useAppContext'
+import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
@@ -55,34 +56,53 @@ const Contact = ({setContactOffset}: SectionProps) => {
           <Row>
             <Col xs={12}>
               <FadeItem>
-                <ContactBlock computedStyle={undefined}>
-                  <div className="special-note">
-                    <h2 className="category-title">{title}</h2>
+                <CategoryTitle title={title} computedStyle={undefined} />
+              </FadeItem>
+              <div className="special-note">
+                <FadeItem>
+                  <ContactBlock computedStyle={undefined}>
                     <p>TO PUT IT SIMPLY, I LOVE TO CODE.</p>
+                  </ContactBlock>
+                </FadeItem>
+                <FadeItem>
+                  <ContactBlock computedStyle={undefined}>
                     <p>
                       WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A
                       PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE
                       CHALLENGES OF BRINGING USER EXPERIENCES TO LIFE.
                     </p>
+                  </ContactBlock>
+                </FadeItem>
+                <FadeItem>
+                  <ContactBlock computedStyle={undefined}>
                     <p>
                       PLEASE <span style={{color: '#fff'}}>CLICK BELOW </span>
                       TO SEND ME A NOTE OR DROP ME A LINE.
                     </p>
+                  </ContactBlock>
+                </FadeItem>
+                <FadeItem>
+                  <ContactBlock computedStyle={undefined}>
                     <p>
                       I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER
                       IN THE FUTURE.
                     </p>
-                  </div>
+                  </ContactBlock>
+                </FadeItem>
+              </div>
+              <FadeItem>
+                <ContactBlock computedStyle={undefined}>
                   <div
                     className=""
                     style={{
                       width: '7.5%',
                       height: '4px',
-                      margin: '0 0 32px',
                       background: '#fff',
                     }}
                   ></div>
                 </ContactBlock>
+              </FadeItem>
+              <FadeItem>
                 <ContactBlock computedStyle={undefined}>
                   <div className="contact-info">
                     <ul>
@@ -90,12 +110,11 @@ const Contact = ({setContactOffset}: SectionProps) => {
                       <li className="insert-email" />
                     </ul>
                   </div>
-
-                  <div className="social">
-                    <Socials data={socials} />
-                  </div>
                 </ContactBlock>
               </FadeItem>
+              <div className="social">
+                <Socials data={socials} />
+              </div>
             </Col>
           </Row>
         </Grid>

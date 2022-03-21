@@ -1,5 +1,5 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
-import React, {forwardRef, useEffect, useRef} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {CSSProperties} from 'styled-components'
 
 import {Skillset} from '../../../models/skillset'
@@ -31,9 +31,6 @@ const SkillsetItem = React.memo(({skill, computedStyle}: SkillsetItemProps) => {
       <ul className="skills-array">
         <FadeItem>
           {skill.skillsArray.map((item: string) => (
-            // <li key={item} ref={skillsArrayItemRef}>
-            //   {item}
-            // </li>
             <SkillsArrayItem key={item} item={item} computedStyle={undefined} />
           ))}
         </FadeItem>

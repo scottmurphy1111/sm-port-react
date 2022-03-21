@@ -1,11 +1,11 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {Col, Row} from 'react-flexbox-grid'
 
 import {TestimonialItem} from '../../../models/testimonial-item'
 
 const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
-  const divCopy = useRef<any>(null)
+  const divCopy = useRef<null | HTMLParagraphElement>(null)
   const testimonialItemRef = useRef<HTMLDivElement>(null)
   const allCopy = copy
   const fragCopy = `${allCopy.split(' ').slice(0, 12).join(' ')}...`
@@ -25,14 +25,18 @@ const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
   const toggleTestimonial = () => {
     if (!testimonial.isShowing) {
       setTestimonial({copy: allCopy, linkCopy: upArrow, isShowing: true})
-      divCopy.current.innerText = allCopy
+      if (divCopy.current) {
+        divCopy.current.innerText = allCopy
+      }
     } else {
       setTestimonial({
         copy: fragCopy,
         linkCopy: downArrow,
         isShowing: false,
       })
-      divCopy.current.innerText = fragCopy
+      if (divCopy.current) {
+        divCopy.current.innerText = fragCopy
+      }
     }
   }
 

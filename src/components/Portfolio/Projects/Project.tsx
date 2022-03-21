@@ -1,6 +1,6 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import {ProjectItem} from 'models/project-item'
-import React, {useEffect, useRef, useState} from 'react'
+import {useEffect, useRef, useState} from 'react'
 
 const Project = ({
   projectName,

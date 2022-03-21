@@ -1,9 +1,9 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
+import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {ProjectItem} from 'models/project-item'
-import React, {useContext, useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -42,7 +42,9 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
         <Grid>
           <Row>
             <Col xs={12}>
-              <h2 className="category-title">{title}</h2>
+              <FadeItem>
+                <CategoryTitle title={title} computedStyle={undefined} />
+              </FadeItem>
               <ul className="projects-list">
                 <FadeItem>
                   {projectsItems?.map((project: ProjectItem, index: number) => (

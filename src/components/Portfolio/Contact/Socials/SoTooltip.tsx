@@ -1,4 +1,5 @@
 import {Social} from 'models/social'
+import {StackOverflowData} from 'models/stack-overflow-data'
 import React from 'react'
 
 import {SoTooltipStyled} from './SoTooltip.style'
@@ -8,7 +9,7 @@ interface SoTooltipProps {
   social: Social
   visible: boolean
   handleCloseTooltip: () => void
-  stackOverflowData: any
+  stackOverflowData: StackOverflowData
 }
 
 const SoTooltip = React.memo(

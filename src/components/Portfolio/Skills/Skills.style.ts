@@ -7,10 +7,6 @@ export const SkillsStyled = styled.div`
     h2 {
       color: #fff;
     }
-
-    /* .see-next {
-      bottom: 66px;
-    } */
   }
 
   .skillset-wrapper {
@@ -35,19 +31,8 @@ export const SkillsStyled = styled.div`
       flex-direction: column;
       width: 21%;
       flex-basis: 21%;
-      /* margin: 0 1.6rem 0rem 0; */
       align-items: flex-start;
       justify-content: stretch;
-
-      /* &:last-child {
-        margin-right: 0;
-        padding-right: 0;
-
-        ${media.md`
-        margin-bottom: 0;
-        padding-bottom: 0;
-        `}
-      } */
 
       ${media.md`
         width: 100%;
@@ -84,7 +69,6 @@ export const SkillsStyled = styled.div`
       padding: 3.2rem 0rem 0;
       list-style: none;
       color: #fff;
-      /* border-top: 4px solid ${Colors.primaryBlue}; */
       width: 100%;
       box-sizing: border-box;
       height: 100%;

@@ -3,7 +3,7 @@ import React, {useEffect, useRef} from 'react'
 import {CSSProperties} from 'styled-components'
 
 interface SkillsArrayItemProps {
-  item: any
+  item: string
   computedStyle: CSSProperties | undefined
 }
 

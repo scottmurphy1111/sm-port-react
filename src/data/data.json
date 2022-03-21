@@ -131,7 +131,7 @@
       {
         "heading": "Work Style",
         "icon": "/assets/images/portfolio/work-style.svg",
-        "description": "I get my hands dirty"
+        "description": "I am known to get my hands dirty"
       },
       {
         "heading": "Code Editor",
@@ -139,9 +139,9 @@
         "description": "Visual Studio Code"
       },
       {
-        "heading": "Favorite Tools",
+        "heading": "Necessities",
         "icon": "/assets/images/portfolio/langs.svg",
-        "description": "Airpods, Prettier, Coffee"
+        "description": "Airpods, Coffee"
       },
       {
         "heading": "Hobbies",

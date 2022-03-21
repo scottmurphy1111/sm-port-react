@@ -1,9 +1,10 @@
 import {useAppContext} from 'common/context/useAppContext'
+import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import {getPanelOffset} from 'components/shared/getPanelOffset'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {TestimonialItem} from 'models/testimonial-item'
-import React, {useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -22,7 +23,6 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
 
   useEffect(() => {
     if (state.testimonials && sectionRef) {
-      // console.log(sectionRef)
       dispatch({type: 'SET_SECTION_REF', payload: sectionRef})
     }
   }, [state.testimonials, sectionRef])
@@ -42,7 +42,9 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
         <Grid>
           <Row>
             <Col xs={12}>
-              <h2 className="category-title">{title}</h2>
+              <FadeItem>
+                <CategoryTitle title={title} computedStyle={undefined} />
+              </FadeItem>
               <div className="testimonials">
                 <FadeItem>
                   {testimonialsItems?.map(

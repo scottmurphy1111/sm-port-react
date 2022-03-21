@@ -1,49 +1,11 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
-import useMediaMatcher from 'hooks/useMediaMatcher'
 import {NavItemType} from 'models/nav-item'
-import {type} from 'os'
-import React, {
-  MouseEvent,
-  RefObject,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 
 import Logo from './Logo'
 import {NavStyled} from './Nav.style'
 import NavItem from './NavItem'
-
-// const navItems: NavItem[] = [
-//   {
-//     value: 'home',
-//     active: true,
-//   },
-//   {
-//     value: 'skills',
-//     active: false,
-//   },
-//   {
-//     value: 'projects',
-//     active: false,
-//   },
-//   {
-//     value: 'about',
-//     active: false,
-//   },
-//   {
-//     value: 'testimonials',
-//     active: false,
-//   },
-//   {
-//     value: 'contact',
-//     active: false,
-//   },
-// ]
 
 const documentClick = (
   navList: any,
@@ -62,7 +24,7 @@ const documentClick = (
 
 const Nav = () => {
   const [show, setShow] = useState(false)
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
   const navItemsList = useRef<HTMLUListElement>(null)
   const navButtonWrapper = useRef<HTMLDivElement>(null)
 
@@ -78,20 +40,6 @@ const Nav = () => {
   const handleHomeClick = () => {
     dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
   }
-
-  // useEffect(() => {
-  //   const scrollToSection = () => {
-  //     const {sectionRefs} = state
-  //     sectionRefs.map((sectionRef: RefObject<HTMLDivElement>) => {
-  //       if (sectionRef.current?.dataset.section === state.activeNav.value) {
-  //         sectionRef.current.scrollIntoView({behavior: 'smooth'})
-  //         setShowMobileMenu(false)
-  //       }
-  //     })
-  //   }
-
-  //   scrollToSection()
-  // }, [state.activeNav])
 
   const handleNavButtonClick = () => {
     setShowMobileMenu(true)

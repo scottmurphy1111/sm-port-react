@@ -1,9 +1,9 @@
-import {AppContext} from 'common/context/AppContext'
 import {useAppContext} from 'common/context/useAppContext'
+import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {Skillset} from 'models/skillset'
-import React, {useContext, useEffect, useRef} from 'react'
+import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -38,8 +38,9 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
           <Grid>
             <Row>
               <Col xs={12}>
-                <h2 className="category-title">{title}</h2>
-                {/* <ul className="skillset"> */}
+                <FadeItem>
+                  <CategoryTitle title={title} computedStyle={undefined} />
+                </FadeItem>
                 <div className="skillset-wrapper">
                   <FadeItem>
                     {skillset?.map((skill: Skillset, id: number) => (
@@ -51,7 +52,6 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
                     ))}
                   </FadeItem>
                 </div>
-                {/* </ul> */}
               </Col>
               <SeeNext section="projects" />
             </Row>

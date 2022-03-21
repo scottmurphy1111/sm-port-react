@@ -14,21 +14,17 @@ export const handleFadeIn = (elRef: RefObject<HTMLElement>) => {
   const itemEl: HTMLElement | null = elRef?.current
   let visible = false
 
-  function addStyles(
-    target: any,
-    styles: {opacity: number; transform: string}
-  ) {
+  function addStyles(target: HTMLElement, styles: FadeStyles) {
     Object.entries(styles).map(([key, value]) => {
-      target.style[key] = value
+      target.style[key as keyof FadeStyles] = value
     })
   }
 
   const observer = new IntersectionObserver(
     ([e]) => {
-      // console.log(e)
       if (!visible && (e as IntersectionObserverEntry).isIntersecting) {
         visible = true
-        // console.log(e.target)
+
         addStyles(e.target as HTMLElement, animateStyles)
       }
     },

@@ -41,6 +41,10 @@ export interface ContactData {
   socials: Social[]
 }
 
+// export interface SectionRefs {
+
+// }
+
 export interface AppData {
   home: HomeData
   skills: SkillsData

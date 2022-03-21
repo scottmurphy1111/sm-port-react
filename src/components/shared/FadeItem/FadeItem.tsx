@@ -1,12 +1,12 @@
 import React, {cloneElement, ReactElement} from 'react'
 
 interface FadeItemProps {
-  children: ReactElement[]
+  children: ReactElement | ReactElement[]
 }
 
 const FadeItem = ({children}: FadeItemProps) => {
   const recursiveMap = (
-    children: ReactElement[],
+    children: ReactElement | ReactElement[],
     fn: (child: ReactElement, index: number) => ReactElement
   ): ReactElement[] => {
     return React.Children.map(children, (child, index) => {

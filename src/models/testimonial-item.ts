@@ -1,5 +1,7 @@
+import {CSSProperties} from 'react'
+
 export interface TestimonialItem {
   copy: string
   reporter: string
-  computedStyle?: any
+  computedStyle?: CSSProperties | undefined
 }

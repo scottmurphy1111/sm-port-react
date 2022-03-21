@@ -5,8 +5,6 @@ import media from 'styled-components/helpers/MediaQueries.style'
 export const AboutStyled = styled.div`
   .about-items {
     display: flex;
-
-    /* .about-snippets { */
     margin: 0px auto 0;
     padding: 0;
     display: flex;

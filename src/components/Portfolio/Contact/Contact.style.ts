@@ -46,34 +46,31 @@ export const ContactStyled = styled.div`
         }
       }
     }
+  }
+  .social {
+    padding: 0;
+    display: flex;
+    width: 100%;
+    margin-top: 0px;
 
-    .social {
-      > ul {
-        padding: 0;
-        display: inline-block;
-        width: 100%;
-        margin-top: 0px;
+    .social-item {
+      padding: 0 32px 0 0;
+      max-width: 72px;
+      width: 25%;
+      box-sizing: border-box;
+      display: inline-block;
+      text-align: left;
+      list-style-type: none;
+      color: ${Colors.primaryBlue};
 
-        > li {
-          padding: 0 32px 0 0;
-          max-width: 72px;
-          width: 25%;
-          box-sizing: border-box;
-          display: inline-block;
-          text-align: left;
-          list-style-type: none;
-          color: ${Colors.primaryBlue};
-
-          ${media.md`
+      ${media.md`
           max-width: 84px;
         `}
 
-          a {
-            cursor: pointer;
-            position: relative;
-            display: block;
-          }
-        }
+      a {
+        cursor: pointer;
+        position: relative;
+        display: block;
       }
     }
   }

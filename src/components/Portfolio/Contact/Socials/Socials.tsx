@@ -1,8 +1,9 @@
+import FadeItem from 'components/shared/FadeItem/FadeItem'
 import {StackOverflowData} from 'models/stack-overflow-data'
-import React, {useCallback, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import {Social} from '../../../../models/social'
-import SoTooltip from './SoTooltip'
+import SocialItem from './SocialItem'
 
 const USER_ID = '5711949'
 
@@ -11,7 +12,6 @@ interface SocialsProps {
 }
 
 const Socials = React.memo(({data}: SocialsProps) => {
-  const [openTooltip, setOpenTooltip] = useState(false)
   const [stackOverflowData, setStackOverflowData] = useState<StackOverflowData>(
     {
       reputation: 0,
@@ -33,46 +33,21 @@ const Socials = React.memo(({data}: SocialsProps) => {
     }
   }
 
-  const handleOpenTooltip = useCallback(() => {
-    setOpenTooltip(true)
-  }, [])
-
-  const handleCloseTooltip = useCallback(() => {
-    setOpenTooltip(false)
-  }, [])
-
   useEffect(() => {
     fetchStackOverflowData()
   }, [])
 
   return (
-    <ul>
+    <FadeItem>
       {data?.map((social: Social, index: number) => (
-        <li key={index}>
-          <a
-            title={social.title}
-            className={social.title === 'Stack Overflow' ? 'so-link' : ''}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={social.link}
-            onMouseEnter={handleOpenTooltip}
-          >
-            <img
-              src={`${process.env.PUBLIC_URL}${social.icon}`}
-              alt={social.title}
-            />
-          </a>
-          {social.title === 'Stack Overflow' && (
-            <SoTooltip
-              social={social}
-              visible={openTooltip}
-              handleCloseTooltip={handleCloseTooltip}
-              stackOverflowData={stackOverflowData}
-            />
-          )}
-        </li>
+        <SocialItem
+          key={index}
+          social={social}
+          computedStyle={undefined}
+          stackOverflowData={stackOverflowData}
+        />
       ))}
-    </ul>
+    </FadeItem>
   )
 })
 

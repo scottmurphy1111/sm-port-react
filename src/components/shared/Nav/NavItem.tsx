@@ -1,13 +1,13 @@
 import {useAppContext} from 'common/context/useAppContext'
 import {NavItemType} from 'models/nav-item'
-import React, {RefObject, useEffect, useRef} from 'react'
+import {RefObject, useRef} from 'react'
 
 interface NavItemProps {
   item: NavItemType
 }
 
 const NavItem = ({item}: NavItemProps) => {
-  const {state, dispatch} = useAppContext()
+  const {state} = useAppContext()
   const navItemRef = useRef<null | HTMLLIElement>(null)
 
   const handleClick = () => {
