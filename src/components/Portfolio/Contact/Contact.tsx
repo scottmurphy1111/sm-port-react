@@ -17,6 +17,8 @@ interface SectionProps {
 const Contact = ({setContactOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, socials} = state.contact
+  const phoneDivRef = useRef<HTMLLIElement>(null)
+  const emailDivRef = useRef<HTMLLIElement>(null)
 
   const sectionRef = useRef(null)
 
@@ -28,17 +30,16 @@ const Contact = ({setContactOffset}: SectionProps) => {
 
   const loadContact = () => {
     const phone = '804.836.2326'
-    const phoneDiv = document.querySelector('.insert-phone')
+
     const user = 'scottmurphy1111'
     const domain = 'gmail.com'
-    const emailDiv = document.querySelector('.insert-email')
 
-    if (phoneDiv)
-      phoneDiv.innerHTML = `<a href="tel:${phone}">${
+    if (phoneDivRef.current)
+      phoneDivRef.current.innerHTML = `<a href="tel:${phone}">${
         phone || '804.836.2326'
       }</a>`
-    if (emailDiv)
-      emailDiv.innerHTML = `<a target="_blank" href="mailto:${user}@${domain}">${user}@${domain}</a>`
+    if (emailDivRef.current)
+      emailDivRef.current.innerHTML = `<a target="_blank" href="mailto:${user}@${domain}">${user}@${domain}</a>`
   }
 
   useEffect(() => {
@@ -106,8 +107,8 @@ const Contact = ({setContactOffset}: SectionProps) => {
                 <ContactBlock computedStyle={undefined}>
                   <div className="contact-info">
                     <ul>
-                      <li className="insert-phone" />
-                      <li className="insert-email" />
+                      <li ref={phoneDivRef} className="insert-phone" />
+                      <li ref={emailDivRef} className="insert-email" />
                     </ul>
                   </div>
                 </ContactBlock>
