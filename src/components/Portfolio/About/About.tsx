@@ -3,7 +3,7 @@ import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
 import {AboutItem} from 'models/about-item'
-import {useEffect, useRef} from 'react'
+import {useEffect, useRef, useState} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 
@@ -17,6 +17,7 @@ interface SectionProps {
 }
 
 const About = ({setAboutOffset, isAbout}: SectionProps) => {
+  const [openItem, setOpenItem] = useState<AboutItem | null>(null)
   const {state, dispatch} = useAppContext()
   const {title, aboutItems} = state.about
 
@@ -50,7 +51,7 @@ const About = ({setAboutOffset, isAbout}: SectionProps) => {
       )
       const element = document.querySelector('.about-snippet')
       element?.dispatchEvent(clickEvent)
-    }, 700)
+    }, 1500)
   }
 
   useEffect(() => {
@@ -77,6 +78,8 @@ const About = ({setAboutOffset, isAbout}: SectionProps) => {
                       key={`${id}`}
                       item={item}
                       computedStyle={undefined}
+                      openItem={openItem}
+                      setOpenItem={setOpenItem}
                     />
                   ))}
                 </FadeItem>

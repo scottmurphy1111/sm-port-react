@@ -1,46 +1,59 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import {AboutItem} from 'models/about-item'
-import {useEffect, useRef, useState} from 'react'
-import {CSSProperties} from 'styled-components'
+import {CSSProperties, useEffect, useRef, useState} from 'react'
 
-interface AboutSnippetProps {
+type Props = {
   item: AboutItem
   computedStyle: CSSProperties | undefined
+  openItem: AboutItem | null
+  setOpenItem: React.Dispatch<React.SetStateAction<AboutItem | null>>
 }
-44
-const AboutSnippet = ({item, computedStyle}: AboutSnippetProps) => {
+
+const AboutSnippet = ({item, computedStyle, openItem, setOpenItem}: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   const aboutSnippetRef = useRef<null | HTMLDivElement>(null)
   const descriptionRef = useRef<null | HTMLDivElement>(null)
+
+  const {heading, icon, description} = item
 
   useEffect(() => {
     handleFadeIn(aboutSnippetRef)
   }, [])
 
-  const revealContent = () => {
+  const contentHeight = descriptionRef?.current?.scrollHeight
+
+  const revealStyles = (open: boolean) => {
+    return {
+      height: open ? `${contentHeight}px` : '0px',
+      opacity: open ? '1' : '0',
+    }
+  }
+
+  useEffect(() => {
+    setOpen(false)
+    if (openItem === item) {
+      setOpen(true)
+    }
+  }, [openItem])
+
+  const revealContent = (e: React.MouseEvent) => {
+    console.log((e.target as HTMLDivElement).textContent)
+    console.log(item)
     openDrawer()
-    revealText(descriptionRef?.current?.firstElementChild, item.description)
+    revealText(descriptionRef?.current?.firstElementChild, description)
   }
 
   const openDrawer = () => {
-    setOpen((prev: boolean) => !prev)
     if (descriptionRef.current) {
       if (descriptionRef.current.firstElementChild?.textContent) {
         descriptionRef.current.firstElementChild.textContent = null
       }
-      if (!open) {
-        const contentHeight = descriptionRef.current.scrollHeight
-        descriptionRef.current.style.height = `${contentHeight}px`
-        descriptionRef.current.style.opacity = '1'
-      } else {
-        descriptionRef.current.style.height = '0px'
-        descriptionRef.current.style.opacity = '0'
-      }
+      openItem !== item ? setOpenItem(item) : setOpenItem(null)
     }
   }
 
   const revealText = (div: Element | null | undefined, text: string) => {
-    if (div) {
+    if (div && !open) {
       div.textContent += text[0]
       if (text.length > 1) {
         setTimeout(() => {
@@ -58,13 +71,14 @@ const AboutSnippet = ({item, computedStyle}: AboutSnippetProps) => {
       onClick={revealContent}
     >
       <div className="about-link">
-        <img
-          src={`${process.env.PUBLIC_URL}${item.icon}`}
-          alt={`${item.heading}`}
-        />
-        <h3>{item.heading}</h3>
+        <img src={`${process.env.PUBLIC_URL}${icon}`} alt={`${heading}`} />
+        <h3>{heading}</h3>
       </div>
-      <div className="about-description" ref={descriptionRef}>
+      <div
+        className="about-description"
+        ref={descriptionRef}
+        style={revealStyles(open)}
+      >
         <p></p>
       </div>
     </div>
