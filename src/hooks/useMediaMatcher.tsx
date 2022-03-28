@@ -28,7 +28,6 @@ const useMediaMatcher = (size: keyof typeof ScreenSizes = 'md'): boolean => {
     setMatch(mediaWatcher.matches)
 
     const handleSetMatches = (e: MediaQueryListEvent) => {
-      console.log(e)
       setMatch(e.matches)
     }
 

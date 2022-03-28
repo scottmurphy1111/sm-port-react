@@ -36,9 +36,7 @@ const AboutSnippet = ({item, computedStyle, openItem, setOpenItem}: Props) => {
     }
   }, [openItem])
 
-  const revealContent = (e: React.MouseEvent) => {
-    console.log((e.target as HTMLDivElement).textContent)
-    console.log(item)
+  const revealContent = () => {
     openDrawer()
     revealText(descriptionRef?.current?.firstElementChild, description)
   }
