@@ -39,6 +39,7 @@ const Nav = () => {
 
   const handleHomeClick = () => {
     dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
+    state.sectionRefs[0].current.scrollIntoView({behavior: 'smooth'})
   }
 
   const handleNavButtonClick = () => {
