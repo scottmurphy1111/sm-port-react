@@ -24,6 +24,8 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     text-transform: uppercase;
+    margin: 0;
+    padding: 0;
   }
 
   a {

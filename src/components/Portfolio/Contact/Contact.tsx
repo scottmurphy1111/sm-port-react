@@ -47,8 +47,8 @@ const Contact = ({setContactOffset}: SectionProps) => {
   }, [])
 
   useEffect(() => {
-    setContactOffset(getPanelOffset('.contact'))
-  }, [setContactOffset])
+    setContactOffset(getPanelOffset(sectionRef.current))
+  }, [setContactOffset, sectionRef])
 
   return (
     <SectionPanel data-section="contact" className="contact" ref={sectionRef}>

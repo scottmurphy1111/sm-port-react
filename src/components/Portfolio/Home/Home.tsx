@@ -35,14 +35,20 @@ const Home = ({setHomeOffset}: SectionProps) => {
   }, [scrollable])
 
   useEffect(() => {
-    setHomeOffset(getPanelOffset('.home'))
+    setHomeOffset(getPanelOffset(sectionRef.current))
     disableScroll()
 
     if (state.introAnimDone) {
       setShow(true)
       setScrollable(true)
     }
-  }, [scrollable, setHomeOffset, disableScroll, state.introAnimDone])
+  }, [
+    scrollable,
+    setHomeOffset,
+    disableScroll,
+    state.introAnimDone,
+    sectionRef,
+  ])
 
   return (
     <SectionPanel

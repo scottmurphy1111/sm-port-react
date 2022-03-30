@@ -2,6 +2,7 @@ import {useAppContext} from 'common/context/useAppContext'
 import CategoryTitle from 'components/shared/CategoryTitle'
 import FadeItem from 'components/shared/FadeItem/FadeItem'
 import SeeNext from 'components/shared/SeeNext/SeeNext'
+import useMediaMatcher from 'hooks/useMediaMatcher'
 import {Skillset} from 'models/skillset'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
@@ -28,8 +29,8 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
   }, [state.skills, sectionRef])
 
   useEffect(() => {
-    setSkillsOffset(getPanelOffset('.skills'))
-  }, [setSkillsOffset])
+    setSkillsOffset(getPanelOffset(sectionRef.current))
+  }, [setSkillsOffset, sectionRef])
 
   return (
     <>
@@ -39,7 +40,11 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
             <Row>
               <Col xs={12}>
                 <FadeItem>
-                  <CategoryTitle title={title} computedStyle={undefined} />
+                  <CategoryTitle
+                    title={title}
+                    computedStyle={undefined}
+                    align={useMediaMatcher() ? 'center' : 'left'}
+                  />
                 </FadeItem>
                 <div className="skillset-wrapper">
                   <FadeItem>

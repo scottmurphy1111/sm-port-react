@@ -78,7 +78,13 @@ const Nav = () => {
             >
               {navItems?.map((item: NavItemType, index: number) => {
                 if (index !== 0) {
-                  return <NavItem key={`nav-key${index}`} item={item} />
+                  return (
+                    <NavItem
+                      key={`nav-key${index}`}
+                      item={item}
+                      setShowMobileMenu={setShowMobileMenu}
+                    />
+                  )
                 } else {
                   return null
                 }

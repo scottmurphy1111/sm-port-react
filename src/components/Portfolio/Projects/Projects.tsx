@@ -28,8 +28,8 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
   }, [state.projects, sectionRef])
 
   useEffect(() => {
-    setProjectsOffset(getPanelOffset('.projects'))
-  }, [setProjectsOffset])
+    setProjectsOffset(getPanelOffset(sectionRef.current))
+  }, [setProjectsOffset, sectionRef])
 
   return (
     <SectionPanel

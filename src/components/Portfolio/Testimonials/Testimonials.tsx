@@ -28,8 +28,8 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
   }, [state.testimonials, sectionRef])
 
   useEffect(() => {
-    setTestimonialsOffset(getPanelOffset('.testimonials-section'))
-  }, [setTestimonialsOffset])
+    setTestimonialsOffset(getPanelOffset(sectionRef.current))
+  }, [setTestimonialsOffset, sectionRef])
 
   return (
     <SectionPanel

@@ -13,7 +13,13 @@ export const NavStyled = styled.div`
   justify-content: space-between;
   transform: translateY(-60px);
   transition: all 0.5s ease-out 0.8s;
-  padding: 0.8rem 0;
+  padding: 8px;
+  box-sizing: border-box;
+  height: 70px;
+
+  ${media.md`
+    height: 55px;
+  `}
 
   &.show {
     transform: translateY(0px);

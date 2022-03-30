@@ -55,8 +55,8 @@ const About = ({setAboutOffset, isAbout}: SectionProps) => {
   }
 
   useEffect(() => {
-    setAboutOffset(getPanelOffset('.about'))
-  }, [setAboutOffset])
+    setAboutOffset(getPanelOffset(sectionRef.current))
+  }, [setAboutOffset, sectionRef])
 
   useEffect(() => {
     if (isAbout) return initOpenItem()

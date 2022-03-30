@@ -19,22 +19,30 @@ const Portfolio = () => {
   const [testimonialsOffset, setTestimonialsOffset] = useState(0)
   const [contactOffset, setContactOffset] = useState(0)
 
-  const {dispatch} = useAppContext()
+  const {state, dispatch} = useAppContext()
+
+  console.log(`homeOffset =  ${homeOffset}`)
+  console.log(`skillsOffset =  ${skillsOffset}`)
+  console.log(`projectsOffset =  ${projectsOffset}`)
+  console.log(`aboutOffset =  ${aboutOffset}`)
+  console.log(`testimonialsOffset =  ${testimonialsOffset}`)
+  console.log(`contactOffset =  ${contactOffset}`)
 
   const getCurrentOffset = (pageOffset: number) => {
-    if (homeOffset < pageOffset && skillsOffset > pageOffset) {
-      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
-    } else if (skillsOffset < pageOffset && projectsOffset > pageOffset) {
-      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'skills'}})
-    } else if (projectsOffset < pageOffset && aboutOffset > pageOffset) {
-      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'projects'}})
+    console.log(pageOffset)
+    if (contactOffset < pageOffset) {
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'contact'}})
+    } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'testimonials'}})
     } else if (aboutOffset < pageOffset && testimonialsOffset > pageOffset) {
       dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'about'}})
       setIsAbout(true)
-    } else if (testimonialsOffset < pageOffset && contactOffset > pageOffset) {
-      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'testimonials'}})
+    } else if (projectsOffset < pageOffset && aboutOffset > pageOffset) {
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'projects'}})
+    } else if (skillsOffset < pageOffset && projectsOffset > pageOffset) {
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'skills'}})
     } else {
-      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'contact'}})
+      dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
     }
   }
 
@@ -52,7 +60,7 @@ const Portfolio = () => {
   useEffect(() => {
     const subscription = monitorScrolling$().subscribe()
     return () => subscription.unsubscribe()
-  })
+  }, [state])
 
   return (
     <>

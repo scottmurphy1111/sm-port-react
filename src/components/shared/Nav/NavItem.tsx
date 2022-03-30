@@ -4,9 +4,10 @@ import {RefObject, useRef} from 'react'
 
 interface NavItemProps {
   item: NavItemType
+  setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NavItem = ({item}: NavItemProps) => {
+const NavItem = ({item, setShowMobileMenu}: NavItemProps) => {
   const {state} = useAppContext()
   const navItemRef = useRef<null | HTMLLIElement>(null)
 
@@ -17,6 +18,7 @@ const NavItem = ({item}: NavItemProps) => {
     )
 
     scrollToSection?.current?.scrollIntoView({behavior: 'smooth'})
+    setShowMobileMenu(false)
   }
 
   return (
