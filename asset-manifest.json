@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/sm-port-react/static/js/main.d715781d.chunk.js",
-    "main.js.map": "/sm-port-react/static/js/main.d715781d.chunk.js.map",
+    "main.js": "/sm-port-react/static/js/main.0c9d5082.chunk.js",
+    "main.js.map": "/sm-port-react/static/js/main.0c9d5082.chunk.js.map",
     "runtime-main.js": "/sm-port-react/static/js/runtime-main.47d897dd.js",
     "runtime-main.js.map": "/sm-port-react/static/js/runtime-main.47d897dd.js.map",
     "static/css/2.4ee2f7a8.chunk.css": "/sm-port-react/static/css/2.4ee2f7a8.chunk.css",
-    "static/js/2.14ac2b44.chunk.js": "/sm-port-react/static/js/2.14ac2b44.chunk.js",
-    "static/js/2.14ac2b44.chunk.js.map": "/sm-port-react/static/js/2.14ac2b44.chunk.js.map",
+    "static/js/2.9f11f769.chunk.js": "/sm-port-react/static/js/2.9f11f769.chunk.js",
+    "static/js/2.9f11f769.chunk.js.map": "/sm-port-react/static/js/2.9f11f769.chunk.js.map",
     "index.html": "/sm-port-react/index.html",
     "static/css/2.4ee2f7a8.chunk.css.map": "/sm-port-react/static/css/2.4ee2f7a8.chunk.css.map",
-    "static/js/2.14ac2b44.chunk.js.LICENSE.txt": "/sm-port-react/static/js/2.14ac2b44.chunk.js.LICENSE.txt",
+    "static/js/2.9f11f769.chunk.js.LICENSE.txt": "/sm-port-react/static/js/2.9f11f769.chunk.js.LICENSE.txt",
     "static/media/bg-pattern-light.282a6f6e.png": "/sm-port-react/static/media/bg-pattern-light.282a6f6e.png",
     "static/media/digi-bg1.66af3756.png": "/sm-port-react/static/media/digi-bg1.66af3756.png",
     "static/media/so-tooltip-bg.de4af935.jpg": "/sm-port-react/static/media/so-tooltip-bg.de4af935.jpg"
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.47d897dd.js",
     "static/css/2.4ee2f7a8.chunk.css",
-    "static/js/2.14ac2b44.chunk.js",
-    "static/js/main.d715781d.chunk.js"
+    "static/js/2.9f11f769.chunk.js",
+    "static/js/main.0c9d5082.chunk.js"
   ]
 }
