@@ -27,7 +27,7 @@ const CategoryTitle = ({title, computedStyle, align}: CategoryTitleProps) => {
     ...textAlignment,
   }
 
-  console.log(`styles =  ${JSON.stringify(styles, null, 2)}`)
+  // console.log(`styles =  ${JSON.stringify(styles, null, 2)}`)
   useEffect(() => {
     handleFadeIn(titleRef)
   }, [])

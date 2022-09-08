@@ -1,21 +1,21 @@
 import {useAppContext} from 'common/context/useAppContext'
-import {NavItemType} from 'models/nav-item'
 import {useEffect, useRef, useState} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
+import {NavItemType} from 'types/nav-item'
 
 import Logo from './Logo'
 import {NavStyled} from './Nav.style'
 import NavItem from './NavItem'
 
 const documentClick = (
-  navList: any,
-  navButtonWrap: any,
-  setShowMobile: any
+  navList: HTMLUListElement | null,
+  navButtonWrap: HTMLDivElement | null,
+  setShowMobile: React.Dispatch<React.SetStateAction<boolean>>
 ) => {
   document.addEventListener('click', event => {
     if (
-      !navList.contains(event.target) &&
-      !navButtonWrap.contains(event.target)
+      !navList?.contains(event.target as HTMLUListElement) &&
+      !navButtonWrap?.contains(event.target as HTMLDivElement)
     ) {
       setShowMobile(false)
     }
@@ -39,7 +39,7 @@ const Nav = () => {
 
   const handleHomeClick = () => {
     dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'home'}})
-    state.sectionRefs[0].current.scrollIntoView({behavior: 'smooth'})
+    state.sectionRefs[0].current?.scrollIntoView({behavior: 'smooth'})
   }
 
   const handleNavButtonClick = () => {

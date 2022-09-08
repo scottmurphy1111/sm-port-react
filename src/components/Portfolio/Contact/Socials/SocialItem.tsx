@@ -1,7 +1,7 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
-import {Social} from 'models/social'
-import {StackOverflowData} from 'models/stack-overflow-data'
 import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react'
+import {Social} from 'types/social'
+import {StackOverflowData} from 'types/stack-overflow-data'
 
 import SoTooltip from './SoTooltip'
 

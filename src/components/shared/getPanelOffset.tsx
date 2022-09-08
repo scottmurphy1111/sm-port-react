@@ -1,6 +1,3 @@
-import {fromEvent, Observable} from 'rxjs'
-import {map} from 'rxjs/operators'
-
 export function getPanelOffset(panel: HTMLDivElement | null): number {
   let offsetTop = 0
   if (panel) {
@@ -11,9 +8,3 @@ export function getPanelOffset(panel: HTMLDivElement | null): number {
     return 0
   }
 }
-
-// export function monitorScrolling$(panel: string): Observable<boolean> {
-//   return fromEvent(window, 'scroll').pipe(
-//     map(() => window.pageYOffset > getPanelOffset(panel))
-//   )
-// }

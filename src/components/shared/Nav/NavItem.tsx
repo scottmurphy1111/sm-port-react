@@ -1,6 +1,6 @@
 import {useAppContext} from 'common/context/useAppContext'
-import {NavItemType} from 'models/nav-item'
 import {RefObject, useRef} from 'react'
+import {NavItemType} from 'types/nav-item'
 
 interface NavItemProps {
   item: NavItemType

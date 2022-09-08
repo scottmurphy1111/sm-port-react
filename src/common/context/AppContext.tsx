@@ -1,3 +1,4 @@
+import {createContext, Dispatch, ReactNode, RefObject, useReducer} from 'react'
 import {
   AboutData,
   ContactData,
@@ -6,9 +7,8 @@ import {
   ProjectsData,
   SkillsData,
   TestimonialsData,
-} from 'models/data'
-import {NavItemType} from 'models/nav-item'
-import {createContext, Dispatch, ReactNode, useReducer} from 'react'
+} from 'types/data'
+import {NavItemType} from 'types/nav-item'
 
 import {Action} from './ActionTypes'
 import reducer from './reducer'
@@ -22,18 +22,18 @@ export interface AppState {
   testimonials: TestimonialsData
   contact: ContactData
   activeNav: NavItemType
-  sectionRefs: any
+  sectionRefs: RefObject<HTMLDivElement>[]
   introAnimDone: boolean
 }
 
 export const initialState: AppState = {
-  nav: {},
-  home: {},
-  skills: {},
-  projects: {},
-  about: {},
-  testimonials: {},
-  contact: {},
+  nav: {navItems: []},
+  home: {name: '', position: '', subHeadingA: '', subHeadingB: ''},
+  skills: {title: '', skillset: []},
+  projects: {title: '', projectsItems: []},
+  about: {title: '', aboutItems: []},
+  testimonials: {title: '', testimonialsItems: []},
+  contact: {title: '', socials: []},
   activeNav: {value: 'home'},
   sectionRefs: [],
   introAnimDone: false,

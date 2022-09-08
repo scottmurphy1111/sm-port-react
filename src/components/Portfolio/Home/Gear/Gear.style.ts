@@ -24,7 +24,7 @@ export const GearStyled = styled.div`
     }
 
     .gear {
-      animation: ${spin} 3s forwards linear;
+      animation: ${spin} 9s infinite linear;
       transform-origin: center center;
       opacity: 0.125;
       transition: opacity 1s ease-in 0s;

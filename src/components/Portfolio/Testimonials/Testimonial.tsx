@@ -2,7 +2,7 @@ import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import {useEffect, useRef, useState} from 'react'
 import {Col, Row} from 'react-flexbox-grid'
 
-import {TestimonialItem} from '../../../models/testimonial-item'
+import {TestimonialItem} from '../../../types/testimonial-item'
 
 const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
   const divCopy = useRef<null | HTMLParagraphElement>(null)

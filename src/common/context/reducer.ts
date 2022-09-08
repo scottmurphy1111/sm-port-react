@@ -8,6 +8,7 @@ const reducer: ReducerType = (
   state: AppState = initialState,
   action: Action
 ) => {
+  console.log('action', action.payload)
   switch (action.type) {
     case 'GET_DATA':
       return {
@@ -25,7 +26,11 @@ const reducer: ReducerType = (
         activeNav: action.payload,
       }
     case 'SET_SECTION_REF':
-      if (!state.sectionRefs.includes(action.payload)) {
+      if (
+        action.payload &&
+        state.sectionRefs &&
+        !state.sectionRefs.includes(action.payload)
+      ) {
         return {
           ...state,
           sectionRefs: [...state.sectionRefs, action.payload],

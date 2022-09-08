@@ -1,8 +1,8 @@
 import FadeItem from 'components/shared/FadeItem/FadeItem'
-import {StackOverflowData} from 'models/stack-overflow-data'
 import React, {useEffect, useState} from 'react'
+import {StackOverflowData} from 'types/stack-overflow-data'
 
-import {Social} from '../../../../models/social'
+import {Social} from '../../../../types/social'
 import SocialItem from './SocialItem'
 
 const USER_ID = '5711949'

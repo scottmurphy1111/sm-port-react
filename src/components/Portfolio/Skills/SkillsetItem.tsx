@@ -2,7 +2,7 @@ import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import React, {useEffect, useRef} from 'react'
 import {CSSProperties} from 'styled-components'
 
-import {Skillset} from '../../../models/skillset'
+import {Skillset} from '../../../types/skillset'
 import FadeItem from '../../shared/FadeItem/FadeItem'
 import SkillsArrayItem from './SkillsArrayItem'
 

@@ -1,6 +1,6 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
-import {AboutItem} from 'models/about-item'
 import {CSSProperties, useEffect, useRef, useState} from 'react'
+import {AboutItem} from 'types/about-item'
 
 type Props = {
   item: AboutItem

@@ -1,6 +1,6 @@
-import {Social} from 'models/social'
-import {StackOverflowData} from 'models/stack-overflow-data'
 import React from 'react'
+import {Social} from 'types/social'
+import {StackOverflowData} from 'types/stack-overflow-data'
 
 import {SoTooltipStyled} from './SoTooltip.style'
 import Trophy from './Trophy'
