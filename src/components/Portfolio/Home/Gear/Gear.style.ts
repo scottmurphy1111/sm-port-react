@@ -1,12 +1,12 @@
 import styled, {keyframes} from 'styled-components'
-import media from 'styled-components/helpers/MediaQueries.style'
+import {media} from 'styled-components/helpers/MediaQueries.style'
 
 const spin = keyframes`
   0% {
     transform: rotateZ(0deg);
   }
   100% {
-    transform: rotateZ(220deg);
+    transform: rotateZ(360deg);
   }
 `
 export const GearStyled = styled.div`

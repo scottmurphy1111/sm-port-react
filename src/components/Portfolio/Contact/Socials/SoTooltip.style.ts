@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import {Colors} from 'styled-components/helpers/Colors.style'
 
-import headerBG from '../../../../assets/images/so-tooltip-bg.jpg'
-
 export const SoTooltipStyled = styled.div`
   .so-tooltip {
     width: 320px;
@@ -26,7 +24,6 @@ export const SoTooltipStyled = styled.div`
 
     .so-header-wrapper {
       background-color: ${Colors.primaryColor};
-      background-image: url(${headerBG})
       padding: 0px;
       display: flex;
       justify-content: space-between;

@@ -1,24 +1,13 @@
-import {useAppContext} from 'common/context/useAppContext'
 import {GlobalStyles} from 'Global.style'
+import {useFetchAppData} from 'hooks/useFetchAppData'
 import {useEffect} from 'react'
 
-import Portfolio from './components/Portfolio/Portfolio'
-import BgImage from './components/shared/BgImage'
-import Nav from './components/shared/Nav/Nav'
-import data from './data/data.json'
+import {Portfolio} from './components/Portfolio/Portfolio'
+import {BgImage} from './components/shared/BgImage'
+import {Nav} from './components/shared/Nav/Nav'
 
 const App = () => {
-  const {dispatch} = useAppContext()
-  const fetchAppData = () => Promise.resolve(data)
-
-  useEffect(() => {
-    fetchAppData().then(payload => {
-      dispatch({
-        type: 'GET_DATA',
-        payload: payload,
-      })
-    })
-  }, [])
+  useFetchAppData()
 
   const resetPage = () => {
     window.onbeforeunload = function () {
@@ -28,7 +17,9 @@ const App = () => {
 
   useEffect(() => {
     resetPage()
-    console.log('WELCOME TO MY SITE, PLEASE MAKE YOURSELF AT HOME!')
+    console.log(
+      '👋🏻 WELCOME TO MY PORTFOLIO! PLEASE MAKE YOURSELF AT HOME! 🏠 CLICK CONTACT TO GET IN TOUCH 🤙🏻📞'
+    )
   }, [])
 
   return (

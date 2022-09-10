@@ -9,16 +9,16 @@ import React, {
 
 interface ContactBlockProps {
   children: ReactElement | ReactElement[]
-  computedStyle: CSSProperties | undefined
+  computedstyle?: CSSProperties
 }
 
-const ContactBlock = ({computedStyle, children}: ContactBlockProps) => {
+export const ContactBlock = ({computedstyle, children}: ContactBlockProps) => {
   const contactBlockRef = useRef<HTMLDivElement | null>(null)
 
   const addChildStyles = (children: ReactElement | ReactElement[]) => {
     return React.Children.map(children, (child: ReactElement) => {
       child = cloneElement(child, {
-        computedStyle: null,
+        computedstyle: null,
       })
 
       return child
@@ -28,11 +28,10 @@ const ContactBlock = ({computedStyle, children}: ContactBlockProps) => {
   useEffect(() => {
     handleFadeIn(contactBlockRef)
   }, [])
+
   return (
-    <div ref={contactBlockRef} className="contact-block" style={computedStyle}>
+    <div ref={contactBlockRef} className="contact-block" style={computedstyle}>
       {addChildStyles(children)}
     </div>
   )
 }
-
-export default ContactBlock

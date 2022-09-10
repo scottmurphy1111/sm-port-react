@@ -3,9 +3,9 @@ import {useEffect, useRef, useState} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {NavItemType} from 'types/nav-item'
 
-import Logo from './Logo'
+import {Logo} from './Logo'
 import {NavStyled} from './Nav.style'
-import NavItem from './NavItem'
+import {NavItem} from './NavItem'
 
 const documentClick = (
   navList: HTMLUListElement | null,
@@ -22,7 +22,7 @@ const documentClick = (
   })
 }
 
-const Nav = () => {
+export const Nav = () => {
   const [show, setShow] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
   const navItemsList = useRef<HTMLUListElement>(null)
@@ -96,5 +96,3 @@ const Nav = () => {
     </NavStyled>
   )
 }
-
-export default Nav

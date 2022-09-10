@@ -7,7 +7,7 @@ interface NavItemProps {
   setShowMobileMenu: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const NavItem = ({item, setShowMobileMenu}: NavItemProps) => {
+export const NavItem = ({item, setShowMobileMenu}: NavItemProps) => {
   const {state} = useAppContext()
   const navItemRef = useRef<null | HTMLLIElement>(null)
 
@@ -31,5 +31,3 @@ const NavItem = ({item, setShowMobileMenu}: NavItemProps) => {
     </li>
   )
 }
-
-export default NavItem

@@ -2,14 +2,14 @@ import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import {useEffect, useRef, useState} from 'react'
 import {ProjectItem} from 'types/project-item'
 
-const Project = ({
+export const Project = ({
   projectName,
   link,
   tech,
   capabilities,
   image,
   description,
-  computedStyle,
+  computedstyle,
 }: ProjectItem) => {
   const [isShown, setIsShown] = useState(false)
   const projectRef = useRef(null)
@@ -19,7 +19,7 @@ const Project = ({
   }, [])
 
   return (
-    <div ref={projectRef} className="project-item" style={computedStyle}>
+    <div ref={projectRef} className="project-item" style={computedstyle}>
       <a href={link} target="_blank" rel="noopener noreferrer">
         <div
           className="base-item"
@@ -46,5 +46,3 @@ const Project = ({
     </div>
   )
 }
-
-export default Project

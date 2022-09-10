@@ -8,7 +8,7 @@ interface SeeNextProps {
   light?: boolean
 }
 
-const SeeNext = ({section, show, light}: SeeNextProps) => {
+export const SeeNext = ({section, show, light}: SeeNextProps) => {
   const [nextSection, setNextSection] = useState(section)
 
   useEffect(() => {
@@ -47,5 +47,3 @@ const SeeNext = ({section, show, light}: SeeNextProps) => {
     </SeeNextStyled>
   )
 }
-
-export default SeeNext

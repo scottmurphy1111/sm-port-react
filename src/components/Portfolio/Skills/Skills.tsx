@@ -1,26 +1,29 @@
 import {useAppContext} from 'common/context/useAppContext'
-import CategoryTitle from 'components/shared/CategoryTitle'
-import FadeItem from 'components/shared/FadeItem/FadeItem'
-import SeeNext from 'components/shared/SeeNext/SeeNext'
-import useMediaMatcher from 'hooks/useMediaMatcher'
+import {CategoryTitle} from 'components/shared/CategoryTitle'
+import {FadeItem} from 'components/shared/FadeItem/FadeItem'
+import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useMediaMatcher} from 'hooks/useMediaMatcher'
+import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 import {Skillset} from 'types/skillset'
+import {getPanelOffset} from 'utils/getPanelOffset'
 
-import {getPanelOffset} from '../../shared/getPanelOffset'
 import {SkillsStyled} from './Skills.style'
-import SkillsetItem from './SkillsetItem'
+import {SkillsetItem} from './SkillsetItem'
 
 interface SectionProps {
   setSkillsOffset: (val: number) => void
 }
 
-const Skills = ({setSkillsOffset}: SectionProps) => {
+export const Skills = ({setSkillsOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, skillset} = state.skills
 
   const sectionRef = useRef(null)
+
+  const {isResizing} = useMonitorResize()
 
   useEffect(() => {
     if (state.skills && sectionRef) {
@@ -30,7 +33,7 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
 
   useEffect(() => {
     setSkillsOffset(getPanelOffset(sectionRef.current))
-  }, [setSkillsOffset, sectionRef])
+  }, [state.introAnimDone, isResizing])
 
   return (
     <>
@@ -42,18 +45,13 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
                 <FadeItem>
                   <CategoryTitle
                     title={title}
-                    computedStyle={undefined}
                     align={useMediaMatcher() ? 'center' : 'left'}
                   />
                 </FadeItem>
                 <div className="skillset-wrapper">
                   <FadeItem>
                     {skillset?.map((skill: Skillset, id: number) => (
-                      <SkillsetItem
-                        key={id + 1}
-                        skill={skill}
-                        computedStyle={undefined}
-                      />
+                      <SkillsetItem key={id + 1} skill={skill} />
                     ))}
                   </FadeItem>
                 </div>
@@ -66,5 +64,3 @@ const Skills = ({setSkillsOffset}: SectionProps) => {
     </>
   )
 }
-
-export default Skills

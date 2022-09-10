@@ -1,4 +1,4 @@
-const Logo = () => (
+export const Logo = () => (
   <svg
     version="1.1"
     id="Layer_1"
@@ -44,5 +44,3 @@ const Logo = () => (
     />
   </svg>
 )
-
-export default Logo

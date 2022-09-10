@@ -14,7 +14,6 @@ export const useMonitorScrolling = () => {
   const {state, dispatch} = useAppContext()
 
   const getCurrentOffset = (pageOffset: number) => {
-    console.log(pageOffset)
     if (contactOffset <= pageOffset) {
       dispatch({type: 'SET_ACTIVE_NAV', payload: {value: 'contact'}})
     } else if (testimonialsOffset <= pageOffset && contactOffset > pageOffset) {
@@ -31,12 +30,14 @@ export const useMonitorScrolling = () => {
     }
   }
 
+  const scrollEvent$ = fromEvent(window, 'scroll')
+
   // Observable to monitor scrolling offsets
   const monitorScrolling$ = () =>
-    fromEvent(window, 'scroll').pipe(
+    scrollEvent$.pipe(
       map(() => window.pageYOffset),
       tap(value => {
-        getCurrentOffset(value)
+        getCurrentOffset(Math.round(value))
       })
     )
 

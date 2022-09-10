@@ -4,10 +4,13 @@ import {CSSProperties} from 'styled-components'
 
 interface SkillsArrayItemProps {
   item: string
-  computedStyle: CSSProperties | undefined
+  computedstyle?: CSSProperties
 }
 
-const SkillsArrayItem = ({item, computedStyle}: SkillsArrayItemProps) => {
+export const SkillsArrayItem = ({
+  item,
+  computedstyle,
+}: SkillsArrayItemProps) => {
   const skillsArrayItemRef = useRef(null)
 
   useEffect(() => {
@@ -15,10 +18,8 @@ const SkillsArrayItem = ({item, computedStyle}: SkillsArrayItemProps) => {
   }, [])
 
   return (
-    <div ref={skillsArrayItemRef} style={computedStyle}>
+    <div ref={skillsArrayItemRef} style={computedstyle}>
       {item}
     </div>
   )
 }
-
-export default SkillsArrayItem

@@ -1,23 +1,26 @@
 import {useAppContext} from 'common/context/useAppContext'
-import CategoryTitle from 'components/shared/CategoryTitle'
-import FadeItem from 'components/shared/FadeItem/FadeItem'
-import {getPanelOffset} from 'components/shared/getPanelOffset'
-import SeeNext from 'components/shared/SeeNext/SeeNext'
+import {CategoryTitle} from 'components/shared/CategoryTitle'
+import {FadeItem} from 'components/shared/FadeItem/FadeItem'
+import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 import {TestimonialItem} from 'types/testimonial-item'
+import {getPanelOffset} from 'utils/getPanelOffset'
 
-import Testimonial from './Testimonial'
+import {Testimonial} from './Testimonial'
 import {TestimonialsStyled} from './Testimonials.style'
 
 interface SectionProps {
   setTestimonialsOffset: (val: number) => void
 }
 
-const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
+export const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, testimonialsItems} = state.testimonials
+
+  const {isResizing} = useMonitorResize()
 
   const sectionRef = useRef(null)
 
@@ -29,7 +32,7 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
 
   useEffect(() => {
     setTestimonialsOffset(getPanelOffset(sectionRef.current))
-  }, [setTestimonialsOffset, sectionRef])
+  }, [state.introAnimDone, isResizing])
 
   return (
     <SectionPanel
@@ -43,17 +46,13 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
           <Row>
             <Col xs={12}>
               <FadeItem>
-                <CategoryTitle title={title} computedStyle={undefined} />
+                <CategoryTitle title={title} />
               </FadeItem>
               <div className="testimonials">
                 <FadeItem>
                   {testimonialsItems?.map(
                     (testimonial: TestimonialItem, id: number) => (
-                      <Testimonial
-                        key={id + 1}
-                        {...testimonial}
-                        computedStyle={undefined}
-                      />
+                      <Testimonial key={id + 1} {...testimonial} />
                     )
                   )}
                 </FadeItem>
@@ -66,5 +65,3 @@ const Testimonials = ({setTestimonialsOffset}: SectionProps) => {
     </SectionPanel>
   )
 }
-
-export default Testimonials

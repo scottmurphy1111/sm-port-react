@@ -1,23 +1,26 @@
 import {useAppContext} from 'common/context/useAppContext'
-import CategoryTitle from 'components/shared/CategoryTitle'
-import FadeItem from 'components/shared/FadeItem/FadeItem'
-import SeeNext from 'components/shared/SeeNext/SeeNext'
+import {CategoryTitle} from 'components/shared/CategoryTitle'
+import {FadeItem} from 'components/shared/FadeItem/FadeItem'
+import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 import {ProjectItem} from 'types/project-item'
+import {getPanelOffset} from 'utils/getPanelOffset'
 
-import {getPanelOffset} from '../../shared/getPanelOffset'
-import Project from './Project'
+import {Project} from './Project'
 import {ProjectsStyled} from './Projects.style'
 
 interface SectionProps {
   setProjectsOffset: (val: number) => void
 }
 
-const Projects = ({setProjectsOffset}: SectionProps) => {
+export const Projects = ({setProjectsOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, projectsItems} = state.projects
+
+  const {isResizing} = useMonitorResize()
 
   const sectionRef = useRef(null)
 
@@ -29,7 +32,7 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
 
   useEffect(() => {
     setProjectsOffset(getPanelOffset(sectionRef.current))
-  }, [setProjectsOffset, sectionRef])
+  }, [state.introAnimDone, isResizing])
 
   return (
     <SectionPanel
@@ -43,7 +46,7 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
           <Row>
             <Col xs={12}>
               <FadeItem>
-                <CategoryTitle title={title} computedStyle={undefined} />
+                <CategoryTitle title={title} />
               </FadeItem>
               <ul className="projects-list">
                 <FadeItem>
@@ -60,5 +63,3 @@ const Projects = ({setProjectsOffset}: SectionProps) => {
     </SectionPanel>
   )
 }
-
-export default Projects

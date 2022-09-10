@@ -1,3 +1,5 @@
+import {CSSProperties} from 'react'
+
 export interface ProjectItem {
   projectName: string
   link: string
@@ -5,5 +7,5 @@ export interface ProjectItem {
   capabilities: string
   image: string
   description: string
-  computedStyle?: {[key: string]: string}
+  computedstyle?: CSSProperties
 }

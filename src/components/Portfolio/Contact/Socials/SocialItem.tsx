@@ -1,17 +1,16 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
+import {useFetchSoData} from 'hooks/useFetchSoData'
 import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react'
 import {Social} from 'types/social'
-import {StackOverflowData} from 'types/stack-overflow-data'
 
-import SoTooltip from './SoTooltip'
+import {SoTooltip} from './SoTooltip'
 
 interface SocialProp {
   social: Social
-  stackOverflowData: StackOverflowData
-  computedStyle: CSSProperties | undefined
+  computedstyle?: CSSProperties
 }
 
-const SocialItem = ({social, computedStyle, stackOverflowData}: SocialProp) => {
+export const SocialItem = ({social, computedstyle}: SocialProp) => {
   const [openTooltip, setOpenTooltip] = useState(false)
   const itemRef = useRef<null | HTMLDivElement>(null)
 
@@ -27,8 +26,10 @@ const SocialItem = ({social, computedStyle, stackOverflowData}: SocialProp) => {
     setOpenTooltip(false)
   }, [])
 
+  const {data: stackOverflowData, isFetched} = useFetchSoData()
+
   return (
-    <div className="social-item" style={computedStyle} ref={itemRef}>
+    <div className="social-item" style={computedstyle} ref={itemRef}>
       <a
         title={social.title}
         className={social.title === 'Stack Overflow' ? 'so-link' : ''}
@@ -42,7 +43,7 @@ const SocialItem = ({social, computedStyle, stackOverflowData}: SocialProp) => {
           alt={social.title}
         />
       </a>
-      {social.title === 'Stack Overflow' && (
+      {social.title === 'Stack Overflow' && isFetched && stackOverflowData && (
         <SoTooltip
           social={social}
           visible={openTooltip}
@@ -53,5 +54,3 @@ const SocialItem = ({social, computedStyle, stackOverflowData}: SocialProp) => {
     </div>
   )
 }
-
-export default SocialItem

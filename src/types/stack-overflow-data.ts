@@ -1,6 +1,8 @@
 export interface StackOverflowData {
-  badge_counts: BadgeCounts
-  reputation: number
+  items: {
+    badge_counts: BadgeCounts
+    reputation: number
+  }[]
 }
 
 export interface BadgeCounts {

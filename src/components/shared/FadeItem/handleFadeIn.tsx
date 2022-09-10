@@ -14,7 +14,7 @@ export const handleFadeIn = (elRef: RefObject<HTMLElement>) => {
   const itemEl: HTMLElement | null = elRef?.current
   let visible = false
 
-  function addStyles(target: HTMLElement, styles: FadeStyles) {
+  const addStyles = (target: HTMLElement, styles: FadeStyles) => {
     Object.entries(styles).map(([key, value]) => {
       target.style[key as keyof FadeStyles] = value
     })

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import {Colors} from 'styled-components/helpers/Colors.style'
-import media from 'styled-components/helpers/MediaQueries.style'
+import {media} from 'styled-components/helpers/MediaQueries.style'
 
 export const TestimonialsStyled = styled.div`
   .testimonials {

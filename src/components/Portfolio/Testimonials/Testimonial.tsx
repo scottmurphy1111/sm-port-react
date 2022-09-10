@@ -4,7 +4,11 @@ import {Col, Row} from 'react-flexbox-grid'
 
 import {TestimonialItem} from '../../../types/testimonial-item'
 
-const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
+export const Testimonial = ({
+  copy,
+  reporter,
+  computedstyle,
+}: TestimonialItem) => {
   const divCopy = useRef<null | HTMLParagraphElement>(null)
   const testimonialItemRef = useRef<HTMLDivElement>(null)
   const allCopy = copy
@@ -44,7 +48,7 @@ const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
     <div
       className="testimonial-item"
       ref={testimonialItemRef}
-      style={computedStyle}
+      style={computedstyle}
     >
       <Row>
         <Col xs={12}>
@@ -66,5 +70,3 @@ const Testimonial = ({copy, reporter, computedStyle}: TestimonialItem) => {
     </div>
   )
 }
-
-export default Testimonial

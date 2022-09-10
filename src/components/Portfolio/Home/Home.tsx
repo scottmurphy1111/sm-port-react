@@ -1,23 +1,25 @@
 import {useAppContext} from 'common/context/useAppContext'
-import SeeNext from 'components/shared/SeeNext/SeeNext'
-import useMediaMatcher from 'hooks/useMediaMatcher'
+import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useMediaMatcher} from 'hooks/useMediaMatcher'
+import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useCallback, useEffect, useRef, useState} from 'react'
 import {Col, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
+import {getPanelOffset} from 'utils/getPanelOffset'
 
-import {getPanelOffset} from '../../shared/getPanelOffset'
-import Gear from './Gear/Gear'
+import {Gear} from './Gear/Gear'
 import {HomeStyled} from './Home.style'
 
 interface SectionProps {
   setHomeOffset: (val: number) => void
 }
 
-const Home = ({setHomeOffset}: SectionProps) => {
+export const Home = ({setHomeOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {name, subHeadingA, subHeadingB} = state.home
   const [show, setShow] = useState(false)
   const [scrollable, setScrollable] = useState(false)
+  const {isResizing} = useMonitorResize()
 
   const sectionRef = useRef(null)
 
@@ -42,13 +44,7 @@ const Home = ({setHomeOffset}: SectionProps) => {
       setShow(true)
       setScrollable(true)
     }
-  }, [
-    scrollable,
-    setHomeOffset,
-    disableScroll,
-    state.introAnimDone,
-    sectionRef,
-  ])
+  }, [scrollable, disableScroll, state.introAnimDone, isResizing])
 
   return (
     <SectionPanel
@@ -82,5 +78,3 @@ const Home = ({setHomeOffset}: SectionProps) => {
     </SectionPanel>
   )
 }
-
-export default Home

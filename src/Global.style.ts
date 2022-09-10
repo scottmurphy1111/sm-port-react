@@ -1,5 +1,5 @@
 import {createGlobalStyle} from 'styled-components'
-import media from 'styled-components/helpers/MediaQueries.style'
+import {media} from 'styled-components/helpers/MediaQueries.style'
 
 import digiBg from './assets/images/digi-bg1.png'
 import {Colors} from './styled-components/helpers/Colors.style'

@@ -11,7 +11,7 @@ import {
 import {NavItemType} from 'types/nav-item'
 
 import {Action} from './ActionTypes'
-import reducer from './reducer'
+import {AppReducer} from './AppReducer'
 
 export interface AppState {
   nav: NavData
@@ -48,7 +48,7 @@ export const AppContext = createContext<{
 })
 
 export const AppContextProvider = ({children}: {children: ReactNode}) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(AppReducer, initialState)
   return (
     <AppContext.Provider value={{state, dispatch}}>
       {children}

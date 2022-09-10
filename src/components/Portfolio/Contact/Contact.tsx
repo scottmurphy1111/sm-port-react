@@ -1,24 +1,27 @@
 import {useAppContext} from 'common/context/useAppContext'
-import CategoryTitle from 'components/shared/CategoryTitle'
-import FadeItem from 'components/shared/FadeItem/FadeItem'
+import {CategoryTitle} from 'components/shared/CategoryTitle'
+import {FadeItem} from 'components/shared/FadeItem/FadeItem'
+import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
+import {getPanelOffset} from 'utils/getPanelOffset'
 
-import {getPanelOffset} from '../../shared/getPanelOffset'
 import {ContactStyled} from './Contact.style'
-import ContactBlock from './ContactBlock'
-import Socials from './Socials/Socials'
+import {ContactBlock} from './ContactBlock'
+import {Socials} from './Socials/Socials'
 
 interface SectionProps {
   setContactOffset: (val: number) => void
 }
 
-const Contact = ({setContactOffset}: SectionProps) => {
+export const Contact = ({setContactOffset}: SectionProps) => {
   const {state, dispatch} = useAppContext()
   const {title, socials} = state.contact
   const phoneDivRef = useRef<HTMLLIElement>(null)
   const emailDivRef = useRef<HTMLLIElement>(null)
+
+  const {isResizing} = useMonitorResize()
 
   const sectionRef = useRef(null)
 
@@ -48,7 +51,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
 
   useEffect(() => {
     setContactOffset(getPanelOffset(sectionRef.current))
-  }, [setContactOffset, sectionRef])
+  }, [isResizing, state.introAnimDone])
 
   return (
     <SectionPanel data-section="contact" className="contact" ref={sectionRef}>
@@ -57,16 +60,16 @@ const Contact = ({setContactOffset}: SectionProps) => {
           <Row>
             <Col xs={12}>
               <FadeItem>
-                <CategoryTitle title={title} computedStyle={undefined} />
+                <CategoryTitle title={title} />
               </FadeItem>
               <div className="special-note">
                 <FadeItem>
-                  <ContactBlock computedStyle={undefined}>
+                  <ContactBlock>
                     <p>TO PUT IT SIMPLY, I LOVE TO CODE.</p>
                   </ContactBlock>
                 </FadeItem>
                 <FadeItem>
-                  <ContactBlock computedStyle={undefined}>
+                  <ContactBlock>
                     <p>
                       WHETHER I&rsquo;M DOING FREELANCE WORK OR EMBEDDED INTO A
                       PRODUCTION TEAM, I FIND GREAT JOY IN CONQUERING THE
@@ -75,7 +78,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
                   </ContactBlock>
                 </FadeItem>
                 <FadeItem>
-                  <ContactBlock computedStyle={undefined}>
+                  <ContactBlock>
                     <p>
                       PLEASE <span style={{color: '#fff'}}>CLICK BELOW </span>
                       TO SEND ME A NOTE OR DROP ME A LINE.
@@ -83,7 +86,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
                   </ContactBlock>
                 </FadeItem>
                 <FadeItem>
-                  <ContactBlock computedStyle={undefined}>
+                  <ContactBlock>
                     <p>
                       I LOOK FORWARD TO HEARING FROM YOU AND PARTNERING TOGETHER
                       IN THE FUTURE.
@@ -92,7 +95,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
                 </FadeItem>
               </div>
               <FadeItem>
-                <ContactBlock computedStyle={undefined}>
+                <ContactBlock>
                   <div
                     className=""
                     style={{
@@ -104,7 +107,7 @@ const Contact = ({setContactOffset}: SectionProps) => {
                 </ContactBlock>
               </FadeItem>
               <FadeItem>
-                <ContactBlock computedStyle={undefined}>
+                <ContactBlock>
                   <div className="contact-info">
                     <ul>
                       <li ref={phoneDivRef} className="insert-phone" />
@@ -123,5 +126,3 @@ const Contact = ({setContactOffset}: SectionProps) => {
     </SectionPanel>
   )
 }
-
-export default Contact

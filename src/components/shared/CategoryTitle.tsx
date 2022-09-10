@@ -12,10 +12,14 @@ interface CategoryTitleProps {
     | 'center'
     | 'justify'
     | 'match-parent'
-  computedStyle: CSSProperties | undefined
+  computedstyle?: CSSProperties
 }
 
-const CategoryTitle = ({title, computedStyle, align}: CategoryTitleProps) => {
+export const CategoryTitle = ({
+  title,
+  computedstyle,
+  align,
+}: CategoryTitleProps) => {
   const titleRef = useRef<null | HTMLHeadingElement>(null)
 
   const textAlignment: CSSProperties = {
@@ -23,11 +27,10 @@ const CategoryTitle = ({title, computedStyle, align}: CategoryTitleProps) => {
   }
 
   const styles: CSSProperties = {
-    ...computedStyle,
+    ...computedstyle,
     ...textAlignment,
   }
 
-  // console.log(`styles =  ${JSON.stringify(styles, null, 2)}`)
   useEffect(() => {
     handleFadeIn(titleRef)
   }, [])
@@ -38,5 +41,3 @@ const CategoryTitle = ({title, computedStyle, align}: CategoryTitleProps) => {
     </h2>
   )
 }
-
-export default CategoryTitle

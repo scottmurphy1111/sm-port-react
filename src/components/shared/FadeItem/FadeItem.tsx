@@ -1,10 +1,10 @@
-import React, {cloneElement, ReactElement} from 'react'
+import React, {cloneElement, ReactElement, useCallback} from 'react'
 
 interface FadeItemProps {
   children: ReactElement | ReactElement[]
 }
 
-const FadeItem = ({children}: FadeItemProps) => {
+export const FadeItem = ({children}: FadeItemProps) => {
   const recursiveMap = (
     children: ReactElement | ReactElement[],
     fn: (child: ReactElement, index: number) => ReactElement
@@ -25,17 +25,18 @@ const FadeItem = ({children}: FadeItemProps) => {
     })
   }
 
-  const cloneChild = (child: ReactElement, index: number) => {
-    return cloneElement(child, {
-      computedStyle: {
-        opacity: '0',
-        transform: 'translateY(40px)',
-        transition: `all 0.5s ease-out ${index * 0.125}s`,
-      },
-    })
-  }
+  const cloneChild = useCallback(
+    (child: ReactElement, index: number) => {
+      return cloneElement(child, {
+        computedstyle: {
+          opacity: '0',
+          transform: 'translateY(40px)',
+          transition: `all 0.5s ease-out ${index * 0.125}s`,
+        },
+      })
+    },
+    [children]
+  )
 
   return <>{recursiveMap(children, cloneChild)}</>
 }
-
-export default FadeItem

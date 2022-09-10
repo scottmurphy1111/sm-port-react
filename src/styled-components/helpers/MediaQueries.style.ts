@@ -15,7 +15,7 @@ interface MediaQueryProps {
 
 const sizes: MediaQueryProps = ScreenSizes
 
-const media: Record<
+export const media: Record<
   keyof typeof sizes,
   (literals: TemplateStringsArray, ...placeholders: string[]) => string
 > = Object.keys(sizes).reduce((acc, label) => {
@@ -28,5 +28,3 @@ const media: Record<
 
   return acc
 }, {} as Record<keyof typeof sizes, (literals: TemplateStringsArray, ...placeholders: string[]) => string>)
-
-export default media

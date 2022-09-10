@@ -4,12 +4,17 @@ import {AboutItem} from 'types/about-item'
 
 type Props = {
   item: AboutItem
-  computedStyle: CSSProperties | undefined
+  computedstyle?: CSSProperties
   openItem: AboutItem | null
   setOpenItem: React.Dispatch<React.SetStateAction<AboutItem | null>>
 }
 
-const AboutSnippet = ({item, computedStyle, openItem, setOpenItem}: Props) => {
+export const AboutSnippet = ({
+  item,
+  computedstyle,
+  openItem,
+  setOpenItem,
+}: Props) => {
   const [open, setOpen] = useState<boolean>(false)
   const aboutSnippetRef = useRef<null | HTMLDivElement>(null)
   const descriptionRef = useRef<null | HTMLDivElement>(null)
@@ -65,7 +70,7 @@ const AboutSnippet = ({item, computedStyle, openItem, setOpenItem}: Props) => {
     <div
       ref={aboutSnippetRef}
       className="about-snippet"
-      style={computedStyle}
+      style={computedstyle}
       onClick={revealContent}
     >
       <div className="about-link">
@@ -82,5 +87,3 @@ const AboutSnippet = ({item, computedStyle, openItem, setOpenItem}: Props) => {
     </div>
   )
 }
-
-export default AboutSnippet

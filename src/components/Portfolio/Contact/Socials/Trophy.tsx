@@ -5,7 +5,7 @@ interface TrophyProps {
   level: keyof typeof TrophyColors
 }
 
-const Trophy = ({level}: TrophyProps) => {
+export const Trophy = ({level}: TrophyProps) => {
   return (
     <svg
       aria-hidden="true"
@@ -21,5 +21,3 @@ const Trophy = ({level}: TrophyProps) => {
     </svg>
   )
 }
-
-export default Trophy

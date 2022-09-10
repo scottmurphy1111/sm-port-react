@@ -1,8 +1,6 @@
-export default function BgImage() {
-  return (
-    <>
-      <div className="static-bg" />
-      <div className="bg-overlay"></div>
-    </>
-  )
-}
+export const BgImage = () => (
+  <>
+    <div className="static-bg" />
+    <div className="bg-overlay"></div>
+  </>
+)
