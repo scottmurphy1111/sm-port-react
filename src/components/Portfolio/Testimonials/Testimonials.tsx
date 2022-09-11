@@ -1,7 +1,7 @@
-import {useAppContext} from 'common/context/useAppContext'
 import {CategoryTitle} from 'components/shared/CategoryTitle'
 import {FadeItem} from 'components/shared/FadeItem/FadeItem'
 import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useAppContext} from 'context/useAppContext'
 import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'

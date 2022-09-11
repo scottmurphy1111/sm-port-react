@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {Colors} from 'styled-components/Colors.style'
+import {media} from 'styled-components/MediaQueries.style'
 
 export const SkillsStyled = styled.div`
   .skills {
@@ -20,7 +20,7 @@ export const SkillsStyled = styled.div`
 
     ${media.md`
       flex-wrap: wrap;
-      padding: 0 0 4.8rem;
+      padding: 0 0 48px;
     `}
 
     .skillset-item {
@@ -37,7 +37,7 @@ export const SkillsStyled = styled.div`
       ${media.md`
         width: 100%;
         flex-basis: 100%;
-        margin: 0 0 4.8rem;
+        margin: 0 0 48px;
         padding: 0;
       `}
     }
@@ -53,7 +53,7 @@ export const SkillsStyled = styled.div`
     .image-container {
       width: 80px;
       height: 80px;
-      margin: 0 auto 3.2rem;
+      margin: 0 auto 32px;
       padding: 18px;
       box-sizing: border-box;
       border-radius: 50%;
@@ -66,7 +66,7 @@ export const SkillsStyled = styled.div`
 
     .skills-array {
       margin: 0;
-      padding: 3.2rem 0rem 0;
+      padding: 32px 0 0;
       list-style: none;
       color: #fff;
       width: 100%;
@@ -86,7 +86,7 @@ export const SkillsStyled = styled.div`
       }
 
       li {
-        margin: 0 0 1.6rem;
+        margin: 0 0 16px;
         font-weight: 700;
 
         &:last-child {

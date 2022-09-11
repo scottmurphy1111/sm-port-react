@@ -1,4 +1,4 @@
-import {AppContextProvider} from 'common/context/AppContext'
+import {AppContextProvider} from 'context/AppContext'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {QueryClient, QueryClientProvider} from 'react-query'

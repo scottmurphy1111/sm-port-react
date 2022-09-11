@@ -1,3 +1,4 @@
+import classNames from 'classnames'
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
 import React, {
   cloneElement,
@@ -10,9 +11,14 @@ import React, {
 interface ContactBlockProps {
   children: ReactElement | ReactElement[]
   computedstyle?: CSSProperties
+  isDivider?: boolean
 }
 
-export const ContactBlock = ({computedstyle, children}: ContactBlockProps) => {
+export const ContactBlock = ({
+  computedstyle,
+  children,
+  isDivider,
+}: ContactBlockProps) => {
   const contactBlockRef = useRef<HTMLDivElement | null>(null)
 
   const addChildStyles = (children: ReactElement | ReactElement[]) => {
@@ -30,7 +36,11 @@ export const ContactBlock = ({computedstyle, children}: ContactBlockProps) => {
   }, [])
 
   return (
-    <div ref={contactBlockRef} className="contact-block" style={computedstyle}>
+    <div
+      ref={contactBlockRef}
+      className={classNames('contact-block', isDivider ? 'divider' : '')}
+      style={computedstyle}
+    >
       {addChildStyles(children)}
     </div>
   )

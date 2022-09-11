@@ -1,9 +1,9 @@
-import {useAppContext} from 'common/context/useAppContext'
 import {SeeNext} from 'components/shared/SeeNext/SeeNext'
+import {useAppContext} from 'context/useAppContext'
 import {useMediaMatcher} from 'hooks/useMediaMatcher'
 import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useCallback, useEffect, useRef, useState} from 'react'
-import {Col, Row} from 'react-flexbox-grid'
+import {Col, Grid, Row} from 'react-flexbox-grid'
 import {SectionPanel} from 'styled-components/SectionPanel.style'
 import {getPanelOffset} from 'utils/getPanelOffset'
 
@@ -54,26 +54,30 @@ export const Home = ({setHomeOffset}: SectionProps) => {
       ref={sectionRef}
     >
       <HomeStyled>
-        <Row>
-          <Col xs={12}>
-            <div className="panel-static">
-              <div className="static-inner">
-                <Gear />
-                <div className="copy-block">
-                  <h1>
-                    <span className={`name ${show ? 'show' : ''}`}>{name}</span>
-                  </h1>
-                  <p className={`tagline ${show ? 'show' : ''}`}>
-                    {subHeadingA + ' '}
-                    {useMediaMatcher('md') && <br className="mobile-only" />}
-                    {subHeadingB}
-                  </p>
+        <Grid>
+          <Row>
+            <Col xs={12}>
+              <div className="panel-static">
+                <div className="static-inner">
+                  <Gear />
+                  <div className="copy-block">
+                    <h1>
+                      <span className={`name ${show ? 'show' : ''}`}>
+                        {name}
+                      </span>
+                    </h1>
+                    <p className={`tagline ${show ? 'show' : ''}`}>
+                      {subHeadingA + ' '}
+                      {useMediaMatcher('md') && <br className="mobile-only" />}
+                      {subHeadingB}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Col>
-          <SeeNext section="skills" show={show} />
-        </Row>
+            </Col>
+            <SeeNext section="skills" show={show} />
+          </Row>
+        </Grid>
       </HomeStyled>
     </SectionPanel>
   )

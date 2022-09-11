@@ -1,4 +1,4 @@
-import {useAppContext} from 'common/context/useAppContext'
+import {useAppContext} from 'context/useAppContext'
 import {useEffect, useState} from 'react'
 import {fromEvent} from 'rxjs'
 import {map, tap} from 'rxjs/operators'

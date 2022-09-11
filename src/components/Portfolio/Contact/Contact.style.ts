@@ -1,13 +1,13 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {Colors} from 'styled-components/Colors.style'
+import {media} from 'styled-components/MediaQueries.style'
 
 export const ContactStyled = styled.div`
   .contact-block {
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    margin-bottom: 4.8rem;
+    margin-bottom: 24px;
 
     &:last-child {
       margin-bottom: 0;
@@ -75,15 +75,19 @@ export const ContactStyled = styled.div`
     }
   }
 
+  .divider {
+    margin-bottom: 4px;
+  }
+
   .special-note {
     display: flex;
     flex-direction: column;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
 
     p {
       display: inline-block;
       color: ${Colors.primaryBlue};
-      margin: 0 0 3.2rem;
+      margin: 0 0 32px;
 
       &:last-child {
         margin: 0;

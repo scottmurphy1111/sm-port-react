@@ -1,4 +1,4 @@
-import {useAppContext} from 'common/context/useAppContext'
+import {useAppContext} from 'context/useAppContext'
 import {useEffect, useRef, useState} from 'react'
 
 import {GearStyled} from './Gear.style'

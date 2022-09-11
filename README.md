@@ -1,3 +1,3 @@
-# Scott Murphy Portfolio built with React
+# Scott Murphy's Portfolio built with React
 
-[View my portfolio on github](https://scottmurphy1111.github.io/sm-port-react/)
+[Click to View Portfolio](https://scottmurphy1111-react-portfolio.netlify.app/)

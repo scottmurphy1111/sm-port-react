@@ -1,4 +1,4 @@
-import {TrophyColors} from 'common/enum'
+import {TrophyColors} from 'enum'
 import React from 'react'
 
 interface TrophyProps {

@@ -13,8 +13,10 @@ export const Testimonial = ({
   const testimonialItemRef = useRef<HTMLDivElement>(null)
   const allCopy = copy
   const fragCopy = `${allCopy.split(' ').slice(0, 12).join(' ')}...`
-  const downArrow = String.fromCharCode(9660)
-  const upArrow = String.fromCharCode(9650)
+  const downArrow = 'read more'
+  // const downArrow = String.fromCharCode(9660)
+  const upArrow = 'read less'
+  // const upArrow = String.fromCharCode(9650)
 
   useEffect(() => {
     handleFadeIn(testimonialItemRef)

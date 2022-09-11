@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {media} from 'styled-components/MediaQueries.style'
 
 export const NavStyled = styled.div`
   position: fixed;
@@ -63,11 +62,12 @@ export const NavStyled = styled.div`
   }
 
   .nav-items {
-    padding: 0 1.6rem;
+    padding: 0 16px;
     display: flex;
     width: 100%;
     list-style: none;
     justify-content: space-between;
+    align-items: center;
     transform: translateX(0);
     transition: all 0.25s ease-out;
     margin: 0;
@@ -77,7 +77,13 @@ export const NavStyled = styled.div`
     right: 0;
     top: 0;
     flex-direction: row;
-    background-color: ${Colors.primaryColor};
+    background-color: rgba(20, 20, 20, 1);
+
+    ${media.lg`
+      width: 80%;
+      padding: 0 32px 0 0;
+      align-items: flex-end;
+    `}
 
     &[data-active='true'] {
       transform: translateX(0);
@@ -90,7 +96,7 @@ export const NavStyled = styled.div`
       cursor: pointer;
       opacity: 0.5;
       transition: all 0.25s ease-out;
-      font-size: 2rem;
+      font-size: 20px;
       font-weight: 700;
 
       &.active {
@@ -104,13 +110,13 @@ export const NavStyled = styled.div`
 
     ${media.lg`
       justify-content: flex-start;
-      transform: translateX(calc(100% + 3.6rem));
+      transform: translateX(calc(100% + 36px));
       position: absolute;
       min-height: 100vh;
       flex-direction: column;
             
       &[data-active='true'] {
-        transform: translateX(1.2rem);
+        transform: translateX(12px);
       }
     `}
   }
@@ -155,5 +161,30 @@ export const NavStyled = styled.div`
     ${media.lg`
       display: block;
     `}
+  }
+
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    font-size: 16px;
+    color: #fff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 900;
+    position: absolute;
+    left: -12px;
+    top: 4px;
+    opacity: 0;
+    transition: opacity 0.01s linear 0.14s;
+
+    &.show {
+      transition: opacity 0.01s linear 0.05s;
+      opacity: 1;
+    }
   }
 `

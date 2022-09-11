@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
+import {Colors} from 'styled-components/Colors.style'
 
 export const SoTooltipStyled = styled.div`
   .so-tooltip {
@@ -54,7 +54,7 @@ export const SoTooltipStyled = styled.div`
 
     h3 {
       color: #fff;
-      font-size: 2rem;
+      font-size: 20px;
       margin: 0;
     }
 

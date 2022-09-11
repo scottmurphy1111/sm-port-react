@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-import {ScreenSizes} from '../common/enum'
+import {ScreenSizes} from '../enum'
 
 /**
  * @method useMediaMatcher

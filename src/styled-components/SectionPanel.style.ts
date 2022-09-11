@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
+import {Colors} from 'styled-components/Colors.style'
 
-import lightBgImage from '../assets/images/bg-pattern-light.png'
+import lightBgImage from '../images/bg-pattern-light.png'
 
 interface props {
   light?: boolean
@@ -14,7 +14,7 @@ export const SectionPanel = styled.section<props>`
   position: relative;
   z-index: 3;
   color: #fff;
-  padding: 10rem 0;
+  padding: 100px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ export const SectionPanel = styled.section<props>`
     box-sizing: border-box;
     width: 100%;
     max-width: 1200px;
-    padding: 0 1.6rem;
+    padding: 0 16px;
     margin: 0 auto;
   }
 `

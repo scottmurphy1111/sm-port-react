@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {Colors} from 'styled-components/Colors.style'
 
 export const TestimonialsStyled = styled.div`
   .testimonials {
@@ -12,14 +11,9 @@ export const TestimonialsStyled = styled.div`
     font-weight: 400;
 
     .testimonial-item {
-      padding: 3.2rem 0;
+      padding: 0 0 48px 16px;
       box-sizing: border-box;
       border-radius: 4px;
-      margin-bottom: 4.8rem;
-
-      ${media.md`
-        padding: 1.6rem 0;
-      `}
 
       &:last-child {
         margin-bottom: 0;
@@ -60,9 +54,10 @@ export const TestimonialsStyled = styled.div`
 
     .reporter {
       display: block;
-      color: ${Colors.primaryBlue};
+      color: rgba(165, 165, 165, 0.5);
       margin-top: 10px;
       font-style: italic;
+      font-size: 16px;
     }
 
     .read-more {
@@ -71,7 +66,7 @@ export const TestimonialsStyled = styled.div`
       text-transform: lowercase;
       display: inline;
       margin-left: 8px;
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 `

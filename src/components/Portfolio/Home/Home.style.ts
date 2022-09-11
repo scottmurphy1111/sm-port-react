@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {Colors} from 'styled-components/Colors.style'
+import {media} from 'styled-components/MediaQueries.style'
 
 export const HomeStyled = styled.div`
   .panel-static {
@@ -19,13 +19,13 @@ export const HomeStyled = styled.div`
     position: absolute;
 
     h1 {
-      font-size: 4.8rem;
+      font-size: 48px;
       margin: 0 auto;
       color: ${Colors.primaryBlue};
       width: 100%;
 
       ${media.md`
-        font-size: 4rem;
+        font-size: 40px;
       `}
 
       .name {
@@ -41,7 +41,7 @@ export const HomeStyled = styled.div`
     }
 
     .tagline {
-      margin: 0em auto;
+      margin: 0 auto;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.5s ease-in-out 0.4s;

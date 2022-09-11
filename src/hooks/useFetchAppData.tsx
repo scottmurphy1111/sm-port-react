@@ -1,5 +1,5 @@
 import {fetchAppData} from 'api/fetchAppData'
-import {useAppContext} from 'common/context/useAppContext'
+import {useAppContext} from 'context/useAppContext'
 import {useQuery} from 'react-query'
 import {AppData} from 'types/data'
 

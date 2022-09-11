@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import {Colors} from 'styled-components/helpers/Colors.style'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {Colors} from 'styled-components/Colors.style'
+import {media} from 'styled-components/MediaQueries.style'
 
 export const ProjectsStyled = styled.div`
   .projects-list {
@@ -17,7 +17,7 @@ export const ProjectsStyled = styled.div`
       flex-direction: column;
       width: 32%;
       flex-basis: 32%;
-      margin: 0 0 3.2rem;
+      margin: 0 0 32px;
       background: #fff;
       overflow: hidden;
       border-radius: 4px;
@@ -29,7 +29,7 @@ export const ProjectsStyled = styled.div`
       ${media.md`
         width: 100%;
         flex-basis: 100%;
-        margin: 0 0 4.8rem 0;
+        margin: 0 0 48px 0;
       `}
 
       &:first-child {
@@ -45,7 +45,7 @@ export const ProjectsStyled = styled.div`
       }
 
       p {
-        margin: 0 0 0.25rem;
+        margin: 0;
         color: ${Colors.primaryBlue};
       }
 
@@ -60,7 +60,7 @@ export const ProjectsStyled = styled.div`
         justify-content: center;
         align-items: flex-start;
         position: relative;
-        padding: 2.4rem;
+        padding: 24px;
         box-sizing: border-box;
 
         ${media.md`
@@ -75,7 +75,7 @@ export const ProjectsStyled = styled.div`
           z-index: 2;
           background: ${Colors.primaryBlue};
           color: #fff;
-          padding: 1.6rem;
+          padding: 16px;
           box-sizing: border-box;
         }
       }
@@ -86,7 +86,7 @@ export const ProjectsStyled = styled.div`
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 1.6rem;
+        padding: 16px;
         box-sizing: border-box;
         position: absolute;
         top: 0;
@@ -106,16 +106,16 @@ export const ProjectsStyled = styled.div`
       }
 
       .tech {
-        margin-bottom: 1.6rem;
+        margin-bottom: 16px;
       }
 
       > a {
-        margin-bottom: 1.6rem;
+        margin-bottom: 16px;
       }
 
       .description {
         color: ${Colors.primaryColor};
-        padding: 0 1.6rem 1.6rem;
+        padding: 0 16px 16px;
         font-weight: 400;
       }
     }

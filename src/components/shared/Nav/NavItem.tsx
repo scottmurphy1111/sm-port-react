@@ -1,4 +1,4 @@
-import {useAppContext} from 'common/context/useAppContext'
+import {useAppContext} from 'context/useAppContext'
 import {RefObject, useRef} from 'react'
 import {NavItemType} from 'types/nav-item'
 

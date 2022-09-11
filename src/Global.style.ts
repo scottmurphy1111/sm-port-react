@@ -1,8 +1,8 @@
 import {createGlobalStyle} from 'styled-components'
-import {media} from 'styled-components/helpers/MediaQueries.style'
+import {media} from 'styled-components/MediaQueries.style'
 
-import digiBg from './assets/images/digi-bg1.png'
-import {Colors} from './styled-components/helpers/Colors.style'
+import digiBg from './images/digi-bg1.png'
+import {Colors} from './styled-components/Colors.style'
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     height: auto;
-    font-size: 2rem;
+    font-size: 20px;
     font-family: 'Nunito', sans-serif;
     background-color: ${Colors.primaryColor};
     background-position: 50% 100%;
@@ -74,8 +74,8 @@ export const GlobalStyles = createGlobalStyle`
   .category-title {
     color: #fff;
     padding: 0;
-    margin: 0 0 3.2rem;
-    font-size: 3.2rem;
+    margin: 0 0 32px;
+    font-size: 32px;
     font-weight: 400;
     text-align: left;
     visibility: visible;

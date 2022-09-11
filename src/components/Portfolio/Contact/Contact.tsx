@@ -1,6 +1,6 @@
-import {useAppContext} from 'common/context/useAppContext'
 import {CategoryTitle} from 'components/shared/CategoryTitle'
 import {FadeItem} from 'components/shared/FadeItem/FadeItem'
+import {useAppContext} from 'context/useAppContext'
 import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
@@ -95,7 +95,7 @@ export const Contact = ({setContactOffset}: SectionProps) => {
                 </FadeItem>
               </div>
               <FadeItem>
-                <ContactBlock>
+                <ContactBlock isDivider>
                   <div
                     className=""
                     style={{

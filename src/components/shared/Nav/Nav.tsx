@@ -1,4 +1,6 @@
-import {useAppContext} from 'common/context/useAppContext'
+import classNames from 'classnames'
+import {useAppContext} from 'context/useAppContext'
+import {useMediaMatcher} from 'hooks/useMediaMatcher'
 import {useEffect, useRef, useState} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
 import {NavItemType} from 'types/nav-item'
@@ -89,6 +91,17 @@ export const Nav = () => {
                   return null
                 }
               })}
+              {useMediaMatcher('lg') && (
+                <button
+                  className={classNames(
+                    'close-btn',
+                    showMobileMenu ? 'show' : ''
+                  )}
+                  onClick={() => setShowMobileMenu(false)}
+                >
+                  X
+                </button>
+              )}
             </ul>
           </Col>
         </Row>
