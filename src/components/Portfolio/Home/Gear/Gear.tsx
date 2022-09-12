@@ -31,7 +31,7 @@ export const Gear = () => {
       spinPrevTime = timestamp
       !gearDone && requestAnimationFrame(spin)
     } else {
-      dispatch({type: 'INTRO_ANIMATION_DONE'})
+      dispatch({type: 'INTRO_ANIMATION_DONE', payload: true})
     }
   }
 

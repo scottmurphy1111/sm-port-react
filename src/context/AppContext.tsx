@@ -9,6 +9,7 @@ import {
   TestimonialsData,
 } from 'types/data'
 import {NavItemType} from 'types/nav-item'
+import {StackOverflowData} from 'types/stack-overflow-data'
 
 import {Action} from './ActionTypes'
 import {AppReducer} from './AppReducer'
@@ -24,6 +25,7 @@ export interface AppState {
   activeNav: NavItemType
   sectionRefs: RefObject<HTMLDivElement>[]
   introAnimDone: boolean
+  soData: StackOverflowData
 }
 
 export const initialState: AppState = {
@@ -37,6 +39,18 @@ export const initialState: AppState = {
   activeNav: {value: 'home'},
   sectionRefs: [],
   introAnimDone: false,
+  soData: {
+    items: [
+      {
+        badge_counts: {
+          bronze: 0,
+          silver: 0,
+          gold: 0,
+        },
+        reputation: 0,
+      },
+    ],
+  },
 } as AppState
 
 export const AppContext = createContext<{
