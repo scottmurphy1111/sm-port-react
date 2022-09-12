@@ -1,5 +1,4 @@
 import {handleFadeIn} from 'components/shared/FadeItem/handleFadeIn'
-import {useFetchSoData} from 'hooks/useFetchSoData'
 import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react'
 import {Social} from 'types/social'
 
@@ -26,8 +25,6 @@ export const SocialItem = ({social, computedstyle}: SocialProp) => {
     setOpenTooltip(false)
   }, [])
 
-  const {data: stackOverflowData, isFetched} = useFetchSoData()
-
   return (
     <div className="social-item" style={computedstyle} ref={itemRef}>
       <a
@@ -43,12 +40,12 @@ export const SocialItem = ({social, computedstyle}: SocialProp) => {
           alt={social.title}
         />
       </a>
-      {social.title === 'Stack Overflow' && isFetched && stackOverflowData && (
+
+      {social.title === 'Stack Overflow' && openTooltip && (
         <SoTooltip
           social={social}
           visible={openTooltip}
           handleCloseTooltip={handleCloseTooltip}
-          stackOverflowData={stackOverflowData}
         />
       )}
     </div>

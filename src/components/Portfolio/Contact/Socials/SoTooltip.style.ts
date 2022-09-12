@@ -2,6 +2,23 @@ import styled from 'styled-components'
 import {Colors} from 'styled-components/Colors.style'
 
 export const SoTooltipStyled = styled.div`
+  @keyframes dotty {
+    0% {
+      content: '';
+    }
+    25% {
+      content: '.';
+    }
+    50% {
+      content: '..';
+    }
+    75% {
+      content: '...';
+    }
+    100% {
+      content: '';
+    }
+  }
   .so-tooltip {
     width: 320px;
     display: flex;
@@ -110,6 +127,12 @@ export const SoTooltipStyled = styled.div`
       color: #f48225;
       font-size: 16px;
       text-transform: capitalize;
+    }
+
+    .loading::after {
+      display: inline-block;
+      animation: dotty steps(1, end) 1s infinite;
+      content: '';
     }
   }
 `
