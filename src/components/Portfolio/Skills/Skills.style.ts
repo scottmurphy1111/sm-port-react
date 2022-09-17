@@ -35,10 +35,31 @@ export const SkillsStyled = styled.div`
       justify-content: stretch;
 
       ${media.md`
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
         width: 100%;
         flex-basis: 100%;
         margin: 0 0 48px;
         padding: 0;
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+
+          .skills-array {
+            ${media.md`
+              text-align: right;
+              padding: 0 32px 0 0;
+            `}
+
+            &:before {
+              ${media.md`
+                right: -100%;
+              `}
+            }
+          }
+        }
+
       `}
     }
 
@@ -48,6 +69,10 @@ export const SkillsStyled = styled.div`
       flex-direction: column;
       justify-content: stretch;
       align-items: center;
+
+      ${media.md`
+        width: 50%;
+      `}
     }
 
     .image-container {
@@ -58,6 +83,10 @@ export const SkillsStyled = styled.div`
       box-sizing: border-box;
       border-radius: 50%;
       background: #fff;
+
+      ${media.md`
+        margin: 0;
+        `}
     }
 
     img {
@@ -73,6 +102,12 @@ export const SkillsStyled = styled.div`
       box-sizing: border-box;
       height: 100%;
       text-align: center;
+      position: relative;
+
+      ${media.md`
+        padding: 0 0 0 32px;
+        text-align: left;
+      `}
 
       &:before {
         content: '';
@@ -83,6 +118,14 @@ export const SkillsStyled = styled.div`
         margin: 0 auto;
         top: -32px;
         position: relative;
+
+        ${media.md`
+          width: 4px;
+          height: 100%;
+          top: 0;
+          left: 0;
+          position: absolute;
+        `}
       }
 
       li {

@@ -2,7 +2,6 @@ import {CategoryTitle} from 'components/shared/CategoryTitle'
 import {FadeItem} from 'components/shared/FadeItem/FadeItem'
 import {SeeNext} from 'components/shared/SeeNext/SeeNext'
 import {useAppContext} from 'context/useAppContext'
-import {useMediaMatcher} from 'hooks/useMediaMatcher'
 import {useMonitorResize} from 'hooks/useMonitorResize'
 import {useEffect, useRef} from 'react'
 import {Col, Grid, Row} from 'react-flexbox-grid'
@@ -43,10 +42,7 @@ export const Skills = ({setSkillsOffset}: SectionProps) => {
             <Row>
               <Col xs={12}>
                 <FadeItem>
-                  <CategoryTitle
-                    title={title}
-                    align={useMediaMatcher() ? 'center' : 'left'}
-                  />
+                  <CategoryTitle title={title} />
                 </FadeItem>
                 <div className="skillset-wrapper">
                   <FadeItem>
