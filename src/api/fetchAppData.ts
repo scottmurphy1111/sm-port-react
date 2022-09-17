@@ -1,4 +1,4 @@
-// import data from '../data/data.json'
+import data from '../data/data.json'
 
 export const fetchAppData = async () => {
   try {
@@ -11,7 +11,6 @@ export const fetchAppData = async () => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': ' application/json',
-          'Access-Control-Allow-Origin': '*',
         },
       }
     )
@@ -20,6 +19,9 @@ export const fetchAppData = async () => {
     console.log(appData)
     return appData
   } catch (error) {
-    throw new Error("Couldn't return App Data")
+    console.warn("Couldn't return App Data, using backup data", error)
+    const response = Promise.resolve(data)
+    const payload = response.then(data => data)
+    return payload
   }
 }
