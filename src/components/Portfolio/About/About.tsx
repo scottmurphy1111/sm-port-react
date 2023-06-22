@@ -34,27 +34,15 @@ export const About = ({setAboutOffset, isAbout}: SectionProps) => {
 
   const initOpenItem = () => {
     setTimeout(() => {
-      const clickEvent = document.createEvent('MouseEvent')
-      clickEvent.initMouseEvent(
-        'click',
-        true,
-        true,
-        window,
-        0,
-        0,
-        0,
-        0,
-        0,
-        false,
-        false,
-        false,
-        false,
-        0,
-        null
-      )
+      const clickEvent = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+      })
+
       const element = document.querySelector('.about-snippet')
       element?.dispatchEvent(clickEvent)
-    }, 1500)
+    }, 1000)
   }
 
   useEffect(() => {

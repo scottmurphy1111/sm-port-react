@@ -35,7 +35,7 @@ export const useMonitorScrolling = () => {
   // Observable to monitor scrolling offsets
   const monitorScrolling$ = () =>
     scrollEvent$.pipe(
-      map(() => window.pageYOffset),
+      map(() => window.scrollY),
       tap(value => {
         getCurrentOffset(Math.round(value))
       })
